@@ -34,3 +34,9 @@ Supabase Auth Site URL is `https://task-management-nine-red.vercel.app/shared.ht
 ## Local preview
 
 Serve `dist/` with a local static HTTP server, for example `python -m http.server 4173 --directory dist`, then open `http://localhost:4173`.
+
+## Desktop interface and fonts
+
+`desktop.js` and `desktop.css` provide the shared sidebar, compact toolbar, list/board layouts and responsive navigation. Existing task and approval logic remains in the workflow modules. Only the layout preference uses the new `samandis-layout-v2` browser key.
+
+The requested Ravi font is referenced through local installed font names, but no licensed Ravi font file was provided. The bundled fallback is Vazirmatn 33.0.3 (SIL OFL; `dist/fonts/OFL.txt`). Supply licensed Ravi webfont files before replacing the fallback for all visitors. Do not redistribute a font taken from a third-party website's stylesheet.

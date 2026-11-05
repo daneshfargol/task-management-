@@ -49,7 +49,7 @@ document.addEventListener('click',async e=>{
  const b=e.target.closest('[data-upload-task]');if(!b)return;
  const id=b.dataset.uploadTask;await detail(id);
  if(selectedRichTask!==id)return;
- const form=$('#versionForm');if(form){form.scrollIntoView({behavior:'smooth',block:'center'});$('#taskFiles').focus({preventScroll:true})}
+ const form=$('#versionForm');if(form){$('#details').scrollTo({top:Math.max(0,form.offsetTop-70),behavior:'smooth'});$('#taskFiles').focus({preventScroll:true})}
 });
 // Counts reflect newly uploaded files as well as bundled sample attachments.
 const attachmentAddVersion=addTaskVersion;
