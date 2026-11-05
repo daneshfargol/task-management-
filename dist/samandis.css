@@ -12,3 +12,6 @@ body:before{height:550px;background:linear-gradient(180deg,rgba(13,34,62,.84) 0%
 
 .project-hero-copy .project-motto{display:block;font-family:Arial,Helvetica,sans-serif;text-align:right;font-size:24px;line-height:1.5;font-weight:400;letter-spacing:.5px;margin:16px 0 22px;color:#e4eaf3}
 @media(max-width:760px){.project-hero-copy .project-motto{display:block;font-size:18px;margin:12px 0 18px}}
+
+.shared-entry{font-size:14px;color:#eee3aa;text-decoration:none;border:1px solid #eee3aa50;border-radius:5px;padding:6px 11px;white-space:nowrap}.shared-entry:hover{background:#eee3aa18}
+@media(max-width:760px){.header-tools{flex-wrap:wrap}.role-label{min-width:0}.role-label select{max-width:min(260px,65vw)}.shared-entry{font-size:12px;padding:5px 8px}}

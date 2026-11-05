@@ -56,3 +56,5 @@ const attachmentAddVersion=addTaskVersion;
 addTaskVersion=async function(t,files,label){const v=await attachmentAddVersion(t,files,label);const versions=await taskVersions(t.id);t.attachmentCount=versions.reduce((n,x)=>n+x.files.length,0);save();return v};
 displayFileCount=function(t){return t.attachmentCount??t.demoVersions?.reduce((n,v)=>n+v.files.length,0)??0};
 render();
+
+$('.header-tools').insertAdjacentHTML('afterbegin','<a href="shared.html" class="shared-entry">ورود اعضا</a>');
