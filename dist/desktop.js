@@ -61,3 +61,9 @@
  }
  document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable="true"]'))return;if(e.key==='Escape'){closeMenu();return}if(e.key==='/'){e.preventDefault();focusSearch()}if(e.key.toLowerCase()==='n'&&!document.querySelector('dialog[open]')){e.preventDefault();q('#deskNewTask').click()}});
 })();
+/* Keep task attachments prominent in both application modes. */
+(function(){
+ const shared=document.body.classList.contains('shared-app'),previousDetail=detail;
+ detail=async function(...args){await previousDetail(...args);const root=document.querySelector(shared?'#sharedDetail':'#detailBody');if(!root)return;const form=root.querySelector(shared?'#sharedUpload':'#versionForm');if(!form)return;root.querySelector('#desktopUploadShortcut')?.remove();const button=document.createElement('button');button.type='button';button.id='desktopUploadShortcut';button.className='desktop-upload-shortcut';button.textContent='↑ بارگذاری فایل برای این کار';button.onclick=()=>{const disclosure=form.querySelector('details');if(disclosure)disclosure.open=true;const dialog=document.querySelector(shared?'#sharedDialog':'#details');dialog.scrollTo({top:Math.max(0,form.offsetTop-45),behavior:'smooth'});form.querySelector('input[type="file"]')?.focus({preventScroll:true})};const head=root.querySelector(shared?'.shared-task-head':'.dialog-head');if(head)head.after(button);
+ };
+})();
