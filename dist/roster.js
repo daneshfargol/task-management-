@@ -12,10 +12,11 @@ const defaultMembers=[
 
 // Migrate the existing two management roles without remapping member IDs.
 members.forEach((m,i)=>{if(m.access==='manage')m.access=i===4?'director':'supervisor'});
+members.forEach(m=>{if(m.access==='supervisor')m.access='director'});
 function isDirector(){return !!members[me()]?.active&&members[me()].access==='director'}
 function isSupervisor(){return !!members[me()]?.active&&members[me()].access==='supervisor'}
 function protectedMember(i){return members[i]?.access==='director'}
 function canManageMember(i){return isDirector()||(isSupervisor()&&!protectedMember(i))}
 function canAdminTask(t){return isDirector()||(isSupervisor()&&!protectedMember(t.owner))}
 function canAssignOwner(i){return !!members[i]?.active&&!members[i]?.legacy&&(isDirector()||(isSupervisor()&&!protectedMember(i))||Number(i)===me())}
-function managementLabel(m){return m.access==='director'?'همه بخش‌ها و همه اعضا':m.access==='supervisor'?'همه به‌جز مدیر پروژه':'کارهای محول‌شده به خود'}
+function managementLabel(m){return m.access==='director'?'همه بخش‌ها و همه اعضا':m.access==='supervisor'?'دسترسی کامل مدیریتی':'کارهای محول‌شده به خود'}
