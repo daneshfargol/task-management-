@@ -27,3 +27,8 @@ html,body{margin:0;min-height:100%;background:#fff}.desktop-shell,.desktop-shell
 @font-face{font-family:SamandisRaviWeb;src:url("fonts/Ravi-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:SamandisRaviWeb;src:url("fonts/Ravi-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 :root{--app-font:SamandisRaviWeb,Vazirmatn,sans-serif}.desktop-shell *{font-family:var(--app-font)!important}.desktop-shell .task-collaborators{border:0;background:#edf2fb;color:#627fa9;padding:2px 6px;border-radius:4px;font-size:10px;cursor:pointer}.desktop-shell .task-collaborators:hover{background:#dfe9fa}.collaborator-person{padding:13px;border-bottom:1px solid #edf1f7}.collaborator-person b{font-size:13px;color:#5d779b}.collaborator-person small{display:block;font-size:10px;color:#9aadc7}
+
+@font-face{font-family:SamandisRaviVariable;src:url('fonts/RaviFaNum-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+:root{--app-font:SamandisRaviVariable,sans-serif}
+html body.desktop-shell,html body.desktop-shell *,html body.desktop-shell *::before,html body.desktop-shell *::after{font-family:SamandisRaviVariable,sans-serif!important}
+.collaborator-tooltip{position:fixed;z-index:1000;background:#344967;color:#fff;padding:7px 11px;border-radius:6px;font-size:11px;line-height:1.8;max-width:250px;box-shadow:0 4px 15px #17304b1c;pointer-events:none;opacity:0;transform:translateY(3px);transition:opacity .18s ease,transform .18s ease;white-space:pre-line}.collaborator-tooltip.visible{opacity:1;transform:translateY(0)}
