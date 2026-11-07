@@ -34,8 +34,7 @@ begin
  perform set_config('request.jwt.claim.sub','10000000-0000-4000-8000-000000000002',true);
  blocked:=false;begin perform public.sm_task_action(t,3,'approve');exception when others then blocked:=true;end;
  if not blocked then raise exception 'TEST: wrong reviewer approved';end if;
- blocked:=false;begin perform public.sm_task_action(pm_task,0,'report','protected');exception when others then blocked:=true;end;
- if not blocked then raise exception 'TEST: supervisor changed director task';end if;
+ perform public.sm_task_action(pm_task,0,'report','equal management access');
  perform set_config('request.jwt.claim.sub','10000000-0000-4000-8000-000000000001',true);
  blocked:=false;begin perform public.sm_task_action(t,0,'approve');exception when others then blocked:=true;end;
  if not blocked then raise exception 'TEST: stale revision accepted';end if;

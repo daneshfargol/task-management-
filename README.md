@@ -17,9 +17,9 @@ The public connection is in `dist/shared-config.js`. It contains only a browser 
 
 ## Database setup
 
-Apply `supabase/001_shared_workspace.sql`, then `002_notice_recipients.sql` once, in order. These migrations are already applied to the selected `samandis-projects` Supabase project. Do not replay them.
+Apply `supabase/001_shared_workspace.sql`, then `002_notice_recipients.sql` and `003_equal_management.sql` once, in order. These migrations are already applied to the selected `samandis-projects` Supabase project. Do not replay them.
 
-All application tables have RLS. Clients have SELECT grants only. Mutations use database functions with server-side project membership, role checks, immutable histories and optimistic task revision checks. Final approval belongs to the assigning manager. Supervisors cannot change project-manager tasks. File uploads are reserved, privately uploaded, then finalized after checking object metadata and task revision. Files cannot be overwritten or deleted through the browser API.
+All application tables have RLS. Clients have SELECT grants only. Mutations use database functions with server-side project membership, role checks, immutable histories and optimistic task revision checks. Final approval belongs to the assigning manager. Project managers and workshop supervisors now share the director permission role while retaining their job titles. File uploads are reserved, privately uploaded, then finalized after checking object metadata and task revision. Files cannot be overwritten or deleted through the browser API.
 
 `supabase/permissions-test.sql` exercises actual database roles, task transitions, private Storage policies and concurrent-write protection inside a transaction that rolls back all test data. Do not use real account IDs in test fixtures.
 
