@@ -67,3 +67,12 @@
  detail=async function(...args){await previousDetail(...args);const root=document.querySelector(shared?'#sharedDetail':'#detailBody');if(!root)return;const form=root.querySelector(shared?'#sharedUpload':'#versionForm');if(!form)return;root.querySelector('#desktopUploadShortcut')?.remove();const button=document.createElement('button');button.type='button';button.id='desktopUploadShortcut';button.className='desktop-upload-shortcut';button.textContent='↑ بارگذاری فایل برای این کار';button.onclick=()=>{const disclosure=form.querySelector('details');if(disclosure)disclosure.open=true;const dialog=document.querySelector(shared?'#sharedDialog':'#details');dialog.scrollTo({top:Math.max(0,form.offsetTop-45),behavior:'smooth'});form.querySelector('input[type="file"]')?.focus({preventScroll:true})};const head=root.querySelector(shared?'.shared-task-head':'.dialog-head');if(head)head.after(button);
  };
 })();
+
+(function(){
+ const shared=document.body.classList.contains('shared-app'),previous=detail;
+ const grip=document.createElement('button');grip.type='button';grip.className='detail-edge-grip';grip.setAttribute('aria-label','بستن پنل جزئیات');grip.title='بستن پنل · کلیک یا کشیدن به کنار';grip.innerHTML='<span>‹</span><i></i>';document.body.append(grip);
+ function close(){const button=document.querySelector(shared?'#sharedClose':'#closeTask');if(button)button.click();else document.querySelector(shared?'#sharedDialog':'#details')?.close();document.body.classList.remove('task-drawer-open');grip.hidden=true}
+ grip.onclick=close;let startX=null;grip.onpointerdown=e=>{startX=e.clientX;grip.setPointerCapture(e.pointerId)};grip.onpointermove=e=>{if(startX!==null&&e.clientX-startX< -35){startX=null;close()}};grip.onpointerup=()=>startX=null;grip.onpointercancel=()=>startX=null;
+ function sync(){const dialog=document.querySelector(shared?'#sharedDialog':'#details');grip.hidden=!dialog?.open;if(dialog?.open){const r=dialog.getBoundingClientRect();grip.style.left=Math.max(0,r.right-1)+'px'}}
+ detail=async function(...args){await previous(...args);sync()};new MutationObserver(sync).observe(document.querySelector(shared?'#sharedDialog':'#details'),{attributes:true,attributeFilter:['open']});window.addEventListener('resize',sync);sync();
+})();
