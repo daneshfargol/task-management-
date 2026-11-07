@@ -17,7 +17,7 @@ The public connection is in `dist/shared-config.js`. It contains only a browser 
 
 ## Database setup
 
-Apply `supabase/001_shared_workspace.sql`, then `002_notice_recipients.sql` and `003_equal_management.sql` once, in order. These migrations are already applied to the selected `samandis-projects` Supabase project. Do not replay them.
+Apply `supabase/001_shared_workspace.sql`, then `002_notice_recipients.sql` and `003_equal_management.sql` and `004_planning_worklogs.sql` once, in order. These migrations are already applied to the selected `samandis-projects` Supabase project. Do not replay them.
 
 All application tables have RLS. Clients have SELECT grants only. Mutations use database functions with server-side project membership, role checks, immutable histories and optimistic task revision checks. Final approval belongs to the assigning manager. Project managers and workshop supervisors now share the director permission role while retaining their job titles. File uploads are reserved, privately uploaded, then finalized after checking object metadata and task revision. Files cannot be overwritten or deleted through the browser API.
 
@@ -39,4 +39,8 @@ Serve `dist/` with a local static HTTP server, for example `python -m http.serve
 
 `desktop.js` and `desktop.css` provide the shared sidebar, compact toolbar, list/board layouts and responsive navigation. Existing task and approval logic remains in the workflow modules. Only the layout preference uses the new `samandis-layout-v2` browser key.
 
-The requested Ravi font is referenced through local installed font names, but no licensed Ravi font file was provided. The bundled fallback is Vazirmatn 33.0.3 (SIL OFL; `dist/fonts/OFL.txt`). Supply licensed Ravi webfont files before replacing the fallback for all visitors. Do not redistribute a font taken from a third-party website's stylesheet.
+The supplied RaviFaNum variable font is embedded in `dist/fonts/RaviFaNum-Variable.ttf` and used throughout the interface. Earlier static Ravi weights and the OFL-licensed Vazirmatn fallback are retained.
+
+## Shared planning and work logs
+
+`004_planning_worklogs.sql` adds version-checked delivery milestones, immutable milestone history, and append-only work logs. Both management positions can manage delivery dates. Each contributor records only their own work; a database transaction lock prevents concurrent logs exceeding 24 hours per day. Experts read their own logs; management can read project logs. `planning-test.sql` tests these policies and rolls back all fixtures. `shared-planning.js` connects the calendar, delivery editor and per-task work-log form. Local demonstration data is not imported automatically.
