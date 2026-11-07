@@ -1,0 +1,30 @@
+begin;
+insert into auth.users(id,email,email_confirmed_at) values('30000000-0000-4000-8000-000000000001','presence-manager@test.invalid',now()),('30000000-0000-4000-8000-000000000002','presence-member@test.invalid',now());
+update public.sm_members set user_id='30000000-0000-4000-8000-000000000001' where name='رضا افشار';
+update public.sm_members set user_id='30000000-0000-4000-8000-000000000002' where name='فرگل دانش';
+select set_config('request.jwt.claim.sub','30000000-0000-4000-8000-000000000002',true);
+set local role authenticated;
+select public.sm_presence((select id from public.sm_projects where slug='darayi'),'30000000-0000-4000-8000-000000000011','beat');
+reset role;
+update public.sm_presence_sessions set last_seen=clock_timestamp()-interval '30 seconds' where id='30000000-0000-4000-8000-000000000011';
+update public.sm_presence_days set last_credit_at=clock_timestamp()-interval '30 seconds' where member_id=(select id from public.sm_members where name='فرگل دانش');
+set local role authenticated;
+select public.sm_presence((select id from public.sm_projects where slug='darayi'),'30000000-0000-4000-8000-000000000011','beat');
+do $$declare p uuid;blocked boolean;begin
+ select id into p from public.sm_projects where slug='darayi';
+ if exists(select 1 from public.sm_presence_days) then raise exception 'Expert read presence report';end if;
+ blocked:=false;begin perform * from public.sm_presence_report(p,current_date);exception when others then blocked:=true;end;if not blocked then raise exception 'Expert report RPC allowed';end if;
+ perform public.sm_presence(p,'30000000-0000-4000-8000-000000000012','beat');
+ perform public.sm_presence(p,'30000000-0000-4000-8000-000000000012','pause');
+ perform public.sm_presence(p,'30000000-0000-4000-8000-000000000011','end');
+end $$;
+select set_config('request.jwt.claim.sub','30000000-0000-4000-8000-000000000001',true);
+do $$declare p uuid;seconds numeric;blocked boolean;begin
+ select id into p from public.sm_projects where slug='darayi';
+ select r.active_seconds into seconds from public.sm_presence_report(p,(now() at time zone 'Asia/Tehran')::date) r where r.member_id=(select id from public.sm_members where name='فرگل دانش');
+ if seconds is null or seconds<29 or seconds>40 then raise exception 'Active credit or overlap calculation invalid: %',seconds;end if;
+ blocked:=false;begin perform public.sm_presence(p,'30000000-0000-4000-8000-000000000011','beat');exception when others then blocked:=true;end;if not blocked then raise exception 'Other member session changed';end if;
+end $$;
+reset role;
+rollback;
+select 'PASS: server time, active-time credits, overlapping tabs, own-session writes, management-only reporting; test data rolled back' as result;
