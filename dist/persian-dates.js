@@ -1,0 +1,16 @@
+/* Persian date entry; ISO date values remain compatible with existing forms and APIs. */
+(()=>{'use strict';
+const fmt=new Intl.DateTimeFormat('en-US-u-ca-persian',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'UTC'});
+const digits=s=>s.replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c));
+function parts(d){const p=fmt.formatToParts(d),v=t=>Number(p.find(x=>x.type===t).value);return [v('year'),v('month'),v('day')]}
+const pad=n=>String(n).padStart(2,'0');
+function display(iso){if(!iso)return '';const [y,m,d]=parts(new Date(iso+'T12:00:00Z'));return y+'/'+pad(m)+'/'+pad(d)}
+function parse(value){const v=digits(value.trim()).match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);if(!v)return null;const [y,m,d]=v.slice(1).map(Number);if(y<1200||y>1600||m<1||m>12||d<1||d>31)return null;const target=y*10000+m*100+d;let lo=Math.floor(Date.UTC(y+621,0,1)/86400000),hi=lo+730;while(lo<=hi){const mid=Math.floor((lo+hi)/2),date=new Date(mid*86400000),p=parts(date),key=p[0]*10000+p[1]*100+p[2];if(key===target)return date.toISOString().slice(0,10);if(key<target)lo=mid+1;else hi=mid-1}return null}
+window.SamandisDates={parse,display};
+const native=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
+function enhance(input){if(input.dataset.shamsi)return;input.dataset.shamsi='true';const box=document.createElement('span'),text=document.createElement('input'),today=document.createElement('button');box.className='shamsi-date';text.type='text';text.inputMode='numeric';text.placeholder='۱۴۰۵/۰۸/۲۱';text.dir='ltr';text.autocomplete='off';text.required=input.required;text.disabled=input.disabled;text.setAttribute('aria-label',(input.getAttribute('aria-label')||input.closest('label')?.firstChild?.textContent||'تاریخ')+' — شمسی');text.value=display(input.value);input.required=false;input.hidden=true;input.insertAdjacentElement('afterend',box);box.append(text,today);today.type='button';today.textContent='امروز';today.className='text-btn';today.disabled=input.disabled;
+const sync=()=>{const raw=text.value.trim(),iso=raw?parse(raw):'';let error=raw&&!iso?'تاریخ شمسی معتبر وارد کنید؛ مثال ۱۴۰۵/۰۸/۲۱':'';if(iso&&input.min&&iso<input.min)error='تاریخ قبل از بازه مجاز است.';if(iso&&input.max&&iso>input.max)error='تاریخ بعد از بازه مجاز است.';text.setCustomValidity(error);native.set.call(input,iso||'');return !error};
+text.addEventListener('input',sync);text.addEventListener('change',()=>{if(sync()){text.value=display(input.value);input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}))}});today.onclick=()=>{const now=new Date(),iso=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tehran',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);text.value=display(iso);text.dispatchEvent(new Event('change',{bubbles:true}))};
+Object.defineProperty(input,'value',{configurable:true,get(){return native.get.call(this)},set(v){native.set.call(this,v);text.value=display(native.get.call(this));text.setCustomValidity('')}});input.form?.addEventListener('reset',()=>setTimeout(()=>{text.value=display(input.value);text.setCustomValidity('')},0));}
+const scan=()=>document.querySelectorAll('input[type="date"]:not([data-shamsi])').forEach(enhance);scan();new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
+})();

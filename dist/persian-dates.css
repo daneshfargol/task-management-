@@ -1,0 +1,2 @@
+.shamsi-date{display:flex;align-items:center;gap:8px;width:100%}.shamsi-date input{flex:1;min-width:0;text-align:center}.shamsi-date button{flex:none;font:inherit;font-size:12px}.shamsi-date input:invalid:not(:placeholder-shown){border-color:#ba5757}
+input[type="date"][data-shamsi][hidden]{display:none!important}
