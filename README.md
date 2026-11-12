@@ -60,3 +60,7 @@ The supplied RaviFaNum variable font is embedded in `dist/fonts/RaviFaNum-Variab
 ## Personal scheduling, external contacts and initial attachments
 
 008_task_dates_external_contacts.sql adds private starts_on dates with start/deadline validation, and explicit external contacts in sm_members. Management can create/edit them through sm_save_external_member; a database trigger prevents external contacts from acquiring an email, user identity or management role. They remain selectable as task owners/collaborators without receiving app access. refinement-test.sql validates dates, external assignment/reassignment and management file upload within rolled-back isolated fixtures. creation-attachments.js adds optional versioned attachments to new team tasks and preserves partial upload results; retries use the created task. Existing personal workbook rows were split into short titles and descriptions privately, outside Git.
+
+## Creator task editing
+009_creator_task_edit.sql adds revision-checked title, description and deadline editing for the creator or shared management role. Owner/collaborator assignment stays management-only. Editing review/done tasks reopens them, preserves files and prior event snapshots, and sends in-app notices. Trashed tasks remain guarded. creator-edit-test.sql verifies creator/manager access, denial for another member, stale-write rejection and history retention with rolled-back fixtures. task-edit.js exposes edit buttons in task lists, boards and details.
+

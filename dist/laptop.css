@@ -61,3 +61,4 @@
 .desktop-shell dialog label,.desktop-shell dialog summary{color:#425b78;font-weight:500}
 .desktop-shell dialog input,.desktop-shell dialog textarea,.desktop-shell dialog select{color:#344e6e;font-weight:450}
 .desktop-shell .personal-date-summary b,.desktop-shell .desk-task-card .task-title{color:#3c5676!important;font-weight:550}
+.task-row-edit{display:inline-flex;align-items:center;justify-content:center;margin:4px;padding:5px 10px;border:1px solid #cfdaea;border-radius:7px;background:#edf3fb;color:#365779;font:inherit;font-size:11px;font-weight:550;cursor:pointer}.task-row-edit:hover{background:#dce8f7}.task-row-edit:focus-visible{outline:2px solid #446789;outline-offset:2px}#taskEditForm label{display:block;margin:14px 0}
