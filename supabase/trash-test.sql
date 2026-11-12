@@ -1,0 +1,21 @@
+begin;
+insert into auth.users(id,email,email_confirmed_at) values('60000000-0000-4000-8000-000000000001','manager@trash-test.invalid',now()),('60000000-0000-4000-8000-000000000002','member@trash-test.invalid',now());
+insert into public.sm_projects(id,slug,name) values('60000000-0000-4000-8000-000000000003','trash-test-isolated','TEST');
+insert into public.sm_members(id,project_id,user_id,name,title,role) values('60000000-0000-4000-8000-000000000004','60000000-0000-4000-8000-000000000003','60000000-0000-4000-8000-000000000001','TEST manager','TEST','director'),('60000000-0000-4000-8000-000000000005','60000000-0000-4000-8000-000000000003','60000000-0000-4000-8000-000000000002','TEST member','TEST','member');
+set local role authenticated;
+do $$declare t uuid;blocked boolean;begin
+perform set_config('request.jwt.claim.sub','60000000-0000-4000-8000-000000000001',true);
+t:=public.sm_create_task('60000000-0000-4000-8000-000000000003','TEST task','', '60000000-0000-4000-8000-000000000005','60000000-0000-4000-8000-000000000004',null);
+perform set_config('request.jwt.claim.sub','60000000-0000-4000-8000-000000000002',true);
+blocked:=false;begin perform public.sm_trash_task(t,0,false);exception when others then blocked:=true;end;if not blocked then raise exception 'Member deleted task';end if;
+perform set_config('request.jwt.claim.sub','60000000-0000-4000-8000-000000000001',true);
+blocked:=false;begin perform public.sm_trash_task(t,999,false);exception when others then blocked:=true;end;if not blocked then raise exception 'Stale revision accepted';end if;
+perform public.sm_trash_task(t,0,false);
+if not exists(select 1 from public.sm_task_trash where task_id=t) then raise exception 'Trash missing';end if;
+blocked:=false;begin perform public.sm_task_action(t,0,'report','Should fail');exception when others then blocked:=true;end;if not blocked then raise exception 'Deleted task writable';end if;
+perform public.sm_trash_task(t,0,true);
+if exists(select 1 from public.sm_task_trash where task_id=t) then raise exception 'Restore failed';end if;
+perform public.sm_task_action(t,0,'report','Restored successfully');
+end $$;
+rollback;
+select 'PASS: manager trash/restore, member denial, stale revision, blocked writes, preserved history; fixtures rolled back' as result;
