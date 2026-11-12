@@ -63,4 +63,3 @@ The supplied RaviFaNum variable font is embedded in `dist/fonts/RaviFaNum-Variab
 
 ## Creator task editing
 009_creator_task_edit.sql adds revision-checked title, description and deadline editing for the creator or shared management role. Owner/collaborator assignment stays management-only. Editing review/done tasks reopens them, preserves files and prior event snapshots, and sends in-app notices. Trashed tasks remain guarded. creator-edit-test.sql verifies creator/manager access, denial for another member, stale-write rejection and history retention with rolled-back fixtures. task-edit.js exposes edit buttons in task lists, boards and details.
-
