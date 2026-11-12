@@ -51,3 +51,13 @@
 .desktop-shell #sharedDialog .shared-report p{font-size:13px}
 .desktop-shell #details .dialog-head,.desktop-shell #sharedDialog .shared-task-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 @media(max-width:760px){.desktop-shell #details,.desktop-shell #sharedDialog{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:92dvh!important;padding:16px!important}.task-focus-nav{top:-16px}.task-focus-nav button{padding:6px 8px;font-size:11px}}
+/* Stronger, restrained navy contrast without pure black. */
+.desktop-shell{color:#344b66;font-weight:450}
+.desktop-shell .task-title,.desktop-shell .shared-task-title,.desktop-shell .personal-task-title{color:#2e4663!important;font-weight:600!important}
+.desktop-shell .clarity-table td,.desktop-shell .clarity-table .owner,.desktop-shell .shared-facts,.desktop-shell .task-facts,.desktop-shell .report-item,.desktop-shell .shared-report{color:#526780!important}
+.desktop-shell .clarity-table th,.desktop-shell .shared-meta,.desktop-shell .hint,.desktop-shell .clarity-list-head p,.desktop-shell .desk-shared-heading p,.desktop-shell .desk-brand small,.desktop-shell .desk-project small,.desktop-shell .personal-heading small,.desktop-shell .personal-task-row small{color:#63758c!important}
+.desktop-shell .desk-metric,.desktop-shell .desk-lane>h3{color:#59718f;font-weight:500}
+.desktop-shell .desk-nav-label,.desktop-shell .desk-top-context,.desktop-shell .desk-top-project,.desktop-shell .desk-top-context b{color:#64768d}
+.desktop-shell dialog label,.desktop-shell dialog summary{color:#425b78;font-weight:500}
+.desktop-shell dialog input,.desktop-shell dialog textarea,.desktop-shell dialog select{color:#344e6e;font-weight:450}
+.desktop-shell .personal-date-summary b,.desktop-shell .desk-task-card .task-title{color:#3c5676!important;font-weight:550}

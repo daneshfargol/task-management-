@@ -1,0 +1,42 @@
+begin;
+insert into auth.users(id,email,email_confirmed_at) values('70000000-0000-4000-8000-000000000001','owner@personal-test.invalid',now()),('70000000-0000-4000-8000-000000000002','outsider@personal-test.invalid',now());
+insert into public.sm_projects(id,slug,name) values('70000000-0000-4000-8000-000000000003','personal-test-isolated','TEST');
+insert into public.sm_members(id,project_id,user_id,name,title,role) values('70000000-0000-4000-8000-000000000004','70000000-0000-4000-8000-000000000003','70000000-0000-4000-8000-000000000001','TEST owner','TEST','director'),('70000000-0000-4000-8000-000000000005','70000000-0000-4000-8000-000000000003','70000000-0000-4000-8000-000000000002','TEST supervisor','TEST','director');
+insert into public.sm_personal_owners values('70000000-0000-4000-8000-000000000004');
+set local role authenticated;
+do $$declare p uuid;t uuid;blocked boolean;cnt integer;begin
+perform set_config('request.jwt.claim.sub','70000000-0000-4000-8000-000000000001',true);
+insert into public.sm_personal_projects(name) values('TEST private') returning id into p;
+insert into public.sm_personal_tasks(project_id,title,due) values(p,'TEST personal task','2026-11-20') returning id into t;
+update public.sm_personal_tasks set done=true,revision=1 where id=t and revision=0;
+if not exists(select 1 from public.sm_personal_tasks where id=t and done and completed_at is not null) then raise exception 'Completion failed';end if;
+blocked:=false;begin update public.sm_personal_tasks set done=false,revision=1 where id=t;exception when others then blocked:=true;end;if not blocked then raise exception 'Stale revision accepted';end if;
+perform set_config('request.jwt.claim.sub','70000000-0000-4000-8000-000000000002',true);
+if exists(select 1 from public.sm_personal_projects where id=p) or exists(select 1 from public.sm_personal_tasks where id=t) then raise exception 'Other manager can read private data';end if;
+update public.sm_personal_tasks set title='ATTACK',revision=2 where id=t;get diagnostics cnt=row_count;if cnt<>0 then raise exception 'Other manager edited task';end if;
+blocked:=false;begin insert into public.sm_personal_tasks(project_id,title) values(p,'ATTACK');exception when others then blocked:=true;end;if not blocked then raise exception 'Other manager inserted task';end if;
+blocked:=false;begin insert into public.sm_personal_projects(name) values('ATTACK');exception when others then blocked:=true;end;if not blocked then raise exception 'Unauthorized personal project';end if;
+perform set_config('request.jwt.claim.sub','70000000-0000-4000-8000-000000000001',true);
+update public.sm_personal_tasks set deleted=true,revision=2 where id=t;
+update public.sm_personal_tasks set deleted=false,done=false,revision=3 where id=t;
+if not exists(select 1 from public.sm_personal_tasks where id=t and not deleted and not done and completed_at is null) then raise exception 'Restore/reopen failed';end if;
+end$$;
+
+do $$declare p uuid;ext uuid;taskid uuid;f public.sm_files;blocked boolean;begin
+perform set_config('request.jwt.claim.sub','70000000-0000-4000-8000-000000000001',true);
+select id into p from public.sm_personal_projects where name='TEST private';
+blocked:=false;begin insert into public.sm_personal_tasks(project_id,title,starts_on,due) values(p,'Invalid dates','2026-11-20','2026-11-10');exception when check_violation then blocked:=true;end;if not blocked then raise exception 'Invalid date order allowed';end if;
+insert into public.sm_personal_tasks(project_id,title,starts_on,due) values(p,'Valid dates','2026-11-10','2026-11-20');
+ext:=public.sm_save_external_member('70000000-0000-4000-8000-000000000003',null,'TEST contractor','TEST company',true);
+if not exists(select 1 from public.sm_members where id=ext and external and email is null and user_id is null and role='member') then raise exception 'External has login';end if;
+blocked:=false;begin perform public.sm_save_member('70000000-0000-4000-8000-000000000003',ext,'TEST contractor','TEST','external-login@test.invalid','member',true);exception when others then blocked:=true;end;if not blocked then raise exception 'External login enabled';end if;
+taskid:=public.sm_create_task('70000000-0000-4000-8000-000000000003','External task','',ext,'70000000-0000-4000-8000-000000000004',null);
+perform public.sm_task_action(taskid,0,'assign','','70000000-0000-4000-8000-000000000005','{}',null);
+perform set_config('request.jwt.claim.sub','70000000-0000-4000-8000-000000000002',true);
+f:=public.sm_reserve_file(taskid,1,'manager-edit.txt',3,'text/plain','Management edits');
+insert into storage.objects(bucket_id,name,metadata) values('samandis-files',f.object_path,'{"size":3}');
+perform public.sm_finalize_file(f.id);
+if not exists(select 1 from public.sm_files where id=f.id and ready) then raise exception 'Manager upload failed';end if;
+end$$;
+rollback;
+select 'PASS: private date validation; external assignee has no login; reassignment works; other management uploads a version; fixtures rolled back' as result;

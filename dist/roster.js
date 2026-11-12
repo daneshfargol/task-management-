@@ -19,4 +19,4 @@ function protectedMember(i){return members[i]?.access==='director'}
 function canManageMember(i){return isDirector()||(isSupervisor()&&!protectedMember(i))}
 function canAdminTask(t){return isDirector()||(isSupervisor()&&!protectedMember(t.owner))}
 function canAssignOwner(i){return !!members[i]?.active&&!members[i]?.legacy&&(isDirector()||(isSupervisor()&&!protectedMember(i))||Number(i)===me())}
-function managementLabel(m){return m.access==='director'?'همه بخش‌ها و همه اعضا':m.access==='supervisor'?'دسترسی کامل مدیریتی':'کارهای محول‌شده به خود'}
+function managementLabel(m){if(m.external)return 'بدون پنل · پیگیری با مدیریت';return m.access==='director'?'همه بخش‌ها و همه اعضا':m.access==='supervisor'?'دسترسی کامل مدیریتی':'کارهای محول‌شده به خود'}
