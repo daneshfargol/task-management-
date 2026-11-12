@@ -1,0 +1,39 @@
+/* Compact desktop layout for laptop screens; mobile layout remains unchanged. */
+@media(min-width:761px) and (max-width:1600px){
+ :root{--app-sidebar:210px}
+ .desktop-shell main{min-width:0}
+ .desktop-shell .content,.desktop-shell.task-drawer-open .content{box-sizing:border-box;width:100%;max-width:1180px;padding:22px 26px 24px}
+ .desktop-shell main>header,.desktop-shell.task-drawer-open main>header{height:54px;min-height:54px;padding:0 22px;gap:10px;box-sizing:border-box}
+ .desktop-shell .header-tools{gap:8px;min-width:0}
+ .desk-top-context,.desk-top-actions{gap:9px}
+ .desktop-sidebar{padding:20px 14px 14px}
+ .desk-brand{margin-bottom:18px}.desk-brand>span{font-size:16px}.desk-brand img{width:30px;height:30px}
+ .desktop-shell .desk-project{padding:9px 8px;margin-bottom:12px}
+ .desktop-shell .desk-add{padding:8px 10px}
+ .desktop-shell .clarity-list-head{margin-bottom:16px}
+ .desktop-shell .clarity-list-head h2,.desktop-shell .desk-shared-heading h1{font-size:22px}
+ .desktop-shell .desk-shared-heading{margin-bottom:16px}
+ .desk-metrics{gap:12px;margin-bottom:18px}
+ .desktop-shell .desk-metric{min-height:72px;padding:11px 14px;box-sizing:border-box;gap:9px}
+ .desk-metric b{font-size:22px;margin-top:3px}
+ .desktop-shell .clarity-tools{gap:10px;margin-bottom:12px;flex-wrap:wrap}
+ .desktop-shell .clarity-table{width:100%;min-width:0}
+ .desktop-shell .clarity-table table{width:100%;min-width:0;table-layout:fixed}
+ .desktop-shell .clarity-table td{padding:12px 11px;overflow-wrap:anywhere}
+ .desktop-shell .clarity-table th{padding:9px 11px}
+ .desktop-shell .clarity-table .task-title,.desktop-shell .shared-task-title{font-size:12px;white-space:normal}
+ .desktop-shell .row-upload{font-size:10px;padding:3px 7px;margin-top:4px}
+ .desktop-shell .task-row-delete{font-size:11px;padding:4px 9px;margin:4px}
+ .desktop-shell .desk-board{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+ .desktop-shell .desk-lane{min-width:0;padding:10px}
+ .desktop-shell .desk-task-card{padding:10px;overflow-wrap:anywhere}
+ .desktop-shell dialog{max-width:calc(100vw - 24px);max-height:88dvh;box-sizing:border-box}
+ .desktop-shell .shared-task-head h2{font-size:19px}
+}
+@media(min-width:761px) and (max-width:1100px){
+ :root{--app-sidebar:190px}
+ .desktop-shell .content,.desktop-shell.task-drawer-open .content{padding:18px}
+ .desktop-shell main>header,.desktop-shell.task-drawer-open main>header{padding:0 14px}
+ .desk-top-actions{display:none}.desktop-shell .header-tools{gap:5px;flex-wrap:wrap}
+ .desktop-shell .shared-user small{display:none}
+}
