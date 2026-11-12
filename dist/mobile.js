@@ -27,6 +27,27 @@
     nav.append(button);
   });
   document.body.append(nav);
+  const utilities = document.createElement('div');
+  utilities.className = 'mobile-account-actions';
+  utilities.setAttribute('aria-label', 'حساب و ابزارها');
+  document.querySelector('.desk-bottom')?.prepend(utilities);
+  const header = document.querySelector('main > header');
+  function syncUtilities() {
+    utilities.replaceChildren();
+    header.querySelectorAll('.signout').forEach(original => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = original.textContent;
+      button.hidden = original.hidden;
+      button.addEventListener('click', () => {
+        document.querySelector('#deskOverlay').click();
+        original.click();
+      });
+      utilities.append(button);
+    });
+  }
+  new MutationObserver(syncUtilities).observe(header, {childList: true, subtree: true});
+  syncUtilities();
   const syncVisibility = () => {
     const loggedIn = !document.body.classList.contains('shared-app') || (typeof mine === 'function' && Boolean(mine()));
     nav.hidden = !loggedIn;
