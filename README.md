@@ -1,5 +1,11 @@
 # پروژه دارایی | شرکت سمندیس
 
+## Mobile installation and notifications
+
+`manifest.webmanifest` installs the shared workspace as «سمندیس», with the selected S/cards icon. Android has standard and maskable icons; iOS uses the opaque 180px Apple touch icon. Existing phone installations may need to be removed from the Home Screen and re-added after loading the updated site. `mobile.css` and `mobile.js` provide phone typography, touch targets, safe-area spacing, and navigation connected to the existing task views, including personal-project visibility.
+
+The service worker only registers the installed app lifecycle. It does not cache authenticated pages, task records, or attachments, and does not provide offline editing or remote push. Real background notifications still require an authenticated subscription endpoint, per-user/device subscriptions protected by RLS, server-held VAPID keys, and a server-side sender triggered by notices/reminders. iOS/iPadOS 16.4+ requires installation to the Home Screen and a user-initiated notification opt-in. Never place a VAPID private key or service-role credential in `dist/`.
+
 Persian task-management prototype. The current application is static HTML, CSS and JavaScript in `dist/`.
 
 ## Deploy to Vercel

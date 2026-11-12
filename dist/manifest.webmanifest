@@ -1,0 +1,18 @@
+{
+  "id": "/shared.html",
+  "name": "سمندیس",
+  "short_name": "سمندیس",
+  "description": "مدیریت کارها و پروژه‌های سمندیس",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/shared.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#182257",
+  "icons": [
+    {"src": "/icons/app-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "/icons/app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "/icons/app-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

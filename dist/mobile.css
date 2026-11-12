@@ -1,0 +1,82 @@
+/* Phone-specific overrides. Desktop layouts and task permissions stay in their original modules. */
+.mobile-navigation{display:none}
+@media(max-width:760px){
+  html{zoom:1;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+  body.desktop-shell{background:#f7f9fc;font-size:14px}
+  .desktop-shell main,.desktop-shell.shared-app main{min-width:0;width:100%;margin:0}
+  .desktop-shell main>header{padding-top:env(safe-area-inset-top);height:auto;min-height:calc(60px + env(safe-area-inset-top));box-sizing:border-box;gap:6px}
+  .desktop-shell .content,.desktop-shell.task-drawer-open .content{padding:20px 14px calc(100px + env(safe-area-inset-bottom));min-width:0}
+  .desktop-shell button,.desktop-shell a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+  .desktop-shell input:not([type=checkbox]):not([type=radio]),.desktop-shell select,.desktop-shell textarea{font-size:16px!important;min-height:44px;box-sizing:border-box}
+  .desktop-shell button{touch-action:manipulation}
+  .desktop-shell .desk-icon-button,.desktop-shell .bell-button,.desktop-shell .shared-close,.desktop-shell .task-action-menu>summary{min-width:44px;min-height:44px}
+  .desktop-shell .desk-top-context{font-size:13px;min-width:0;gap:4px}
+  .desktop-shell .desk-top-context b{white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis}
+  .desktop-shell .header-tools{max-width:52%;min-width:0;gap:4px}
+  .desktop-shell .header-tools .secondary,.desktop-shell .header-tools .signout{font-size:11px;padding:7px;min-height:36px}
+  .desktop-shell .desk-top-actions{gap:0}
+  .desktop-shell #deskSearch{display:none}
+  .desktop-shell .desk-shared-heading h1,.desktop-shell .clarity-list-head h2,.personal-heading h1{font-size:23px;line-height:1.7}
+  .desktop-shell .desk-shared-heading p,.desktop-shell .clarity-list-head p,.personal-heading p{font-size:13px;line-height:1.9}
+  .desktop-shell .desk-metrics{gap:8px;margin-bottom:18px}
+  .desktop-shell .desk-metric{font-size:11px;min-height:88px;padding:12px 8px;border-radius:12px}
+  .desktop-shell .desk-metric b{font-size:25px}
+  .desktop-shell .clarity-filters{gap:5px;overflow-x:auto;flex-wrap:nowrap}
+  .desktop-shell .clarity-filters button{font-size:12px;min-height:44px;white-space:nowrap;padding:8px 4px}
+  .desktop-shell .clarity-search{flex-wrap:wrap;flex-basis:100%;gap:8px}
+  .desktop-shell .clarity-search input{flex:1;min-width:140px}
+  .desktop-shell .clarity-search select{max-width:45%;font-size:14px!important}
+  .desktop-shell .desk-layout button{min-width:44px;min-height:44px}
+  .desktop-shell .clarity-table tr{padding:18px 12px;gap:12px 8px;background:#fff}
+  .desktop-shell .clarity-table td{font-size:12px;line-height:1.9;min-width:0}
+  .desktop-shell .clarity-table .task-title,.desktop-shell .shared-task-title{font-size:15px;line-height:1.9;overflow-wrap:anywhere}
+  .desktop-shell .clarity-task-meta,.desktop-shell .shared-tag{font-size:11px;line-height:1.8}
+  .desktop-shell .clarity-table .owner{font-size:12px}
+  .desktop-shell .clarity-table .avatar{height:26px;width:26px;font-size:11px}
+  .desktop-shell .task-tick{width:28px;height:28px;flex-basis:28px;position:relative;margin:5px 4px}
+  .desktop-shell .task-tick:before{content:'';position:absolute;inset:-8px}
+  .desktop-shell .clarity-state .pill{font-size:11px;padding:5px 8px}
+  .desktop-shell .clarity-state small,.desktop-shell .late-label,.desktop-shell .clarity-list-foot{font-size:11px}
+  .desktop-shell .row-upload,.desktop-shell .approve-inline{font-size:12px;min-height:44px}
+  .desktop-shell .desk-board{grid-template-columns:repeat(3,minmax(260px,82vw));overflow-x:auto;scroll-snap-type:x proximity}
+  .desktop-shell .desk-lane{scroll-snap-align:start}
+  .desktop-shell .desk-lane h3,.desktop-shell .desk-task-card .task-title{font-size:14px}
+  .desktop-shell .desk-task-card p,.desktop-shell .card-bottom{font-size:12px}
+  .desktop-shell .desktop-sidebar{padding-top:calc(22px + env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom));width:min(300px,86vw);box-sizing:border-box}
+  .desktop-shell .desktop-sidebar nav button,.desktop-shell #deskManage button,.desktop-shell .personal-project-choice{min-height:48px;font-size:14px}
+  .desktop-shell .desk-bottom small{font-size:11px}
+  .desktop-shell.desk-menu-open{overflow:hidden}
+  .desktop-shell .desk-overlay{touch-action:none}
+  .desktop-shell.has-mobile-navigation .mobile-navigation:not([hidden]){display:flex;position:fixed;bottom:0;inset-inline:0;z-index:30;min-height:64px;padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:#fffffff5;border-top:1px solid #dfe6f0;box-shadow:0 -4px 20px #18225706;justify-content:space-around;box-sizing:border-box}
+  .desktop-shell .mobile-navigation button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex:1;min-width:0;border:0;border-radius:10px;background:transparent;color:#62718a;min-height:52px;font:inherit;font-size:11px}
+  .desktop-shell .mobile-navigation button[hidden]{display:none}
+  .mobile-navigation button span{white-space:nowrap}
+  .mobile-navigation button.active{color:#182257;background:#edf0fa;font-weight:600}
+  .mobile-navigation svg{width:22px;height:22px}
+  .desktop-shell .desk-mobile-add:not([hidden]){bottom:calc(82px + env(safe-area-inset-bottom));left:18px;width:54px;height:54px;border-radius:17px;color:#182257;background:#f2df95;z-index:25}
+  .desktop-shell dialog,.desktop-shell #details,.desktop-shell #sharedDialog{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;padding:18px!important;border-radius:16px!important;box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain}
+  .desktop-shell dialog h2,.desktop-shell .shared-task-head h2{font-size:21px;line-height:1.7}
+  .desktop-shell dialog label,.desktop-shell dialog p,.desktop-shell .shared-description{font-size:14px;line-height:1.9}
+  .desktop-shell dialog .fields,.desktop-shell dialog .personal-date-fields{grid-template-columns:1fr}
+  .desktop-shell dialog .primary,.desktop-shell dialog .secondary,.desktop-shell .shared-actions button{min-height:44px;font-size:13px}
+  .desktop-shell .task-focus-nav{top:-18px;gap:4px}
+  .desktop-shell .task-focus-nav button{min-height:44px;font-size:12px}
+  .desktop-shell .personal-task-title{font-size:15px;line-height:1.9}
+  .desktop-shell .personal-task-description,.desktop-shell .personal-date-summary,.desktop-shell .personal-tools button{font-size:12px}
+  .desktop-shell .personal-tools button{min-height:44px}
+  .desktop-shell .personal-tools input{width:100%}
+  .desktop-shell .login-card{padding:22px 18px;border-radius:16px}
+  .desktop-shell .login-card h2{font-size:23px}
+  .desktop-shell #sharedToast,.desktop-shell #toast{bottom:calc(82px + env(safe-area-inset-bottom));font-size:13px;line-height:1.8;z-index:150}
+  .desktop-shell .calendar-grid{min-width:620px}
+  .desktop-shell .calendar-grid,.desktop-shell .timeline{overflow-wrap:anywhere}
+  .desktop-shell .calendar-wrapper,.desktop-shell .calendar-panel,.desktop-shell #sharedProgram{overflow-x:auto;max-width:100%}
+  .desktop-shell .calendar-cell .cal-event{font-size:11px}
+  .desktop-shell .panel{min-width:0;max-width:100%;box-sizing:border-box}
+  .desktop-shell .panel-header{flex-wrap:wrap;gap:10px}
+  .desktop-shell .calendar-tools{flex-wrap:wrap;max-width:100%;gap:6px}
+  .desktop-shell .calendar-tools button{min-height:44px;font-size:12px}
+  .desktop-shell .calendar-tools b{font-size:13px}
+  .desktop-shell .calendar-panel{min-width:0;width:100%;overflow-x:auto}
+}
+@media(prefers-reduced-motion:reduce){.desktop-sidebar{transition:none!important}html{scroll-behavior:auto!important}}
