@@ -52,3 +52,7 @@ The supplied RaviFaNum variable font is embedded in `dist/fonts/RaviFaNum-Variab
 ## Recoverable task deletion
 
 006_task_trash.sql adds management-only trash/restore RPCs and a guard against updates to trashed tasks. Applied to the current Supabase project. Deletion keeps task records, attachments and history; the app filters the trash from active lists. No permanent deletion is exposed. trash-test.sql uses an isolated project and fake users inside a rolled-back transaction. The static demo keeps a separate local trash backup. Persian date fields now offer clickable Persian month calendars; values submitted to the database remain ISO dates.
+
+## Owner-only personal projects
+
+007_personal_projects.sql creates six separate personal projects linked to the existing Reza Afshar member ID via sm_personal_owners. Other directors have no read/write access under RLS. These projects use simple due dates and done toggles, without assignments, team membership or reviewer approval. Owners can add projects and create/edit/soft-delete/restore their own tasks. Revision checks prevent stale overwrites. personal-projects-test.sql verifies owner operations and denial for another director in an isolated rolled-back transaction. personal-projects.js adds the project picker in both shared and demo modes; demo data stays browser-local and is not an access-control mechanism. Darayi presence tracking pauses while a personal project is selected.
