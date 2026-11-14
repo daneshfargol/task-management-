@@ -35,6 +35,7 @@
   function syncUtilities() {
     utilities.replaceChildren();
     header.querySelectorAll('.signout').forEach(original => {
+      if (original.id === 'taskTrashList') return;
       const button = document.createElement('button');
       button.type = 'button';
       button.textContent = original.textContent;
