@@ -11,10 +11,16 @@
   let registration, settings, activeSubscription, accountId = null, busy = false, generation = 0;
   const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const installed = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  const pwaPrompt = document.createElement('aside');
+  pwaPrompt.className = 'pwa-push-prompt';pwaPrompt.hidden = true;
+  pwaPrompt.innerHTML = '<span>اعلان کارهای جدید در اپ</span><button type="button">فعال‌کردن اعلان‌ها</button>';
+  document.body.append(pwaPrompt);
+  pwaPrompt.querySelector('button').onclick = () => { if (!busy) panel.querySelector('[data-push="enable"]').click(); };
   const supported = window.isSecureContext && 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
   const text = error => /denied|permission/i.test(error?.message || '') ? 'اجازهٔ اعلان بسته است؛ آن را از تنظیمات مرورگر یا گوشی تغییر دهید.' : /fetch|network/i.test(error?.message || '') ? 'ارتباط برقرار نشد؛ دوباره تلاش کنید.' : /30 seconds/.test(error?.message || '') ? 'برای آزمایش بعدی ۳۰ ثانیه صبر کنید.' : 'تنظیم اعلان ذخیره نشد؛ دوباره تلاش کنید.';
   function state(message, enabled = false) {
     status.textContent = message;
+    pwaPrompt.hidden = !installed || !accountId || !supported || !settings?.ready || enabled || Notification.permission === 'denied';
     panel.querySelector('[data-push="enable"]').hidden = enabled || !supported || (ios && !installed) || !settings?.ready;
     panel.querySelector('[data-push="test"]').hidden = !enabled;
     panel.querySelector('[data-push="disable"]').hidden = !enabled;
@@ -38,9 +44,10 @@
     if (who === accountId) return;
     accountId = who;
     const current = ++generation;
+    pwaPrompt.hidden = true;
     settings = null;
     activeSubscription = null;
-    if (!who) return;
+    if (!who) { pwaPrompt.hidden = true; return; }
     if (ios && !installed) { state('برای اعلان در آیفون، ابتدا از Safari گزینهٔ «افزودن به صفحهٔ اصلی» را بزنید و برنامه را از همان آیکون باز کنید.'); return; }
     if (!supported) { state('این مرورگر از اعلان پشتیبانی نمی‌کند. از نسخهٔ جدید Chrome، Edge، Firefox یا وب‌اپ نصب‌شدهٔ آیفون استفاده کنید.'); return; }
     try {

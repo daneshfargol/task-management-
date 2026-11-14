@@ -8,3 +8,5 @@
 .desktop-shell .push-preferences button[hidden]{display:none}
 .desktop-shell .desktop-sidebar{overflow-y:auto;overscroll-behavior:contain}
 @media(max-width:760px){.desktop-shell .push-preferences button{min-height:44px;font-size:12px}.desktop-shell .push-preferences>b{font-size:13px}}
+
+.pwa-push-prompt{position:fixed;bottom:24px;left:24px;z-index:50;display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #ccd9e9;border-radius:12px;background:#fff;box-shadow:0 6px 25px #1833531c;color:#405c7d;font:inherit;font-size:12px}.pwa-push-prompt[hidden]{display:none!important}.pwa-push-prompt button{border:0;border-radius:7px;padding:9px 12px;background:#3b5f8b;color:#fff;font:inherit;font-size:12px;cursor:pointer}@media(max-width:760px){.pwa-push-prompt{bottom:calc(76px + env(safe-area-inset-bottom));left:12px;right:12px;justify-content:space-between;padding:10px 12px;font-size:11px}.pwa-push-prompt button{min-height:40px;font-size:11px}}
