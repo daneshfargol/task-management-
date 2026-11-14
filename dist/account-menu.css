@@ -21,3 +21,5 @@
 .desktop-shell .account-more-panel>small{order:5;font-size:9px;margin:2px 0;line-height:1.7}
 .account-profile-details{padding:14px 0}.account-profile-details>b{font-size:18px;color:#344d70}.account-profile-details p{font-size:13px;color:#63758e;line-height:1.9}.account-profile-details .secondary{min-height:42px}
 @media(max-width:760px){.desktop-shell .account-settings-link,.account-notification-settings>summary{min-height:44px}.desktop-shell .account-notification-settings .push-preferences button{min-height:40px}}
+
+.desktop-shell .account-more-panel .account-trash-link{order:2}.desktop-shell .account-more-panel .account-trash-link[hidden]{display:none!important}
