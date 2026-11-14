@@ -1,0 +1,2 @@
+/* Self-managed management work finishes in one click; delegated work keeps its review flow. */
+(()=>{'use strict';if(!document.body.classList.contains('shared-app'))return;const previous=action;action=async function(t,kind,...args){if(kind==='submit'&&management()&&own(t)&&reviewer(t)){await previous(t,kind,...args);const current=tasks.find(x=>x.id===t.id);if(current?.status==='review'&&own(current)&&reviewer(current))await previous(current,'approve');return}return previous(t,kind,...args)}})();
