@@ -11,7 +11,7 @@ self.addEventListener('push', event => {
   } catch (_) {}
   event.waitUntil(self.registration.showNotification('سمندیس', {
     body: String(data.body || 'یک اعلان تازه در سمندیس دارید.').slice(0, 240),
-    icon: '/icons/app-192.png', badge: '/icons/app-192.png',
+    icon: '/icons/app-serif-192.png', badge: '/icons/app-serif-192.png',
     tag: String(data.tag || 'samandis-update').slice(0, 100),
     dir: 'rtl', lang: 'fa', data: {url},
   }));
