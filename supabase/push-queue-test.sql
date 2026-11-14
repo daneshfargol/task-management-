@@ -1,0 +1,17 @@
+begin;
+insert into auth.users(id,email,email_confirmed_at) values('60000000-0000-4000-8000-000000000001','manager@trash-test.invalid',now()),('60000000-0000-4000-8000-000000000002','member@trash-test.invalid',now());
+insert into public.sm_projects(id,slug,name) values('60000000-0000-4000-8000-000000000003','trash-test-isolated','TEST');
+insert into public.sm_members(id,project_id,user_id,name,title,role) values('60000000-0000-4000-8000-000000000004','60000000-0000-4000-8000-000000000003','60000000-0000-4000-8000-000000000001','TEST manager','TEST','director'),('60000000-0000-4000-8000-000000000005','60000000-0000-4000-8000-000000000003','60000000-0000-4000-8000-000000000002','TEST member','TEST','member');
+set local role authenticated;
+select set_config('request.jwt.claim.sub','60000000-0000-4000-8000-000000000002',true);
+select public.sm_push_subscribe('https://fcm.googleapis.com/fcm/send/samandis-rollback-test',repeat('A',87),repeat('B',22),'Rollback test');
+reset role;
+update sm_private.push_config set enabled=false where singleton;
+set local role authenticated;
+select set_config('request.jwt.claim.sub','60000000-0000-4000-8000-000000000001',true);
+select public.sm_create_task('60000000-0000-4000-8000-000000000003','PUSH TEST','','60000000-0000-4000-8000-000000000005','60000000-0000-4000-8000-000000000004',null);
+do $$declare denied boolean:=false;begin begin perform public.sm_push_worker_config();exception when insufficient_privilege then denied:=true;end;if not denied then raise exception 'Private config exposed';end if;end$$;
+reset role;
+do $$begin if (select count(*) from sm_private.push_queue q join sm_private.push_subscriptions s on s.id=q.subscription_id where s.endpoint='https://fcm.googleapis.com/fcm/send/samandis-rollback-test' and q.user_id='60000000-0000-4000-8000-000000000002' and q.state='pending')<>1 then raise exception 'Assignment did not queue recipient push';end if;if not has_function_privilege('authenticated','sm_private.personal_project(uuid)','EXECUTE') then raise exception 'Existing private project permission broken';end if;end$$;
+rollback;
+select 'PASS: assignment queues only recipient device; worker secrets blocked; personal project access preserved; fixtures rolled back' as result;

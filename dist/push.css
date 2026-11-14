@@ -1,0 +1,10 @@
+.push-preferences{padding:14px 0;margin:10px 0;border-top:1px solid #dce5ef;color:#405878}
+.push-preferences[hidden]{display:none}
+.push-preferences>b{font-size:12px;font-weight:600}
+.desktop-shell .push-status{font-size:11px!important;line-height:1.9!important;white-space:normal;margin:8px 0;color:#576e8d}
+.push-preferences>div{display:flex;gap:6px;flex-wrap:wrap}
+.desktop-shell .push-preferences button{font:inherit;font-size:11px;padding:8px 10px;border:1px solid #ccd9eb;border-radius:8px;background:#fff;color:#294c7b;cursor:pointer}
+.desktop-shell .push-preferences button:disabled{opacity:.55;cursor:wait}
+.desktop-shell .push-preferences button[hidden]{display:none}
+.desktop-shell .desktop-sidebar{overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:760px){.desktop-shell .push-preferences button{min-height:44px;font-size:12px}.desktop-shell .push-preferences>b{font-size:13px}}
