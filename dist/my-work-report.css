@@ -9,3 +9,9 @@
 .own-report-paper .brief-heading h1{grid-column:2;grid-row:1;text-align:center;font-size:19px;line-height:1.8;margin:0}
 .own-report-paper .brief-heading h2{grid-column:3;grid-row:1;text-align:left;font-size:14px;line-height:1.8;margin:0}
 @media screen and (max-width:700px){.own-report-paper .brief-heading{gap:8px;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) minmax(0,1fr)}.own-report-paper .brief-heading h1{font-size:14px;margin:0}.own-report-paper .brief-heading h2,.own-report-paper .brief-heading p{font-size:11px;margin:0}.own-report-paper .brief-company img{width:44px;height:44px}}
+
+/* Isolate the report masthead from the application's fixed-height header rules. */
+.own-report-paper .brief-report-header{height:auto!important;min-height:0!important;max-height:none!important;position:relative!important;inset:auto!important;flex-shrink:0;overflow:visible;box-sizing:border-box;background:#fff!important;box-shadow:none!important;padding:6px 0 22px!important;margin:0 0 22px!important;justify-content:flex-start}
+.own-report-paper .brief-heading{min-height:42px;flex-shrink:0;padding:0 0 4px!important}
+.own-report-paper .brief-heading>*{position:static!important;transform:none!important;align-self:center}
+.own-report-paper .brief-report-header:after{bottom:-3px}
