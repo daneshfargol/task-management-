@@ -1,0 +1,21 @@
+.desktop-shell dialog.task-focus-layout{width:min(820px,calc(100vw - 48px))!important;max-width:820px!important;max-height:88dvh!important;margin:auto!important;padding:24px!important;border-radius:16px!important;box-sizing:border-box;overflow-y:auto;color:#344c6c}
+.task-focus-layout .shared-task-head,.task-focus-layout .dialog-head{gap:16px;align-items:start;margin-bottom:12px}
+.task-focus-layout .shared-task-head h2,.task-focus-layout .dialog-head h2{font-size:21px!important;line-height:1.7;color:#243d60;margin:0}
+.task-focus-layout .shared-close{width:36px;min-width:36px;height:36px;border:1px solid #dce4ef;border-radius:10px;background:#f5f7fb;font-size:22px;cursor:pointer}
+.task-focus-layout .shared-facts,.task-focus-layout .task-facts{display:flex;flex-wrap:wrap;gap:8px 18px;padding:12px 0;margin:0;font-size:12px;color:#526883}
+.task-focus-layout .shared-actions,.task-focus-layout .detail-actions{margin:8px 0 14px;gap:8px}
+.task-focus-layout .task-focus-nav{position:static;display:flex;flex-wrap:nowrap;gap:4px;padding:4px;margin:16px 0;background:#edf1f7;border:0;border-radius:11px}
+.task-focus-layout .task-focus-nav button{flex:1;min-width:0;min-height:42px;font-size:12px;padding:9px 8px;border:0;border-radius:8px;background:transparent;color:#526984}
+.task-focus-layout .task-focus-nav button[aria-selected=true]{background:#fff;color:#182257;box-shadow:0 2px 7px #18225712;font-weight:600}
+.task-focus-panel[hidden]{display:none!important}
+.task-focus-layout .task-focus-panel>.shared-section,.task-focus-layout .task-focus-panel>.task-section{border:0;margin:0;padding:4px 0}
+.task-focus-layout .shared-section h3,.task-focus-layout .task-section h3{font-size:15px;margin:0 0 14px;color:#344f71}
+.task-focus-layout .shared-meta,.task-focus-layout .shared-report small{font-size:12px;line-height:1.9;color:#63768e}
+.task-focus-layout .shared-report{border:1px solid #e2e9f2;border-radius:10px;background:#f8fafd;padding:12px 14px;margin:10px 0}
+.task-focus-layout .shared-report p{font-size:14px;line-height:1.9}
+.task-focus-layout textarea{min-height:100px;background:#fafcff;font-size:14px!important;padding:12px;box-sizing:border-box}
+.task-focus-layout #sharedReport{margin-top:18px}
+.task-focus-layout #sharedReport label{font-size:13px;line-height:1.8}
+.task-focus-layout .task-focus-panel>details{border-top:1px solid #e4eaf3;padding-top:14px;margin-top:18px}
+.task-focus-layout .shared-description{font-size:14px;line-height:2;white-space:pre-wrap}
+@media(max-width:760px){.desktop-shell dialog.task-focus-layout{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 24px)!important;padding:18px!important}.task-focus-layout .task-focus-nav button{font-size:11px;padding:8px 4px;min-height:44px}.task-focus-layout .shared-facts{font-size:11px;gap:6px 12px}.task-focus-layout .shared-task-head h2{font-size:18px!important}}
