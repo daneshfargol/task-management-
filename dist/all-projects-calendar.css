@@ -1,0 +1,76 @@
+.desktop-sidebar.has-all-projects-calendar .all-calendar-entry{margin-top:auto;padding:16px 0 10px}
+.desktop-sidebar.has-all-projects-calendar .desk-bottom{margin-top:0}
+.desktop-shell .all-calendar-launch{display:flex;align-items:center;justify-content:flex-start;gap:9px;width:100%;padding:11px 10px;min-height:44px;border:1px solid #d3dfef;border-radius:9px;background:#eaf0fa;color:#304f7d;font:inherit;font-size:12px;font-weight:550;text-align:right;cursor:pointer}
+.all-calendar-launch svg{flex-shrink:0}.all-calendar-launch:hover{background:#dfe9f8}.all-calendar-launch:disabled{opacity:.6;cursor:wait}
+.desktop-shell #unifiedCalendarDialog{width:min(1180px,calc(100vw - 40px));max-width:1180px;max-height:92dvh;padding:0;margin:auto;border:1px solid #dbe3ef;border-radius:16px;box-shadow:0 24px 90px #162b4d3b;background:#fff;color:#304963;overflow:auto;box-sizing:border-box}
+#unifiedCalendarDialog::backdrop{background:#162b4d66;backdrop-filter:blur(3px)}
+.uc-header{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:21px 24px;background:#fff;border-bottom:1px solid #e5ebf3}
+.desktop-shell .uc-header h2{margin:0;color:#22375b;font-size:21px;line-height:1.6;font-weight:650}
+.uc-header p{margin:4px 0 0;color:#6c809b;font-size:12px;line-height:1.8}
+.desktop-shell .uc-close{display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;border:1px solid #e0e7f0;border-radius:9px;background:#f7f9fc;color:#58708f;font-size:24px;line-height:1;cursor:pointer}
+.uc-content{padding:18px 24px 24px}
+.uc-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.uc-month-nav,.uc-options{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.desktop-shell .uc-month-nav h3{margin:0 8px;font-size:17px;color:#2f496b;min-width:120px;text-align:center}
+.desktop-shell .uc-toolbar button{border:1px solid #dce4ee;border-radius:7px;padding:6px 10px;background:#fff;color:#496383;font:inherit;font-size:11px;cursor:pointer;min-height:33px}
+.uc-toolbar button:hover{background:#f0f5fc}.uc-toolbar button:disabled{opacity:.5;cursor:wait}
+.desktop-shell #unifiedCalendarDialog .uc-options label{display:flex;align-items:center;gap:7px;margin:0;font-size:11px;white-space:nowrap}
+.desktop-shell #unifiedCalendarDialog .uc-options input[type=checkbox]{appearance:auto;width:15px;height:15px;min-height:0;margin:0;padding:0;accent-color:#4c6db6;flex-shrink:0}
+.uc-legend{display:flex;gap:7px;flex-wrap:wrap;padding:12px;background:#f7f9fc;border:1px solid #e5ebf3;border-radius:10px;margin-bottom:14px}
+.desktop-shell .uc-legend button{display:flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:6px;padding:6px 8px;background:#fff;color:var(--uc-color,#58708f);font:inherit;font-size:11px;line-height:1.7;cursor:pointer}
+.uc-legend button i,.uc-day-dots i{display:inline-block;width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:var(--uc-color,#58708f)}
+.uc-legend button.selected{background:var(--uc-soft,#eaf0fa);border-color:var(--uc-color,#6c87b7);font-weight:600}
+.uc-summary{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 1px 12px;color:#607691;font-size:11px;line-height:1.9}
+.uc-summary span{color:#8596ac}
+.uc-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.uc-calendar{border:1px solid #dfe6f0;border-radius:10px;overflow:hidden;min-width:0;background:#fff}
+.uc-weekdays,.uc-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.uc-weekdays{background:#f4f7fb;color:#647b97;font-size:12px;text-align:center;border-bottom:1px solid #dfe6f0}
+.uc-weekdays span{padding:10px 2px}
+.desktop-shell .uc-day{display:block;min-width:0;min-height:120px;box-sizing:border-box;padding:8px 6px;background:#fff;color:#4e6582;border:0;border-left:1px solid #e9eef5;border-bottom:1px solid #e9eef5;text-align:right;font:inherit;cursor:pointer;overflow:hidden}
+.uc-day:nth-child(7n){border-left:0}.uc-day:hover{background:#f7faff}
+.uc-day.uc-blank{background:#f8fafc;cursor:default}
+.uc-day.today .uc-day-top b{background:#304f7d;color:#fff;border-radius:50%}
+.uc-day.selected{background:#f2f6fd;box-shadow:inset 0 0 0 2px #879fc5}
+.uc-day-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;gap:2px}
+.uc-day-top b{display:grid;place-items:center;width:24px;height:24px;font-size:12px;font-weight:500}
+.uc-day-top small{font-size:9px;color:#8497b0;padding:0 3px}
+.uc-mini-events{display:block;min-height:60px}
+.uc-mini-event{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;background:var(--uc-soft);color:var(--uc-color);border-right:2px solid var(--uc-color);border-radius:4px;padding:3px 4px;margin:4px 0;font-size:9px;line-height:1.7;overflow-wrap:anywhere}
+.uc-mini-event.is-done{opacity:.65}.uc-more{display:block;font-size:9px;color:#7c8fa9;padding-top:3px}
+.uc-day-dots{display:none}
+.uc-agenda{min-width:0;padding:16px;border:1px solid #e0e7f1;background:#fafbfd;border-radius:10px}
+.desktop-shell .uc-agenda>h3{font-size:14px;line-height:1.8;margin:0;color:#345071}
+.uc-agenda>p{font-size:11px;color:#8193aa;margin:4px 0 13px}
+.desktop-shell .uc-task{margin:9px 0 0;border:1px solid #e1e7f0;border-right:3px solid var(--uc-color);border-radius:7px;background:#fff;overflow:hidden}
+.uc-task summary{display:block;padding:11px;list-style:none;cursor:pointer;font-size:12px;line-height:1.9;color:#354f70;overflow-wrap:anywhere}
+.uc-task summary::-webkit-details-marker{display:none}
+.uc-project-name{font-weight:600;color:var(--uc-color)}
+.uc-task-name{color:#354f70}
+.uc-task summary>small{display:block;font-size:10px;color:#8293a9;margin-top:4px}
+.uc-task.is-done .uc-task-name{text-decoration:line-through;color:#74869d}
+.uc-task[open]{border-color:var(--uc-color)}
+.uc-task-info{padding:0 11px 10px;font-size:11px;line-height:1.9;color:#637b98}
+.uc-task-info p{margin:5px 0}.uc-description{white-space:pre-wrap;overflow-wrap:anywhere}
+.uc-empty{padding:20px 3px;font-size:12px;color:#7a8fa9;line-height:2}
+.uc-undated{margin-top:18px!important;padding:13px 15px;border:1px solid #e0e7f1;border-radius:9px;background:#fbfcfe}
+.uc-undated>summary{font-size:12px;color:#5c7393;cursor:pointer}
+.uc-message,.uc-error{padding:12px 14px;margin-bottom:14px;background:#edf3fc;border-radius:8px;font-size:12px;line-height:1.9;color:#506c93}
+.uc-error{background:#fff1ee;color:#995b4b}.uc-error button{margin-right:8px}
+#unifiedCalendarDialog button:focus-visible,#unifiedCalendarDialog summary:focus-visible,.all-calendar-launch:focus-visible{outline:2px solid #4c6db6;outline-offset:2px}
+@media(max-width:1000px){.uc-layout{grid-template-columns:minmax(0,1fr) 250px}.uc-content{padding:16px}.uc-agenda{padding:12px}.desktop-shell .uc-day{min-height:110px}}
+@media(max-width:850px){.uc-layout{grid-template-columns:minmax(0,1fr)}.uc-agenda{min-height:120px}.desktop-shell .uc-day{min-height:95px}.uc-mini-events{min-height:48px}}
+@media(max-width:600px){
+ .desktop-shell #unifiedCalendarDialog{width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:94dvh;border-radius:12px}
+ .uc-header{padding:13px 14px;gap:10px}.desktop-shell .uc-header h2{font-size:17px!important}.uc-header p{font-size:11px;max-width:260px}
+ .desktop-shell .uc-close{width:36px;height:36px;flex-basis:36px}.uc-content{padding:12px}
+ .uc-toolbar{gap:10px;margin-bottom:12px}.uc-month-nav{gap:5px;width:100%;justify-content:space-between}
+ .desktop-shell .uc-month-nav h3{min-width:0;font-size:15px;margin:0 2px}.desktop-shell .uc-toolbar button{min-height:36px;padding:6px 8px}
+ .uc-options{width:100%;justify-content:space-between}.uc-legend{padding:8px;gap:5px;margin-bottom:10px}.desktop-shell .uc-legend button{padding:5px 7px;font-size:10px}
+ .uc-summary{font-size:10px;gap:2px}.uc-summary span{width:100%}.uc-layout{gap:12px}
+ .uc-weekdays span{padding:8px 1px}.desktop-shell .uc-day{min-height:67px;padding:6px 3px}
+ .uc-day-top{margin-bottom:5px}.uc-day-top b{width:23px;height:23px;font-size:11px}.uc-day-top small{font-size:9px}
+ .uc-mini-events{display:none}.uc-day-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:3px;min-height:12px}
+ .uc-day-dots i{width:5px;height:5px;flex-basis:5px}.uc-agenda{padding:12px}.uc-task summary{padding:10px;font-size:12px}
+ .desktop-shell .all-calendar-launch{font-size:13px;min-height:46px}
+}

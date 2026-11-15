@@ -78,3 +78,12 @@ The production `/shared.html` workspace reads team and personal projects, people
 `sm_user_preferences` stores each authenticated account's layout, personal project selection and task sorting. Row-level security restricts SELECT, INSERT and UPDATE to `auth.uid()`. Browser preferences are read once as migration inputs for missing database keys, never overwrite an existing database value and are not cleared. Auth session tokens and device notification permissions remain device-specific. `node --test supabase/preferences.test.cjs` verifies preference migration, cross-device reads, account isolation and failure handling.
 
 The account_preferences migration only adds a preference table; it does not rewrite or seed business records. The deployment was prepared from upstream commit 7de1ee77b2847b7246e2bce7189f8f5793ab45d9.
+
+
+## Account-wide project calendar
+
+`all-projects-calendar.js` adds a sidebar entry immediately above the account identity. Visibility uses the existing `sm_personal_owners` capability under its existing RLS policy; no account names or IDs are embedded in the feature and no new access is granted. The read-only dialog stays available in both team and personal project views without changing the current project or navigation.
+
+The calendar reads all visible team projects, every member's team tasks, the account's private personal projects/tasks, and project milestones. Trashed/deleted work is excluded. Days use each task's recorded deadline; undated work is shown separately. The Persian month grid, selected-day agenda, project filters, completion filter and color legend share one projection. Project labels precede task titles. Unique project color indexes are stored in account-private `sm_user_preferences` rows. All collection queries paginate and discard results after an account switch.
+
+Run `node --test supabase/all-projects-calendar.test.cjs supabase/preferences.test.cjs` for the pure aggregation, color stability, monthly boundaries and preference tests.
