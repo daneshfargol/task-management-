@@ -69,3 +69,12 @@ The supplied RaviFaNum variable font is embedded in `dist/fonts/RaviFaNum-Variab
 
 ## Creator task editing
 009_creator_task_edit.sql adds revision-checked title, description and deadline editing for the creator or shared management role. Owner/collaborator assignment stays management-only. Editing review/done tasks reopens them, preserves files and prior event snapshots, and sends in-app notices. Trashed tasks remain guarded. creator-edit-test.sql verifies creator/manager access, denial for another member, stale-write rejection and history retention with rolled-back fixtures. task-edit.js exposes edit buttons in task lists, boards and details.
+
+
+## Database-driven production workspace
+
+The production `/shared.html` workspace reads team and personal projects, people, tasks, contacts, reports, notices and file metadata from Supabase. Project names in the header, project picker and back navigation use the current database record. Personal project names are no longer seeded by browser JavaScript. Existing browser-local records are preserved; the older `/index.html` is a separate local workspace and is not silently imported, deleted or merged into a signed-in account.
+
+`sm_user_preferences` stores each authenticated account's layout, personal project selection and task sorting. Row-level security restricts SELECT, INSERT and UPDATE to `auth.uid()`. Browser preferences are read once as migration inputs for missing database keys, never overwrite an existing database value and are not cleared. Auth session tokens and device notification permissions remain device-specific. `node --test supabase/preferences.test.cjs` verifies preference migration, cross-device reads, account isolation and failure handling.
+
+The account_preferences migration only adds a preference table; it does not rewrite or seed business records. The deployment was prepared from upstream commit 7de1ee77b2847b7246e2bce7189f8f5793ab45d9.
