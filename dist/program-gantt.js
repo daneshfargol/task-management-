@@ -12,7 +12,7 @@ function calendar(rows){const lo=stamp(from),hi=stamp(to),offset=(new Date(lo).g
 function gantt(rows){
  const lo=stamp(from),hi=stamp(to)+DAY,count=Math.round((hi-lo)/DAY);
  const available=Math.max(260,(el('#sharedContent')?.clientWidth||window.innerWidth)-4);
- const unit=ganttZoom==='day'?38:ganttZoom==='week'?14:Math.max(8,available/count);
+ const unit=ganttZoom==='day'?56:ganttZoom==='week'?14:Math.max(8,available/count);
  const width=Math.max(available,count*unit),tickEvery=Math.max(1,Math.ceil(32/unit));
  const visible=rows.filter(r=>stamp(r.due)>=lo&&Math.min(stamp(r.start),stamp(r.due))<hi).sort((a,b)=>a.start.localeCompare(b.start)||a.due.localeCompare(b.due));
  const todayOffset=(stamp(todayKey())-lo)/DAY,todayVisible=todayOffset>=0&&todayOffset<count;
@@ -26,9 +26,8 @@ function gantt(rows){
  return '<div class="g2-toolbar"><div class="g2-legend"><span class="open">در دست انجام</span><span class="review">منتظر تأیید</span><span class="done">انجام‌شده</span><span class="delivery">تحویل پروژه</span></div><button type="button" id="ganttGoToday" class="g2-today-button">نمایش امروز</button><label>مقیاس زمان<select id="ganttZoom">'+[['fit','متناسب با صفحه'],['day','روزانه'],['week','هفتگی']].map(([v,l])=>'<option value="'+v+'" '+(ganttZoom===v?'selected':'')+'>'+l+'</option>').join('')+'</select></label></div><div class="g2-scroll" tabindex="0" aria-label="نمودار زمانی گانت"><div class="g2-chart" style="--g2-time-width:'+width+'px;--g2-unit:'+unit+'px"><div class="g2-header"><div class="g2-months">'+months.map(m=>'<b style="width:'+m.days*unit+'px">'+m.name+'</b>').join('')+'</div><div class="g2-dates">'+ticks+'</div></div>'+visible.map(r=>{
   const start=stamp(r.start),end=stamp(r.due),invalid=start>end,first=Math.max(0,(Math.min(start,end)-lo)/DAY),last=Math.min(count,(end-lo)/DAY+1);
   const barWidth=Math.max(3,(last-first)*unit),klass=r.delivery?'delivery':r.done?'done':r.review?'review':'open';
-  const captionWidth=Math.min(260,width-16),captionRight=Math.min(first*unit,Math.max(8,width-captionWidth-8));
-  const description=r.title+'؛ '+date(r.start)+' تا '+date(r.due)+'؛ '+r.status+(invalid?'؛ تاریخ شروع بعد از مهلت است':'');
-  return '<div class="g2-row"><div class="g2-track">'+(todayVisible?'<i class="g2-today" style="right:'+(todayOffset+.5)*unit+'px" title="امروز"></i>':'')+'<button type="button" class="g2-caption" data-plan-id="'+esc(r.id)+'" data-plan-delivery="'+!!r.delivery+'" style="right:'+captionRight+'px;max-width:'+captionWidth+'px" title="'+esc(description)+'">'+esc(r.title)+'</button><button type="button" class="g2-bar '+klass+'" data-plan-id="'+esc(r.id)+'" data-plan-delivery="'+!!r.delivery+'" style="right:'+first*unit+'px;width:'+barWidth+'px" aria-label="'+esc(description)+'" title="'+esc(description)+'"></button>'+(r.delivery?'<button type="button" class="g2-milestone" data-plan-id="'+esc(r.id)+'" data-plan-delivery="true" style="right:'+Math.min(width-14,Math.max(0,last*unit-7))+'px" title="تحویل: '+esc(r.title)+'" aria-label="تحویل '+esc(r.title)+'"></button>':'')+'</div></div>';
+  const description=r.title+'؛ '+date(r.start)+' تا '+date(r.due)+'؛ '+r.status+(r.owner?'؛ مسئول: '+r.owner:'')+(invalid?'؛ تاریخ شروع بعد از مهلت است':'');
+  return '<div class="g2-row"><div class="g2-track">'+(todayVisible?'<i class="g2-today" style="right:'+(todayOffset+.5)*unit+'px" title="امروز"></i>':'')+'<button type="button" class="g2-bar '+klass+(barWidth<48?' compact':'')+'" data-plan-id="'+esc(r.id)+'" data-plan-delivery="'+!!r.delivery+'" style="right:'+first*unit+'px;width:'+barWidth+'px" aria-label="'+esc(description)+'" title="'+esc(description)+'"><span class="g2-bar-title">'+esc(r.title)+'</span></button>'+(r.delivery?'<button type="button" class="g2-milestone" data-plan-id="'+esc(r.id)+'" data-plan-delivery="true" style="right:'+Math.min(width-14,Math.max(0,last*unit-7))+'px" title="تحویل: '+esc(r.title)+'" aria-label="تحویل '+esc(r.title)+'"></button>':'')+'</div></div>';
  }).join('')+(!visible.length?'<div class="g2-empty">کاری در این بازه زمان‌بندی نشده است.</div>':'')+'</div></div>';
 }
 

@@ -1,9 +1,10 @@
-/* Full-width timeline: task names belong to their bars, with no sticky text column. */
+/* Status colors use the app palette; dates determine bar geometry only. */
+.plan-surface{--g2-open-bg:#eaf0fa;--g2-open-border:#bdcce4;--g2-open-ink:#344f77;--g2-review-bg:#fcf8e9;--g2-review-border:#e4d6a1;--g2-review-ink:#75601f;--g2-done-bg:#f5f1fc;--g2-done-border:#d9ccef;--g2-done-ink:#6d4c9f;--g2-delivery-bg:var(--app-navy,#22375b)}
 .g2-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #e1e7ef;background:#fff}
 .g2-legend{display:flex;gap:14px;flex-wrap:wrap;color:#60748d;font-size:11px}
 .g2-legend span{display:flex;align-items:center;gap:6px}
-.g2-legend span:before{content:'';width:7px;height:7px;border-radius:2px;background:#6685ad}
-.g2-legend .review:before{background:#b99a43}.g2-legend .done:before{background:#578a79}.g2-legend .delivery:before{background:#ba9345;transform:rotate(45deg);border-radius:0}
+.g2-legend span:before{content:'';width:7px;height:7px;border-radius:2px;background:var(--app-blue,#4c6db6)}
+.g2-legend .review:before{background:#b59b4d}.g2-legend .done:before{background:#8967b4}.g2-legend .delivery:before{background:var(--g2-delivery-bg);transform:rotate(45deg);border-radius:0}
 .g2-toolbar>label{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:12px;color:#49617f;margin:0}
 .g2-toolbar select{padding:6px 9px;border:1px solid #d8e2ef;border-radius:6px;background:#f8fafc;color:#405c7f;font:inherit;max-width:180px}
 .g2-today-button{margin-inline-start:auto;border:1px solid #d7e2ef;background:#f5f8fc;color:#49678d;font:inherit;font-size:11px;border-radius:6px;padding:7px 10px;cursor:pointer}
@@ -19,20 +20,22 @@
 .g2-date b{font-size:11px;line-height:1.5;font-weight:500;white-space:nowrap}
 .g2-date small{font-size:8px;color:#7d8da3;line-height:1.4}
 .g2-date.weekend{background:#edf2f8}.g2-date.current{background:#dfeafa;color:#365a8b;box-shadow:inset 0 -2px #5478a7}
-.g2-row{height:62px;border-bottom:1px solid #e8eef5}
+.g2-row{height:56px;border-bottom:1px solid #e8eef5}
 .g2-row:nth-child(odd){background:#fbfcfe}.g2-row:hover{background:#f2f7fd}
 .g2-track{position:relative;height:100%;overflow:hidden;background-image:linear-gradient(to left,#e5ecf5 1px,transparent 1px);background-size:var(--g2-unit) 100%;background-position:right top}
-.desktop-shell .g2-caption{position:absolute;top:5px;z-index:2;border:0;background:transparent;color:#3d587a;font:inherit;font-size:11px;line-height:24px;height:26px;padding:0 4px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
-.g2-bar{position:absolute;top:34px;height:18px;border-radius:4px;border:1px solid #5b7ca5;background:#7291b7;box-sizing:border-box;cursor:pointer;padding:0;z-index:2;box-shadow:0 1px 3px #2d4a7020}
-.g2-bar.done{background:#659585;border-color:#527e6f}.g2-bar.review{background:#c2aa68;border-color:#ad944e}.g2-bar.delivery{background:#d8c38b;border-color:#b69b55}
-.g2-bar:hover{filter:brightness(.94)}.g2-bar:focus-visible,.g2-caption:focus-visible,.g2-milestone:focus-visible{outline:2px solid #36567e;outline-offset:2px}
-.g2-today{position:absolute;top:0;bottom:0;width:1px;background:#c27d64;z-index:1;pointer-events:none}
-.g2-milestone{position:absolute;top:36px;width:13px;height:13px;background:#af8c3e;transform:rotate(45deg);border:2px solid #fff;box-shadow:0 0 0 1px #af8c3e;cursor:pointer;z-index:3;padding:0}
+
+.desktop-shell .g2-bar{position:absolute;top:11px;height:34px;border-radius:7px;border:1px solid var(--g2-open-border);background:var(--g2-open-bg);color:var(--g2-open-ink);box-sizing:border-box;cursor:pointer;padding:0;z-index:2;box-shadow:0 1px 2px #22375b08;text-align:right;overflow:hidden;font:inherit;font-size:12px;font-weight:550;line-height:32px;transition:box-shadow .15s,border-color .15s}
+.g2-bar-title{display:block;box-sizing:border-box;width:100%;padding:0 9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:32px}
+.g2-bar.compact .g2-bar-title{padding:0 2px;font-size:10px}
+.desktop-shell .g2-bar.done{background:var(--g2-done-bg);border-color:var(--g2-done-border);color:var(--g2-done-ink)}.desktop-shell .g2-bar.review{background:var(--g2-review-bg);border-color:var(--g2-review-border);color:var(--g2-review-ink)}.desktop-shell .g2-bar.delivery{background:var(--g2-delivery-bg);border-color:var(--g2-delivery-bg);color:#fff}
+.g2-bar:hover{filter:brightness(.98);box-shadow:0 2px 7px #22375b20}.g2-bar:focus-visible,.g2-milestone:focus-visible{outline:2px solid #36567e;outline-offset:2px}
+.g2-today{position:absolute;top:0;bottom:0;width:1px;background:var(--app-blue,#4c6db6);z-index:1;pointer-events:none}
+.g2-milestone{position:absolute;top:22px;width:12px;height:12px;background:var(--g2-delivery-bg);transform:rotate(45deg);border:2px solid #fff;box-shadow:0 0 0 1px var(--g2-delivery-bg);cursor:pointer;z-index:3;padding:0}
 .g2-empty{padding:45px 16px;text-align:center;color:#657c98;font-size:13px}
 @media(max-width:760px){
  .g2-toolbar{padding:10px;gap:9px}.g2-legend{width:100%;gap:10px;font-size:10px}
  .g2-toolbar>label{margin-inline-start:auto;font-size:11px}.g2-toolbar select{max-width:190px}
  .g2-today-button{margin-inline-start:0;font-size:11px;padding:7px 9px}.g2-scroll{max-height:62dvh}
  .g2-header{height:62px}.g2-months{height:28px}.g2-dates{height:33px}.g2-months b{font-size:11px}
- .g2-row{height:60px}.desktop-shell .g2-caption{font-size:11px}.g2-bar{top:33px;height:17px}.g2-milestone{top:35px}
+ .g2-row{height:54px}.desktop-shell .g2-bar{top:10px;font-size:11px}.g2-milestone{top:21px}
 }
