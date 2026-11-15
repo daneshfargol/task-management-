@@ -12,7 +12,7 @@ function calendar(rows){const lo=stamp(from),hi=stamp(to),offset=(new Date(lo).g
 function gantt(rows){
  const lo=stamp(from),hi=stamp(to)+DAY,count=Math.round((hi-lo)/DAY);
  const available=Math.max(260,(el('#sharedContent')?.clientWidth||window.innerWidth)-4);
- const unit=ganttZoom==='day'?38:ganttZoom==='week'?14:Math.max(10,available/count);
+ const unit=ganttZoom==='day'?38:ganttZoom==='week'?14:Math.max(8,available/count);
  const width=Math.max(available,count*unit),tickEvery=Math.max(1,Math.ceil(32/unit));
  const visible=rows.filter(r=>stamp(r.due)>=lo&&Math.min(stamp(r.start),stamp(r.due))<hi).sort((a,b)=>a.start.localeCompare(b.start)||a.due.localeCompare(b.due));
  const todayOffset=(stamp(todayKey())-lo)/DAY,todayVisible=todayOffset>=0&&todayOffset<count;
