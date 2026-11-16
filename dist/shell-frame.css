@@ -2,8 +2,8 @@
 @media(min-width:761px){
  html body.desktop-shell{background:linear-gradient(145deg,#f1f4fa,#f7f6f2)!important}
  html body.desktop-shell .desktop-sidebar{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
- html body.desktop-shell main,html body.desktop-shell.shared-app main,html body.desktop-shell.task-drawer-open main{box-sizing:border-box;min-height:calc(100dvh - 24px);margin:12px calc(var(--app-sidebar) + 2px) 12px 12px!important;border:1px solid #dfe5ef;border-radius:22px;background:#fff!important;box-shadow:0 8px 32px #243b6010;overflow:clip}
- html body.desktop-shell main>header{border-radius:21px 21px 0 0;background:#fff}
+ html body.desktop-shell main,html body.desktop-shell.shared-app main,html body.desktop-shell.task-drawer-open main{box-sizing:border-box;min-height:calc(100dvh - 48px);margin:24px calc(var(--app-sidebar) + 2px) 24px 24px!important;border:1px solid #dfe5ef;border-radius:22px;background:#fff!important;box-shadow:0 8px 32px #243b6010;overflow:clip}
+ html body.desktop-shell main>header{border-radius:21px 21px 0 0;background:transparent!important;border-bottom:0!important;box-shadow:none!important}
  html[data-ui-theme=dark] body.desktop-shell{background:#101b2b!important}
  html[data-ui-theme=dark] body.desktop-shell main{background:#19283d!important;border-color:#30415a;box-shadow:0 12px 36px #0002}
  html[data-ui-theme=glass] body.desktop-shell{background:radial-gradient(ellipse at 95% 5%,#c7d8ed,transparent 45%),radial-gradient(ellipse at 5% 95%,#e9ddb2,transparent 50%),#edf2f8!important;background-attachment:fixed!important}
