@@ -21,3 +21,10 @@
 #headerTaskSearch::-webkit-search-cancel-button,#headerTaskSearch::-webkit-search-decoration{display:none;-webkit-appearance:none}
 
 .desktop-shell .header-search-box>button{display:flex!important;align-items:center!important;justify-content:center!important;width:26px!important;min-width:26px!important;height:26px!important;min-height:26px!important;flex:0 0 26px!important;padding:0!important;margin:0!important;line-height:1!important;box-sizing:border-box!important;text-align:center;align-self:center!important;border-radius:50%!important;font-family:Arial,sans-serif!important;font-size:20px!important}.desktop-shell .header-search-box>button:focus-visible{outline:2px solid #829cbd;outline-offset:2px}
+
+html.search-modal-open{overflow:hidden}
+.header-search-modal{position:fixed;inset:0;margin:auto;width:min(560px,calc(100vw - 32px));max-width:none;padding:20px;box-sizing:border-box;border:1px solid var(--ui-line,#dce5f1);border-radius:18px;background:var(--ui-soft,#f7f9fc);color:var(--ui-text,#304d70);box-shadow:0 24px 80px #0005;overflow:visible}
+.header-search-modal::backdrop{background:rgba(0,0,0,.68)}
+.desktop-shell .header-search-modal>.header-search-box{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:100%!important;max-width:none!important;height:52px!important;margin:0!important;flex:none!important;background:var(--ui-soft,#fff);border-radius:12px;box-shadow:none}
+.desktop-shell .header-search-modal .header-search-box>button{visibility:visible}
+.desktop-shell .header-search-modal .header-search-box input{font-size:16px!important}

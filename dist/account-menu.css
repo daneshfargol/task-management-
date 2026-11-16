@@ -38,3 +38,5 @@
 .desktop-shell .desk-bottom :is(.account-more,.account-notifications):hover,.desktop-shell .desk-bottom .account-more[aria-expanded=true]{background:var(--ui-button,#e7eef9)}
 .desktop-shell .desk-bottom :is(.account-more,.account-notifications):focus-visible{outline:2px solid #7896b9;outline-offset:2px}
 .desktop-shell .desk-bottom .account-notifications svg{width:22px;height:22px}
+
+.desktop-shell .desk-bottom :is(.account-more,.account-notifications)>svg{display:block;place-self:center;flex:none;margin:0;vertical-align:middle;transform:none}
