@@ -3,3 +3,6 @@
 .startup-brand img{width:82px;height:82px;border-radius:18px}.startup-copy strong{font-size:16px}.startup-copy>span:last-of-type{font-size:11px}@media(max-width:480px){.startup-copy strong{font-size:14px}}
 
 html.startup-font-pending #startupLoading .startup-copy{visibility:hidden}
+
+/* Do not reveal any app branding in a temporary fallback font. */
+html.startup-font-pending body main,html.startup-font-pending body .desktop-sidebar,html.startup-font-pending body .mobile-navigation{visibility:hidden!important}
