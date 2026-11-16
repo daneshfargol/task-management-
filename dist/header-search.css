@@ -15,3 +15,5 @@
 @media(min-width:761px){.desktop-shell main>header>.header-search-box,.desktop-shell main>header.header-search-open>.header-search-box{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;inset-inline-start:auto!important;transform:translate(-50%,-50%)!important;margin:0!important;width:320px;max-width:38%!important;flex:none!important;height:40px}.desktop-shell main>header.header-search-open>.header-search-box{width:420px}.desktop-shell main>header>.desk-top-actions{display:none!important}.desktop-shell main>header .header-tools #deskDate{display:inline-block!important;order:10;margin:0 10px 0 0;color:#60748e;font-size:11px;white-space:nowrap}.desktop-shell main>header .header-tools{position:relative;z-index:2;margin-right:auto!important;margin-left:0!important}}
 
 .desktop-shell main>header .header-tools #deskDate{order:-1!important;margin:0 0 0 12px!important}.desktop-shell main>header .header-tools .shared-user{order:0}
+
+.desktop-shell #sharedSearch,.desktop-shell #claritySearch,.desktop-shell #personalSearch{display:none!important}
