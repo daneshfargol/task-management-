@@ -19,3 +19,5 @@
 .desktop-shell #sharedSearch,.desktop-shell #claritySearch,.desktop-shell #personalSearch{display:none!important}
 
 #headerTaskSearch::-webkit-search-cancel-button,#headerTaskSearch::-webkit-search-decoration{display:none;-webkit-appearance:none}
+
+.desktop-shell .header-search-box>button{display:flex!important;align-items:center!important;justify-content:center!important;width:26px!important;min-width:26px!important;height:26px!important;min-height:26px!important;flex:0 0 26px!important;padding:0!important;margin:0!important;line-height:1!important;box-sizing:border-box!important;text-align:center;align-self:center!important;border-radius:50%!important;font-family:Arial,sans-serif!important;font-size:20px!important}.desktop-shell .header-search-box>button:focus-visible{outline:2px solid #829cbd;outline-offset:2px}
