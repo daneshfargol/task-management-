@@ -4,3 +4,12 @@ input[type="date"][data-shamsi][hidden]{display:none!important}
 .shamsi-date{flex-wrap:wrap}.shamsi-calendar{display:block;flex-basis:100%;padding:12px;border:1px solid #dce2eb;border-radius:12px;background:#fff;max-width:330px;direction:rtl;box-sizing:border-box}.shamsi-calendar[hidden]{display:none}.shamsi-calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.shamsi-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}.shamsi-calendar button{cursor:pointer;border:0;border-radius:7px;background:#f5f7fa;min-height:32px;color:#142d50;font:inherit}.shamsi-calendar button:hover,.shamsi-calendar button.selected{background:#203d63;color:white}.shamsi-calendar button:disabled{opacity:.3;cursor:default}.shamsi-calendar small{padding:5px;color:#64748b}
 
 .task-row-delete{display:inline-flex;align-items:center;justify-content:center;margin:6px 8px;padding:6px 12px;border:1px solid #edd0d2;border-radius:7px;background:#fff6f6;color:#9b343e;font:inherit;font-size:12px;cursor:pointer}.task-row-delete:hover{background:#fce3e5;border-color:#cb8c93}.task-row-delete:focus-visible{outline:2px solid #9b343e;outline-offset:2px}
+
+/* The picker floats in the top layer and never contributes to form height. */
+.desktop-shell .shamsi-date{position:relative;flex-wrap:nowrap}
+html body.desktop-shell .shamsi-calendar{position:fixed;inset:auto;margin:0;width:320px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto;flex:none;padding:16px;border:0;border-radius:20px;background:var(--ui-panel,#edf0f5);color:var(--ui-text,#242b78);box-shadow:0 16px 48px #15244130;z-index:1000}
+.shamsi-calendar::backdrop{background:transparent}
+html body.desktop-shell .shamsi-calendar[hidden]{display:none!important}
+html body.desktop-shell .shamsi-calendar button{background:var(--ui-soft,#e2e7f0);color:var(--ui-text,#242b78);min-height:34px;padding:5px;line-height:1.4;font-size:12px}
+html body.desktop-shell .shamsi-calendar button:is(:hover,.selected){background:var(--ui-accent,#242b78);color:var(--ui-panel,#edf0f5)}
+html body.desktop-shell .shamsi-calendar small{color:var(--ui-muted,#66728d)}
