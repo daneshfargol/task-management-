@@ -1,0 +1,22 @@
+.account-booting .project-hero{display:none}
+.account-loading-status{font-size:11px;color:#6f829c}
+.app-loading{width:100%;max-width:1120px;margin:0 auto;color:#304c70}
+.app-loading-heading{display:flex;align-items:center;gap:12px;margin:4px 0 24px}
+.app-loading-mark{display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;border:1px solid #dce5f4;border-radius:12px;background:#eaf0fa;color:#4c6db6}
+.desktop-shell .app-loading h2{margin:0 0 5px;font-size:23px;line-height:1.5;color:#22375b;font-weight:600}
+.app-loading-text{margin:0;font-size:12px;line-height:1.8;color:#768ba7}
+.app-loading-spinner{width:19px;height:19px;flex:0 0 19px;margin-right:auto;border:2px solid #dce5f3;border-top-color:#647fb0;border-radius:50%;animation:app-loading-spin .9s linear infinite}
+.app-loading-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:23px}
+.app-loading-metrics i{height:76px;background:#eef3fb;border:1px solid #e4ebf6;border-radius:10px}
+.app-loading-metrics i:nth-child(2){background:#faf7ea;border-color:#f1ebd5}.app-loading-metrics i:nth-child(3){background:#f4f0fb;border-color:#ece5f5}
+.app-loading-list{border:1px solid #e1e7f0;border-radius:10px;overflow:hidden;background:#fff}
+.app-loading-list-head{display:flex;justify-content:space-between;gap:20px;padding:18px 20px;background:#fafbfd;border-bottom:1px solid #e8edf4}
+.app-loading-list-head i{display:block;height:9px;width:100px;background:#e9eef6;border-radius:5px}.app-loading-list-head i:last-child{width:65px}
+.app-loading-row{display:flex;gap:14px;align-items:center;padding:23px 20px;border-bottom:1px solid #edf0f6}.app-loading-row:last-child{border-bottom:0}
+.app-loading-row>span{width:22px;height:22px;flex:0 0 22px;border:1px solid #e1e8f2;border-radius:50%;background:#f7f9fc}
+.app-loading-row>div{flex:1;min-width:0}.app-loading-row i{display:block;height:9px;border-radius:4px;background:#e9eef6;width:min(70%,340px)}
+.app-loading-row i+i{height:7px;width:min(42%,190px);background:#f0f3f8;margin-top:11px}.app-loading-row>b{width:64px;height:23px;border-radius:5px;background:#eff3fa}
+.account-booting .desktop-sidebar nav,.account-booting #deskManage{opacity:.5;pointer-events:none}
+@keyframes app-loading-spin{to{transform:rotate(360deg)}}
+@media(max-width:760px){.app-loading-heading{margin:4px 0 18px;gap:10px}.desktop-shell .app-loading h2{font-size:19px}.app-loading-text{font-size:11px}.app-loading-mark{width:38px;height:38px;flex-basis:38px;border-radius:10px}.app-loading-metrics{gap:8px;margin-bottom:16px}.app-loading-metrics i{height:65px}.app-loading-row{padding:19px 13px;gap:10px}.app-loading-list-head{padding:15px 13px}.app-loading-row>b{width:44px;height:20px}.account-loading-status{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.app-loading-spinner{animation:none;border-color:#647fb0}}

@@ -58,7 +58,7 @@
    }
   };
   const previousAuth=authForm;authForm=function(note=''){previousAuth(note);updateNav('mine',false,'','');q('#deskIdentity').innerHTML='<span class="desk-user-avatar">'+ico('users')+'</span><div><b>فضای مشترک سمندیس</b><small>ورود با حساب شخصی</small></div>';q('#deskNewTask').hidden=true;};
-  if(project&&mine())render();else if(!session)authForm();
+  if(project&&mine())render();else if(!session&&!accountBooting)authForm();else if(accountBooting){q('#deskIdentity').innerHTML='<span class="desk-user-avatar">'+ico('users')+'</span><div><b>فضای کاری سمندیس</b><small>در حال اتصال…</small></div>';q('#deskNewTask').hidden=true;}
  }
  document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable="true"]'))return;if(e.key==='Escape'){closeMenu();return}if(e.key==='/'){e.preventDefault();focusSearch()}if(e.key.toLowerCase()==='n'&&!document.querySelector('dialog[open]')){e.preventDefault();q('#deskNewTask').click()}});
 })();
