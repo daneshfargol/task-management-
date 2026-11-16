@@ -82,7 +82,7 @@ The account_preferences migration only adds a preference table; it does not rewr
 
 ## Account-wide project calendar
 
-`all-projects-calendar.js` adds a sidebar entry immediately above the account identity. Visibility uses the existing `sm_personal_owners` capability under its existing RLS policy; no account names or IDs are embedded in the feature and no new access is granted. The read-only dialog stays available in both team and personal project views without changing the current project or navigation.
+`all-projects-calendar.js` adds a sidebar entry immediately above the account identity. Visibility uses the existing `sm_personal_owners` capability under its existing RLS policy; no account names or IDs are embedded in the feature and no new access is granted. The calendar stays available in both team and personal project views. Opening an event uses the original task view (including its existing file tabs). A dedicated Back button restores the original project, personal view, selected calendar day, filters and scroll position. The calendar owns its single close control, locks background scrolling and offers a viewport-filling fullscreen mode.
 
 The calendar reads all visible team projects, every member's team tasks, the account's private personal projects/tasks, and project milestones. Trashed/deleted work is excluded. Days use each task's recorded deadline; undated work is shown separately. The Persian month grid, selected-day agenda, project filters, completion filter and color legend share one projection. Project labels precede task titles. Unique project color indexes are stored in account-private `sm_user_preferences` rows. All collection queries paginate and discard results after an account switch.
 

@@ -20,10 +20,23 @@ test('aggregates every team member and personal project, excludes trash, retains
   const events=model.events(projects,team,personal,[],[{task_id:'trash'}],[{id:'manager',name:'مدیر'},{id:'other',name:'همکار'}]);
   assert.equal(events.length,4);
   assert(events.some(e=>e.title==='کار همکار'&&e.owner==='همکار'));
+  const linked=events.find(e=>e.title==='کار همکار');
+  assert.equal(linked.sourceId,'b');assert.equal(linked.projectId,'team');
   assert(events.some(e=>e.projectName==='پروژه دوم'&&e.due===null));
   assert.equal(model.filter(events,'',false).length,3);
   assert.equal(model.filter(events,'personal:p1',true).length,1);
   assert(!personal[0].status); // Projection leaves database records untouched.
+});
+test('personal navigation bridge opens the original task without rewriting saved project selection',async()=>{
+  const fs=require('node:fs'),vm=require('node:vm');
+  const source=fs.readFileSync('dist/personal-projects.js','utf8');
+  const a=source.indexOf('if(shared)window.SamandisPersonalNavigation='),b=source.indexOf('\n})();',a);
+  const selected=[],context={window:{},shared:true,personal:{id:'p1'},mode:'calendar',filter:'all',query:'متن',calendarMonth:'1405/08/01',loading:0,personalTasks:[{id:'task',deleted:false}],resetNav(){},render(){},taskForm(t){context.opened=t.id},async selectProject(id,options){selected.push({id,remember:options.remember});context.personal={id};}};
+  vm.createContext(context);vm.runInContext(source.slice(a,b),context);
+  const api=context.window.SamandisPersonalNavigation,original=api.context();
+  await api.openTask('p2','task');assert.equal(context.opened,'task');assert.equal(selected[0].remember,false);
+  await api.restore(original);assert.equal(context.personal.id,'p1');assert.equal(context.mode,'calendar');assert.equal(context.query,'متن');assert.equal(selected[1].remember,false);
+  api.leave({renderNow:false});assert.equal(context.personal,null);
 });
 test('calendar weeks start on Saturday and include leap-day/month boundaries',()=>{
   const days=model.days('2024-02-01','2024-03-01');

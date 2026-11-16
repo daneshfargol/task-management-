@@ -42,7 +42,7 @@
     function add(row, kind, extra) {
       const p = projectMap.get((kind === 'personal'?'personal:':'team:') + row.project_id);
       if (!p) return;
-      result.push({id:kind+':'+row.id,projectKey:p.key,projectName:p.name,title:row.title,
+      result.push({id:kind+':'+row.id,sourceId:row.id,projectId:p.id,projectKey:p.key,projectName:p.name,title:row.title,
         description:row.description||'',due:row.due||null,kind,...extra});
     }
     for (const t of teamTasks) if (!deleted.has(t.id)) add(t,'team',{
