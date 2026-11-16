@@ -1,0 +1,10 @@
+.desktop-shell .desk-task-card{position:relative}
+.desktop-shell .board-drag-handle{display:grid;place-items:center;width:30px;height:30px;margin:0 auto 5px;border:1px solid #e1e8f2;border-radius:7px;color:#7a8da8;background:#f8fafd;font-size:22px;line-height:1;cursor:grab;touch-action:none;user-select:none}
+.desktop-shell .board-drag-handle:active{cursor:grabbing}
+.desktop-shell .board-drag-handle:disabled{cursor:wait;opacity:.5}
+.desktop-shell .board-dragging{opacity:.45}
+.desktop-shell .desk-lane.board-drop-allowed{outline:2px dashed #6b9bc7;outline-offset:-3px;background:#edf5ff}
+.desktop-shell .desk-lane.board-drop-blocked{outline:2px dashed #d6a2a2;outline-offset:-3px}
+.desktop-shell .board-move-options{display:grid;gap:5px;padding:10px;margin-top:10px;border:1px solid #dbe5f1;border-radius:8px;background:#f7faff}
+.desktop-shell .board-move-options button{font:inherit;font-size:12px;min-height:36px;border:1px solid #dce6f2;border-radius:6px;background:#fff;color:#34577f;cursor:pointer}
+@media(max-width:760px){.desktop-shell .board-drag-handle{width:40px;height:40px}.desktop-shell .board-move-options button{min-height:44px}}
