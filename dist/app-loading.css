@@ -20,3 +20,5 @@
 @keyframes app-loading-spin{to{transform:rotate(360deg)}}
 @media(max-width:760px){.app-loading-heading{margin:4px 0 18px;gap:10px}.desktop-shell .app-loading h2{font-size:19px}.app-loading-text{font-size:11px}.app-loading-mark{width:38px;height:38px;flex-basis:38px;border-radius:10px}.app-loading-metrics{gap:8px;margin-bottom:16px}.app-loading-metrics i{height:65px}.app-loading-row{padding:19px 13px;gap:10px}.app-loading-list-head{padding:15px 13px}.app-loading-row>b{width:44px;height:20px}.account-loading-status{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.app-loading-spinner{animation:none;border-color:#647fb0}}
+
+.refresh-status{display:flex;align-items:center;justify-content:center;gap:12px;min-height:160px;color:#63758c;font-size:12px}.refresh-status .app-loading-spinner{flex:0 0 19px;width:19px;height:19px}.account-booting #sharedApp{min-height:200px}
