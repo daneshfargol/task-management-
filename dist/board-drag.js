@@ -47,7 +47,7 @@
       if (!possible.length) { handle?.remove(); return; }
       if (handle) { handle.disabled = saving || busy; return; }
       handle = document.createElement('button');
-      handle.type = 'button'; handle.className = 'board-drag-handle'; handle.textContent = '⠿';
+      handle.type = 'button'; handle.className = 'board-drag-handle'; handle.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg>';
       handle.draggable = false; handle.dataset.boardTask = id;
       handle.setAttribute('aria-label', 'جابه‌جایی کار بین ستون‌ها');
       handle.title = 'بکشید و در ستون مقصد رها کنید؛ با کلیک، مقصد را انتخاب کنید.';

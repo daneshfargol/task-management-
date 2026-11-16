@@ -1,6 +1,6 @@
 /* Rounded controls and surfaces; separate list rows with tone rather than outlines. */
 html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(.desk-project,.desk-add,.desk-task-card,.panel,.shared-member,.shared-empty,.range-controls,.personal-task-list,.clarity-list,.plan-surface,.task-upload-panel,.shared-upload,.push-preferences){border-radius:24px!important}
-html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(button:not(.task-tick):not(.calendar-cell):not(.plan-day),input:not([type=checkbox]):not([type=radio]),select){border-radius:999px!important}
+html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(button:not(.task-tick):not(.calendar-cell):not(.plan-day):not(.uc-day),input:not([type=checkbox]):not([type=radio]),select){border-radius:999px!important}
 html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(textarea,fieldset,dialog,.account-more-panel,.task-overflow-menu){border-radius:22px!important}
 html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(.clarity-list,.personal-task-list,.range-controls,.panel,.desk-task-card,.shared-member,.desk-project,.shared-upload,.task-upload-panel,.push-preferences,.shared-empty){border-color:transparent!important}
 html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea){border-color:transparent!important;box-shadow:none}
@@ -49,3 +49,23 @@ html body.desktop-shell .desk-metric .metric-mini{display:grid;place-items:cente
 @media(min-width:761px){html body.desktop-shell .desk-metrics{position:sticky;top:var(--status-header-height,68px);z-index:14;padding:10px 0 12px;background:var(--ui-surface,#edf0f5);margin-bottom:18px}}
 @media(max-width:1000px){html body.desktop-shell .desk-metric{gap:8px;padding:12px 20px;font-size:11px}html body.desktop-shell .desk-metric .metric-symbol{width:32px;height:32px;flex-basis:32px}html body.desktop-shell .desk-metric>span:nth-child(2){min-width:0}html body.desktop-shell .desk-metric .metric-mini{display:none}}
 @media(max-width:760px){html body.desktop-shell .desk-metrics{gap:8px}html body.desktop-shell .desk-metric{height:80px;min-height:80px;gap:5px;padding:10px 6px;font-size:10px}html body.desktop-shell .desk-metric b{font-size:23px}html body.desktop-shell .desk-metric .metric-symbol{display:none}}
+
+/* Keep app chrome concise; task descriptions, errors and activity records stay visible. */
+.desktop-shell :is(.desk-shared-heading>p,.clarity-list-head>div>p,.personal-heading>small,.own-report>.shared-meta,.task-focus-layout .status-note,.uc-header p,.uc-summary>span,.account-profile-details>.shared-meta){display:none!important}
+/* Reveal task details only after all existing tab/edit enhancements finish. */
+html body.desktop-shell dialog[data-detail-preparing=true]{visibility:hidden!important;pointer-events:none!important}
+html body.desktop-shell dialog[data-detail-preparing=true] *{visibility:hidden!important}
+html body.desktop-shell .board-drag-handle{left:12px;top:12px;transform:none;width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:50%!important;background:var(--ui-soft,#e2e7f0);color:var(--ui-muted,#66728d);opacity:.8}
+html body.desktop-shell .board-drag-handle:hover{background:var(--ui-button,#d4ddee);color:var(--ui-text,#242b78);opacity:1}
+html body.desktop-shell .board-drag-handle svg{display:block;width:18px;height:18px}
+/* Calendar dialogs use their own geometry, independent of general modal offsets. */
+html body.desktop-shell #unifiedCalendarDialog[open]{position:fixed;inset:0;margin:auto!important;max-height:calc(100dvh - 32px)!important;height:min(820px,calc(100dvh - 32px));border:0;overflow:hidden}
+html body.desktop-shell #unifiedCalendarDialog.uc-fullscreen[open]{inset:0!important;margin:0!important;width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;border:0!important;border-radius:0!important;transform:none!important}
+html body.desktop-shell #unifiedCalendarDialog .uc-header{padding:14px 24px;min-height:64px;box-sizing:border-box;background:var(--ui-surface,#edf0f5);border:0}
+html body.desktop-shell #unifiedCalendarDialog .uc-header h2{font-size:19px}
+html body.desktop-shell #unifiedCalendarDialog .uc-content{padding:16px 24px 24px;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+html body.desktop-shell #unifiedCalendarDialog.uc-fullscreen .uc-day{min-height:clamp(78px,11dvh,120px)}
+html body.desktop-shell #unifiedCalendarDialog .uc-summary{margin-bottom:12px}
+html body.desktop-shell #unifiedCalendarDialog :is(.uc-legend,.uc-calendar,.uc-agenda){border-color:transparent;background:var(--ui-soft,#e2e7f0)}
+html body.desktop-shell #unifiedCalendarDialog .uc-day{background:var(--ui-panel,#edf0f5);color:var(--ui-text,#242b78);border-color:var(--ui-line,#ccd5e4)}
+@media(max-width:600px){html body.desktop-shell #unifiedCalendarDialog .uc-content{padding:12px}html body.desktop-shell #unifiedCalendarDialog .uc-header{padding:12px 14px}html body.desktop-shell #unifiedCalendarDialog.uc-fullscreen .uc-day{min-height:68px}}
