@@ -17,3 +17,5 @@
 .desktop-shell main>header .header-tools #deskDate{order:-1!important;margin:0 0 0 12px!important}.desktop-shell main>header .header-tools .shared-user{order:0}
 
 .desktop-shell #sharedSearch,.desktop-shell #claritySearch,.desktop-shell #personalSearch{display:none!important}
+
+#headerTaskSearch::-webkit-search-cancel-button,#headerTaskSearch::-webkit-search-decoration{display:none;-webkit-appearance:none}
