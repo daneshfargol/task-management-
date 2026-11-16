@@ -2,7 +2,7 @@
 @media(min-width:761px){
  html body.desktop-shell{height:100dvh;overflow:hidden;background:linear-gradient(145deg,#f1f4fa,#f7f6f2)!important}
  html body.desktop-shell .desktop-sidebar{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
- html body.desktop-shell main,html body.desktop-shell.shared-app main,html body.desktop-shell.task-drawer-open main{box-sizing:border-box;height:calc(100dvh - 44px);min-height:0;margin:32px calc(var(--app-sidebar) + 2px) 12px 24px!important;border:1px solid #dfe5ef;border-radius:22px;background:#fff!important;box-shadow:0 8px 32px #243b6010;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+ html body.desktop-shell main,html body.desktop-shell.shared-app main,html body.desktop-shell.task-drawer-open main{box-sizing:border-box;position:fixed;inset:32px calc(var(--app-sidebar) + 2px) 6px 24px;height:auto;min-height:0;margin:0!important;border:1px solid #dfe5ef;border-radius:22px;background:#fff!important;box-shadow:0 8px 32px #243b6010;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
  html[data-ui-theme] body.desktop-shell main>header{border-radius:21px 21px 0 0;background:#fff!important;border-bottom:0!important;box-shadow:none!important}
  html[data-ui-theme=dark] body.desktop-shell main>header{background:#19283d!important}
  html[data-ui-theme=glass] body.desktop-shell main>header{background:#f5f8fc!important}
