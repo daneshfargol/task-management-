@@ -23,3 +23,12 @@
 @media(max-width:760px){.desktop-shell .account-settings-link,.account-notification-settings>summary{min-height:44px}.desktop-shell .account-notification-settings .push-preferences button{min-height:40px}}
 
 .desktop-shell .account-more-panel .account-trash-link{order:2}.desktop-shell .account-more-panel .account-trash-link[hidden]{display:none!important}
+
+/* Keep notifications beside account actions; the header no longer repeats identity. */
+.desktop-shell main>header .shared-user,.desktop-shell main>header #sharedBell{display:none!important}
+.desktop-shell .account-notifications{position:relative;display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;padding:5px;border:1px solid var(--ui-line,#dce5f1);border-radius:11px;background:var(--ui-soft,#f3f6fb);color:var(--ui-text,#44658d);cursor:pointer}
+.account-notifications:hover{background:var(--ui-button,#e7eef9)}.account-notifications svg{transition:transform .18s;transform-origin:50% 20%}.account-notifications:hover svg{transform:rotate(-7deg)}
+.account-notifications.has-unread{border-color:#d8c68e}
+.account-notice-count{position:absolute;top:-5px;right:-4px;min-width:16px;height:16px;box-sizing:border-box;padding:0 4px;border-radius:9px;background:#f2e7ad;color:#665421;border:1px solid #e1d093;font:inherit;font-size:9px;line-height:14px;text-align:center}
+.account-notifications:focus-visible{outline:2px solid #7896b9;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.account-notifications svg{transition:none}.account-notifications:hover svg{transform:none}}
