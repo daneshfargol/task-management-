@@ -46,11 +46,11 @@
         description:row.description||'',due:row.due||null,kind,...extra});
     }
     for (const t of teamTasks) if (!deleted.has(t.id)) add(t,'team',{
-      done:t.status==='done',status:{open:'در دست انجام',review:'منتظر تأیید',done:'انجام‌شده'}[t.status]||t.status,
+      done:t.status==='done',status:{open:'در دست اقدام',review:'منتظر تأیید',done:'انجام‌شده'}[t.status]||t.status,
       owner:people.get(t.owner_id)||'عضو پیشین'
     });
     for (const t of personalTasks) if (!t.deleted) add(t,'personal',{
-      done:!!t.done,status:t.done?'انجام‌شده':'در دست انجام',
+      done:!!t.done,status:t.done?'انجام‌شده':'در دست اقدام',
       owner:(t.responsible_names?.length?t.responsible_names:[t.responsible_name]).filter(Boolean).join('، ')
     });
     for (const t of milestones) add(t,'milestone',{done:t.status==='delivered',status:'موعد تحویل پروژه',owner:''});

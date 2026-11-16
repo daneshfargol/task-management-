@@ -4,7 +4,7 @@ const el=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=
 const fa=n=>Number(n).toLocaleString('fa-IR'),date=s=>s?new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeZone:'Asia/Tehran'}).format(new Date(s)):'بدون مهلت';
 let accountBooting=true;
 let session=null,project=null,projects=[],members=[],tasks=[],sharedDeleted=[],notices=[],scope='mine',phase='all',search='',selectedTask=null,busy=false,poll=null,authGeneration=0;
-const labels={open:'در دست انجام',review:'منتظر تأیید',done:'تمام‌شده'},eventLabels={created:'تعریف کار',submit:'انجام شد؛ ارسال برای تأیید',approve:'تأیید نهایی',correct:'درخواست اصلاح',reopen:'بازگشایی',assign:'تغییر مسئول یا همکار',edit:'ویرایش مشخصات',request:'درخواست تغییر مسئول یا همکاری',file:'بارگذاری فایل'};
+const labels={open:'در دست اقدام',review:'منتظر تأیید',done:'تمام‌شده'},eventLabels={created:'تعریف کار',submit:'انجام شد؛ ارسال برای تأیید',approve:'تأیید نهایی',correct:'درخواست اصلاح',reopen:'بازگشایی',assign:'تغییر مسئول یا همکار',edit:'ویرایش مشخصات',request:'درخواست تغییر مسئول یا همکاری',file:'بارگذاری فایل'};
 const mine=()=>members.find(m=>m.user_id===session?.user.id&&m.active),member=id=>members.find(m=>m.id===id),person=id=>member(id)?.name||'عضو پیشین',management=()=>['director','supervisor'].includes(mine()?.role);
 const canManage=t=>management();
 const own=t=>t.owner_id===mine()?.id,collaborating=t=>t.collaborators.includes(mine()?.id),contribute=t=>own(t)||collaborating(t)||canManage(t),reviewer=t=>canManage(t)&&t.reviewer_id===mine()?.id;
