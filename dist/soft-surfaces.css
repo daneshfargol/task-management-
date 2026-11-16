@@ -86,3 +86,21 @@ html[data-ui-theme] body.desktop-shell .desk-project .project-glyph{display:grid
 html[data-ui-theme] body.desktop-shell .desk-project small{color:var(--ui-muted,#66728d)!important;font-size:10px}
 html[data-ui-theme] body.desktop-shell .desk-project>svg{color:var(--ui-muted,#66728d);margin-left:2px}
 @media(max-width:600px){html[data-ui-theme] body.desktop-shell :is(.shared-filter,.clarity-filters,.personal-tools>div:first-child)>button{min-width:60px;padding:8px 12px!important;font-size:10px}}
+
+/* Clip native scrollbars and header paint to the rounded workspace boundary. */
+@media(min-width:761px){html[data-ui-theme] body.desktop-shell main,html[data-ui-theme] body.desktop-shell.shared-app main{border-radius:28px!important;clip-path:inset(0 round 28px);scrollbar-color:#9ba8bf transparent;scrollbar-width:thin}html[data-ui-theme] body.desktop-shell main>header{border-radius:27px 27px 0 0}html[data-ui-theme] body.desktop-shell main::-webkit-scrollbar{width:8px}html[data-ui-theme] body.desktop-shell main::-webkit-scrollbar-track{background:transparent;margin:28px 0}html[data-ui-theme] body.desktop-shell main::-webkit-scrollbar-thumb{background:#9ba8bf;border:2px solid var(--ui-panel,#edf0f5);border-radius:999px}}
+/* Blend the original brand mark into the sidebar rather than showing a photo tile. */
+html[data-ui-theme] body.desktop-shell .desk-brand img{display:block;width:52px;height:52px;flex:0 0 52px;object-fit:contain;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;mix-blend-mode:multiply;clip-path:inset(0 12% 28% 12%);margin:-3px -6px -17px}
+html[data-ui-theme=dark] body.desktop-shell .desk-brand img{mix-blend-mode:screen;filter:invert(1) hue-rotate(180deg)}
+/* Stronger type hierarchy and softer row tones, without low-contrast fine print. */
+html[data-ui-theme=light],html[data-ui-theme=glass]{--task-ink:#253650;--task-secondary:#4d5e78;--task-row:#e9edf4;--task-row-alt:#dfe5ef;--task-head:#cbd5e7}
+html[data-ui-theme=dark]{--task-ink:#e3ebf7;--task-secondary:#bccbe0;--task-row:#1b2942;--task-row-alt:#253550;--task-head:#334866}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr,.personal-task-row){background:var(--task-row)!important}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr:nth-child(even),.personal-task-row:nth-child(odd)){background:var(--task-row-alt)!important}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table thead th,.personal-list-labels){background:var(--task-head)!important;color:var(--task-ink)!important;font-weight:600;font-size:11px}
+html[data-ui-theme] body.desktop-shell :is(#sharedApp,#workspace) :is(.shared-task-title,.task-title,.personal-task-title){color:var(--task-ink)!important;font-weight:650;font-size:13px;line-height:1.9}
+html[data-ui-theme] body.desktop-shell :is(#sharedApp,#workspace) :is(.task-description-preview,.personal-task-description,.desk-task-card>p,.team-names-under-owner,.task-collaborator-names,.clarity-table .owner){color:var(--task-secondary)!important;font-size:12px;font-weight:400;line-height:1.95}
+html[data-ui-theme] body.desktop-shell .clarity-table td{color:var(--task-ink)!important}
+html[data-ui-theme] body.desktop-shell .clarity-table tr{padding-top:18px;padding-bottom:18px}
+html[data-ui-theme] body.desktop-shell .task-tick{border-color:#8d9bb3;background:var(--ui-panel,#edf0f5)}
+html[data-ui-theme] body.desktop-shell .task-tick.done{background:var(--ui-accent,#242b78);color:var(--ui-panel,#edf0f5);border-color:var(--ui-accent,#242b78)}
