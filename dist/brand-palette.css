@@ -1,0 +1,33 @@
+/* Royal blue, silver surfaces and restrained yellow accents. */
+:root,html[data-ui-theme=light]{--app-navy:#242b78;--app-blue:#3b4f99;--app-muted:#7a8aad;--app-line:#d0d8e6;--app-yellow:#e1cc64;--ui-bg:#dee3ec;--ui-panel:#edf0f5;--ui-surface:#edf0f5;--ui-soft:#e2e7f0;--ui-line:#ccd5e4;--ui-text:#242b78;--ui-muted:#66728d;--ui-accent:#242b78;--ui-button:#d4ddee;--ui-side:#dee3ec}
+html[data-ui-theme=glass]{--ui-bg:#dce3ef;--ui-panel:#edf0f5d9;--ui-surface:#edf0f5;--ui-soft:#e2e8f3cc;--ui-line:#c4cfe2b3;--ui-text:#242b78;--ui-muted:#63738e;--ui-accent:#242b78;--ui-button:#d1dcf0d9;--ui-side:#e0e6f0cc}
+html[data-ui-theme=dark]{--ui-bg:#121a30;--ui-panel:#1b2640;--ui-surface:#1b2640;--ui-soft:#263550;--ui-line:#3a4964;--ui-text:#e0e7f4;--ui-muted:#a3b0c9;--ui-accent:#bacbf0;--ui-button:#354c75;--ui-side:#172139}
+html[data-ui-theme] body.desktop-shell{background:var(--ui-bg)!important;color:var(--ui-text)!important}
+html[data-ui-theme] body.desktop-shell main,html[data-ui-theme] body.desktop-shell.shared-app main,html[data-ui-theme] body.desktop-shell.task-drawer-open main{background:var(--ui-panel)!important;border-color:var(--ui-line)!important;box-shadow:0 8px 32px #242b7810}
+html[data-ui-theme] body.desktop-shell main>header{background:var(--ui-surface)!important}
+html[data-ui-theme=glass] body.desktop-shell{background:radial-gradient(ellipse at 95% 5%,#c5d3ed,transparent 45%),radial-gradient(ellipse at 5% 95%,#e6dba5,transparent 50%),#dee3ec!important}
+html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(.clarity-list,.personal-task-list,.desk-task-card,.panel,.account-more-panel,dialog,.login-card,.shared-message,.plan-surface,.task-overflow-menu,.desk-project,.shared-member,.shared-empty,.plan-undated,.uc-agenda,.uc-shell){background:var(--ui-panel)!important;border-color:var(--ui-line)!important;color:var(--ui-text)!important}
+html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(h1,h2,h3,.desk-brand,.desk-brand>span,.desk-project b,.desk-top-context b,.desk-top-project,.shared-task-title,.personal-task-title,.task-title,.clarity-table td,.clarity-table .owner,.team-names-under-owner,#deskIdentity b,#deskIdentity small,.account-role-info){color:var(--ui-text)!important}
+html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(.desk-brand small,.desk-nav-label,.shared-meta,.desk-page-eyebrow,.desk-shared-heading p,.clarity-list-head p,.shared-tag,.desk-top-context,.header-tools #deskDate){color:var(--ui-muted)!important}
+html[data-ui-theme] .desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]),select,textarea,.header-search-box,.secondary,.range-controls,.push-preferences,.desk-lane,.task-sort-control select){background:var(--ui-soft)!important;border-color:var(--ui-line)!important;color:var(--ui-text)!important}
+html[data-ui-theme] .desktop-shell .header-search-box input{background:transparent!important}
+html[data-ui-theme] .desktop-shell input::placeholder{color:var(--ui-muted)!important}
+html[data-ui-theme] .desktop-shell :is(.desktop-sidebar nav button,.desktop-sidebar #deskManage button){color:var(--ui-muted)!important}
+html[data-ui-theme] .desktop-shell :is(.desktop-sidebar nav button.active,.desktop-sidebar nav button:hover,.desktop-sidebar #deskManage button.active,.shared-filter button.active,.team-subnav button.selected){background:var(--ui-button)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+html[data-ui-theme] .desktop-shell :is(.primary,.own-report-actions .primary){background:#242b78!important;color:#f4f6fb!important;border-color:#242b78!important}
+html[data-ui-theme] .desktop-shell .desk-add{background:#e1cc64!important;color:#55491e!important}
+html[data-ui-theme] .desktop-shell .desk-metric{background:#dce5f5!important;color:#485f90!important;border-color:#cdd9ee!important}
+html[data-ui-theme] .desktop-shell .desk-metric.yellow{background:#eee6bf!important;color:#7a682d!important}
+html[data-ui-theme] .desktop-shell .desk-metric.purple{background:#e2e0f0!important;color:#68638e!important}
+html[data-ui-theme] .desktop-shell .desk-metric b{color:#242b78!important}
+html[data-ui-theme=dark] .desktop-shell .desk-metric{background:#293c60!important;border-color:#3a4964!important}
+html[data-ui-theme=dark] .desktop-shell .desk-metric.yellow{background:#48412c!important}
+html[data-ui-theme=dark] .desktop-shell .desk-metric.purple{background:#373751!important}
+html[data-ui-theme=dark] .desktop-shell .desk-metric b{color:#c6d6f5!important}
+html[data-ui-theme] .desktop-shell :is(.clarity-table td,.clarity-table th,.shared-section,.desk-bottom,.team-subnav){border-color:var(--ui-line)!important}
+html[data-ui-theme] .desktop-shell .clarity-table tr:hover{background:var(--ui-soft)!important}
+html[data-ui-theme] #startupLoading{background:var(--ui-bg)!important;color:var(--ui-text)!important}
+html[data-ui-theme] .startup-copy>span:last-of-type{color:var(--ui-muted)!important}
+.theme-swatch.light{background:#edf0f5;border-color:#c7d1e1}.theme-swatch.light i{background:#d1dced}.theme-swatch.light b{background:#566ba6}.theme-swatch.light em{background:#e1cc64}
+.theme-swatch.dark{background:#1b2640;border-color:#3a4964}.theme-swatch.dark i{background:#263550}.theme-swatch.dark b{background:#a7bce3}
+.theme-swatch.glass{background:linear-gradient(140deg,#c5d3ed,#e9dfb1)}
