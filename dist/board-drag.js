@@ -48,7 +48,7 @@
       if (handle) { handle.disabled = saving || busy; return; }
       handle = document.createElement('button');
       handle.type = 'button'; handle.className = 'board-drag-handle'; handle.textContent = '⠿';
-      handle.draggable = true; handle.dataset.boardTask = id;
+      handle.draggable = false; handle.dataset.boardTask = id;
       handle.setAttribute('aria-label', 'جابه‌جایی کار بین ستون‌ها');
       handle.title = 'بکشید و در ستون مقصد رها کنید؛ با کلیک، مقصد را انتخاب کنید.';
       handle.disabled = saving || busy;
@@ -68,56 +68,48 @@
       card.prepend(handle);
     });
   }
-  document.addEventListener('dragstart', event => {
-    const handle = event.target.closest?.('.board-drag-handle');
-    if (!handle || saving || busy) return;
-    dragged = handle.dataset.boardTask;
-    event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', dragged);
-    const card = handle.closest('.desk-task-card'); card.classList.add('board-dragging');
-    event.dataTransfer.setDragImage(card, card.clientWidth / 2, 24);
-  });
-  document.addEventListener('dragover', event => {
-    if (!dragged) return;
-    const lane = event.target.closest?.('.desk-board .desk-lane');
-    if (!lane) { highlight(null); return; }
-    event.preventDefault(); highlight(lane);
-    event.dataTransfer.dropEffect = transition(tasks.find(task => task.id === dragged), laneState(lane)) ? 'move' : 'none';
-  });
-  document.addEventListener('drop', event => {
-    if (!dragged) return;
-    event.preventDefault(); const id = dragged, lane = event.target.closest?.('.desk-board .desk-lane');
-    clear(); suppressClickUntil = Date.now() + 400;
-    if (lane) move(id, laneState(lane));
-  });
-  document.addEventListener('dragend', clear);
-  // A dedicated grip enables touch dragging while the rest of a card still scrolls normally.
+
+  let preview = null;
+  function finishPointer() { preview?.remove(); preview = null; touch = null; clear(); }
   document.addEventListener('pointerdown', event => {
-    const handle = event.target.closest?.('.board-drag-handle');
-    if (!handle || event.pointerType === 'mouse' || saving || busy) return;
-    touch = {id: event.pointerId, task: handle.dataset.boardTask, handle, x: event.clientX, y: event.clientY, moved: false};
-    handle.setPointerCapture(event.pointerId);
+    if (event.button !== 0 || saving || busy) return;
+    const card = event.target.closest?.('.desk-board .desk-task-card');
+    const handle = card?.querySelector('.board-drag-handle');
+    if (!handle || handle.disabled || event.target.closest('input,textarea,select,.task-overflow-button,.task-tick,.board-move-options,.row-upload')) return;
+    if (event.pointerType !== 'mouse' && !event.target.closest('.board-drag-handle')) return;
+    touch = {id:event.pointerId,task:handle.dataset.boardTask,handle,card,x:event.clientX,y:event.clientY,moved:false};
+    event.target.setPointerCapture(event.pointerId);
   });
   document.addEventListener('pointermove', event => {
     if (!touch || touch.id !== event.pointerId) return;
-    if (!touch.moved && Math.hypot(event.clientX - touch.x, event.clientY - touch.y) < 9) return;
-    touch.moved = true; dragged = touch.task;
-    touch.handle.closest('.desk-task-card').classList.add('board-dragging');
-    highlight(document.elementFromPoint(event.clientX, event.clientY)?.closest('.desk-lane'));
-    const board = touch.handle.closest('.desk-board'), rect = board.getBoundingClientRect();
-    if (event.clientX < rect.left + 40) board.scrollBy(-18, 0);
-    if (event.clientX > rect.right - 40) board.scrollBy(18, 0);
-  });
+    if (!touch.moved && Math.hypot(event.clientX-touch.x,event.clientY-touch.y)<8) return;
+    event.preventDefault();
+    if (!touch.moved) {
+      touch.moved=true;dragged=touch.task;
+      const rect=touch.card.getBoundingClientRect();
+      preview=touch.card.cloneNode(true);preview.classList.add('board-drag-preview');
+      preview.style.width=rect.width+'px';preview.setAttribute('aria-hidden','true');
+      preview.querySelectorAll('[id]').forEach(node=>node.removeAttribute('id'));
+      document.body.append(preview);touch.card.classList.add('board-dragging');
+    }
+    preview.style.left=event.clientX+14+'px';preview.style.top=event.clientY+10+'px';
+    highlight(document.elementFromPoint(event.clientX,event.clientY)?.closest('.desk-lane'));
+    const board=touch.card.closest('.desk-board'),r=board.getBoundingClientRect();
+    if(event.clientX<r.left+40)board.scrollBy(-18,0);
+    if(event.clientX>r.right-40)board.scrollBy(18,0);
+  },{passive:false});
   document.addEventListener('pointerup', event => {
-    if (!touch || touch.id !== event.pointerId) return;
-    const current = touch; touch = null;
-    const lane = document.elementFromPoint(event.clientX, event.clientY)?.closest('.desk-lane');
-    clear();
-    if (current.moved) { suppressClickUntil = Date.now() + 500; if (lane) move(current.task, laneState(lane)); }
+    if(!touch||touch.id!==event.pointerId)return;
+    const current=touch,lane=document.elementFromPoint(event.clientX,event.clientY)?.closest('.desk-lane');
+    if(current.moved){event.preventDefault();suppressClickUntil=Date.now()+500}
+    finishPointer();
+    if(current.moved&&lane)move(current.task,laneState(lane));
   });
-  document.addEventListener('pointercancel', () => { touch = null; clear(); });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') { touch = null; clear(); document.querySelectorAll('.board-move-options').forEach(node => node.remove()); } });
+  document.addEventListener('click',event=>{if(Date.now()<suppressClickUntil&&event.target.closest?.('.desk-task-card')){event.preventDefault();event.stopImmediatePropagation()}},true);
+  document.addEventListener('pointercancel',finishPointer);
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') { finishPointer(); document.querySelectorAll('.board-move-options').forEach(node => node.remove()); } });
   const previousTasks = renderTasks;
-  renderTasks = function(...args) { clear(); const result = previousTasks(...args); enhance(); return result; };
+  renderTasks = function(...args) { finishPointer(); const result = previousTasks(...args); enhance(); return result; };
   // Other layout and sorting modules can also rebuild the board.
   const host = document.querySelector('#sharedApp');
   if (host) new MutationObserver(records => {
