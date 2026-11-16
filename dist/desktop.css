@@ -42,3 +42,7 @@ html body.desktop-shell,html body.desktop-shell *,html body.desktop-shell *::bef
 .desktop-shell .desk-project .project-glyph{width:28px;flex:0 0 28px}
 .desktop-shell .desk-project>svg{width:12px;flex:0 0 12px}
 .desktop-shell .desk-project small{display:block;font-size:11px;line-height:1.6;white-space:nowrap}
+
+/* Softer, gently oval summary cards on every screen size. */
+html body.desktop-shell .desk-metric{border-radius:26px}
+html body.desktop-shell .desk-metric .metric-symbol{border-radius:16px}
