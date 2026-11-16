@@ -28,3 +28,16 @@ html.search-modal-open{overflow:hidden}
 .desktop-shell .header-search-modal>.header-search-box{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:100%!important;max-width:none!important;height:52px!important;margin:0!important;flex:none!important;background:var(--ui-soft,#fff);border-radius:12px;box-shadow:none}
 .desktop-shell .header-search-modal .header-search-box>button{visibility:visible}
 .desktop-shell .header-search-modal .header-search-box input{font-size:16px!important}
+
+/* Center the search independently of the general task-dialog offsets. */
+html body.desktop-shell dialog.header-search-modal[open]{position:fixed!important;inset:50% auto auto 50%!important;transform:translate(-50%,-50%)!important;margin:0!important;width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 48px)!important;padding:24px;border-radius:20px;background:var(--ui-surface,#fff);border:1px solid var(--ui-line,#e2e8f1);box-shadow:0 24px 90px #06172c40;direction:rtl;overflow:auto}
+html body.desktop-shell dialog.header-search-modal::backdrop{background:rgba(0,0,0,.48)!important;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.search-modal-heading{display:flex;flex-direction:column;gap:6px;margin:0 0 20px;text-align:right}
+.search-modal-heading strong{font-size:18px;font-weight:650;color:var(--ui-text,#304d70);line-height:1.7}
+.search-modal-heading span{font-size:12px;line-height:1.8;color:var(--ui-muted,#8493a9)}
+.desktop-shell .header-search-modal>.header-search-box{height:54px!important;padding:0 14px!important;gap:12px;background:var(--ui-soft,#f6f8fc);border:1px solid var(--ui-line,#dce5f1);border-radius:12px}
+.desktop-shell .header-search-modal>.header-search-box:focus-within{border-color:#8ea6c5;box-shadow:0 0 0 3px #8ea6c514}
+.desktop-shell .header-search-modal .header-search-box input{line-height:1.8;padding:0!important;height:auto!important;color:var(--ui-text,#304d70)}
+.desktop-shell .header-search-modal .header-search-box>button{background:transparent;color:var(--ui-muted,#8493a9)}
+.desktop-shell .header-search-modal .header-search-box>button:hover{background:var(--ui-button,#e7edf6);color:var(--ui-text,#304d70)}
+@media(max-width:480px){html body.desktop-shell dialog.header-search-modal[open]{padding:20px}.search-modal-heading{margin-bottom:16px}.search-modal-heading strong{font-size:16px}}
