@@ -32,3 +32,9 @@
 .account-notice-count{position:absolute;top:-5px;right:-4px;min-width:16px;height:16px;box-sizing:border-box;padding:0 4px;border-radius:9px;background:#f2e7ad;color:#665421;border:1px solid #e1d093;font:inherit;font-size:9px;line-height:14px;text-align:center}
 .account-notifications:focus-visible{outline:2px solid #7896b9;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.account-notifications svg{transition:none}.account-notifications:hover svg{transform:none}}
+
+/* Shared geometry and interaction states for footer actions. */
+.desktop-shell .desk-bottom :is(.account-more,.account-notifications){appearance:none;box-sizing:border-box;display:grid;place-items:center;width:36px;height:36px;min-width:36px;min-height:36px;flex:0 0 36px;margin:0;padding:5px;border:1px solid var(--ui-line,#dce5f1);border-radius:10px;background:var(--ui-soft,#f3f6fb);color:var(--ui-text,#44658d);box-shadow:none;font:inherit;font-size:22px;line-height:1;cursor:pointer;outline:none}
+.desktop-shell .desk-bottom :is(.account-more,.account-notifications):hover,.desktop-shell .desk-bottom .account-more[aria-expanded=true]{background:var(--ui-button,#e7eef9)}
+.desktop-shell .desk-bottom :is(.account-more,.account-notifications):focus-visible{outline:2px solid #7896b9;outline-offset:2px}
+.desktop-shell .desk-bottom .account-notifications svg{width:22px;height:22px}
