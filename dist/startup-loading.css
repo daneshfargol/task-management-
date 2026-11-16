@@ -6,3 +6,14 @@ html.startup-font-pending #startupLoading .startup-copy{visibility:hidden}
 
 /* Do not reveal any app branding in a temporary fallback font. */
 html.startup-font-pending body main,html.startup-font-pending body .desktop-sidebar,html.startup-font-pending body .mobile-navigation{visibility:hidden!important}
+
+/* Branding is an isolated image: app font initialization cannot alter its metrics. */
+html body #startupLoading .startup-eyebrow{display:block;width:160px;height:18px;min-height:18px;margin:0 0 12px;padding:0;line-height:0;letter-spacing:0;flex:none}
+html body #startupLoading .startup-eyebrow img{display:block;width:160px!important;height:18px!important;max-width:none;object-fit:contain;animation:none!important;transform:none!important}
+html body #startupLoading .startup-scene{width:100px;height:100px;margin-bottom:28px;transform:none;scale:1}
+html body #startupLoading :is(.startup-blueprint,.startup-frame){display:none!important}
+html body #startupLoading .startup-brand{position:static;width:96px;height:96px;translate:none;animation:none!important;transform:none;border-radius:24px;background:#fff;box-shadow:0 8px 28px #242b7810;border:0}
+html body #startupLoading .startup-brand img{display:block;width:64px;height:64px;object-fit:contain;border-radius:0;mix-blend-mode:normal}
+html body #startupLoading .startup-copy{gap:8px}
+html body #startupLoading .startup-copy strong{font-size:16px;line-height:2;margin:0;animation:none;transform:none}
+html body #startupLoading .startup-copy>span:last-of-type{font-size:11px;line-height:1.9}
