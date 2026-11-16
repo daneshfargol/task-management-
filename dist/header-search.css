@@ -41,3 +41,20 @@ html body.desktop-shell dialog.header-search-modal::backdrop{background:rgba(0,0
 .desktop-shell .header-search-modal .header-search-box>button{background:transparent;color:var(--ui-muted,#8493a9)}
 .desktop-shell .header-search-modal .header-search-box>button:hover{background:var(--ui-button,#e7edf6);color:var(--ui-text,#304d70)}
 @media(max-width:480px){html body.desktop-shell dialog.header-search-modal[open]{padding:20px}.search-modal-heading{margin-bottom:16px}.search-modal-heading strong{font-size:16px}}
+
+/* Expand search near the header into a lightweight suggestion surface. */
+html body.desktop-shell dialog.header-search-modal[open]{inset:var(--search-top,48px) auto auto var(--search-center,50%)!important;transform:translateX(-50%)!important;width:min(640px,calc(100vw - 32px));max-height:calc(100dvh - var(--search-top,48px) - 16px)!important;padding:20px;border-radius:24px!important;box-shadow:0 16px 48px #14213d24}
+html body.desktop-shell dialog.header-search-modal::backdrop{background:rgba(13,20,38,.16)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.header-search-modal .search-modal-heading{gap:3px;margin-bottom:14px}
+.header-search-modal .search-modal-heading strong{font-size:15px}
+.header-search-modal .search-modal-heading span{font-size:11px}
+.search-result-status{font-size:11px;line-height:1.9;color:var(--ui-muted,#66728d);margin:18px 4px 8px}
+.search-suggestions{display:flex;flex-direction:column;gap:5px;min-height:44px}
+html[data-ui-theme] .desktop-shell .search-suggestion{display:flex;align-items:center;gap:12px;width:100%;padding:12px;text-align:right;background:transparent;border:0;border-radius:16px!important;color:var(--ui-text,#242b78);cursor:pointer;min-height:64px}
+html[data-ui-theme] .desktop-shell .search-suggestion:is(:hover,:focus-visible){background:var(--ui-soft,#e2e7f0)}
+.search-suggestion-icon{display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;border-radius:50%;background:var(--ui-soft,#e2e7f0);font-size:17px;color:var(--ui-muted,#66728d)}
+.search-suggestion>span:last-child{min-width:0;flex:1}
+.search-suggestion strong{display:block;font-size:13px;font-weight:550;line-height:1.9;overflow-wrap:anywhere}
+.search-suggestion small{display:block;margin-top:2px;color:var(--ui-muted,#66728d);font-size:10px;line-height:1.8}
+.search-more-hint{display:block;text-align:center;padding:12px 6px;color:var(--ui-muted,#66728d);font-size:10px}
+@media(max-width:760px){html body.desktop-shell dialog.header-search-modal[open]{padding:16px}.search-suggestion strong{font-size:12px}}
