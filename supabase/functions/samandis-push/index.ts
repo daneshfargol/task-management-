@@ -35,7 +35,7 @@ Deno.serve(async request => {
           if (target.protocol !== 'https:' || target.port || target.username || target.password || !/^(fcm\.googleapis\.com|updates\.push\.services\.mozilla\.com|([a-z0-9-]+\.)*push\.apple\.com|([a-z0-9-]+\.)+notify\.windows\.com)$/i.test(target.hostname)) throw new Error('Invalid endpoint');
           const result = await webpush.sendNotification(job.subscription, JSON.stringify({
             title: 'سمندیس',
-            body: job.test ? 'اعلان‌های این دستگاه فعال است.' : 'یک به‌روزرسانی تازه در کارهای شما ثبت شد.',
+            body: job.test ? 'اعلان‌های این دستگاه فعال است.' : job.reminderDays === 2 ? 'دو روز تا مهلت یکی از کارهای شما باقی مانده است.' : job.reminderDays === 1 ? 'فردا مهلت یکی از کارهای شماست.' : job.reminderDays === 0 ? 'امروز مهلت یکی از کارهای شماست.' : 'یک به‌روزرسانی تازه در کارهای شما ثبت شد.',
             tag: job.id,
             url: job.taskId ? `/shared.html?task=${encodeURIComponent(job.taskId)}` : '/shared.html',
           }), {TTL: 86400, urgency: 'normal', timeout: 12000});
