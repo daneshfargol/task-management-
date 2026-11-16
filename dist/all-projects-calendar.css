@@ -87,3 +87,5 @@ html.uc-scroll-locked body{position:fixed;top:var(--uc-scroll-top,0);left:0;righ
  .uc-day-dots i{width:5px;height:5px;flex-basis:5px}.uc-agenda{padding:12px}.uc-task summary{padding:10px;font-size:12px}
  .desktop-shell .all-calendar-launch{font-size:13px;min-height:46px}
 }
+
+.uc-layout.uc-no-agenda{grid-template-columns:minmax(0,1fr)}
