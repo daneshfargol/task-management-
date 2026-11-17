@@ -82,3 +82,21 @@ html[data-ui-theme] body.desktop-shell .avatar-options{grid-template-columns:rep
 html[data-ui-theme] body.desktop-shell .avatar-options button{border-radius:16px!important;padding:4px}
 
 html[data-ui-theme=dark] body.desktop-shell .pwa-push-prompt{background:#2b3f59!important;color:#d5e6ff!important;border-color:#4a668b!important;box-shadow:0 8px 30px #0003!important}
+
+/* Sidebar counters and team navigation retain dark surfaces on hover and selection. */
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar [data-desk-count]{display:inline-flex;align-items:center;justify-content:center;min-width:23px;min-height:22px;padding:0 5px;box-sizing:border-box;border:1px solid #485d7b!important;border-radius:7px!important;background:#2c3d56!important;color:#c9d9ee!important;font-size:11px;line-height:1;font-weight:500}
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar button.active [data-desk-count]{background:#46628a!important;border-color:#607fa7!important;color:#edf4ff!important}
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button):hover{background:#2a3b54!important;color:#e0ebfa!important}
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button).active:hover{background:#3b5275!important;color:#edf4ff!important}
+html[data-ui-theme=dark] body.desktop-shell .team-subnav button{background:transparent!important;color:#b4c6e0!important;border-color:transparent!important}
+html[data-ui-theme=dark] body.desktop-shell .team-subnav button:hover{background:#2a3b54!important;color:#e0ebfa!important}
+html[data-ui-theme=dark] body.desktop-shell .team-subnav button.selected{background:#3b5275!important;color:#edf4ff!important;border-color:#526e95!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.shared-member:hover,.person-row-button:hover){background:#2b3d57!important;color:#e0ebfa!important}
+
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar [data-desk-count]:empty{display:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi,.report-legend,.report-item){background:#25364e!important;color:#b9cce5!important;border-color:#425977!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi) :is(label,p,small,span,h3,h4){color:#b9cce5!important}
+html[data-ui-theme=dark] body.desktop-shell .report-kpi:nth-child(1){background:#294a70!important}html[data-ui-theme=dark] body.desktop-shell .report-kpi:nth-child(2){background:#433656!important}html[data-ui-theme=dark] body.desktop-shell .report-kpi:nth-child(3){background:#4b412c!important}
+html[data-ui-theme=dark] body.desktop-shell .report-kpi :is(b,strong){color:#ecf2fc!important}
+
+html[data-ui-theme=dark] body.desktop-shell .formula{background:#23334a!important;color:#adbed6!important;border-color:#425977!important}
