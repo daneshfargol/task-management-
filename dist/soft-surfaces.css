@@ -127,3 +127,25 @@ html[data-ui-theme] body.desktop-shell :is(.clarity-table thead th,.personal-lis
 html[data-ui-theme] body.desktop-shell .clarity-table td{padding-top:21px;padding-bottom:21px;background:transparent!important}
 html[data-ui-theme] body.desktop-shell .personal-task-row{padding-top:21px;padding-bottom:21px}
 @media(prefers-reduced-motion:reduce){html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr,.personal-task-row){transition:none}}
+
+/* Discrete task rows share the app's rounded surfaces, with space instead of ruled bands. */
+html[data-ui-theme=light]{--task-card-surface:#ffffff;--task-card-hover:#f8faff;--task-card-edge:#e4e9f2}
+html[data-ui-theme=glass]{--task-card-surface:#ffffffbb;--task-card-hover:#fffffff0;--task-card-edge:#ffffffb3}
+html[data-ui-theme=dark]{--task-card-surface:#1c2c43;--task-card-hover:#24364f;--task-card-edge:#34445c}
+html[data-ui-theme] body.desktop-shell :is(.clarity-list:has(.clarity-table),.clarity-table,.personal-task-list){background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible}
+html[data-ui-theme] body.desktop-shell .clarity-table table{border-collapse:separate!important;border-spacing:0 9px!important;margin-top:-9px}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table thead th,.personal-list-labels){background:transparent!important;padding:11px 18px!important;color:var(--task-secondary)!important;font-size:11px;font-weight:500}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr,.clarity-table tbody tr:nth-child(even),.clarity-table tbody tr:hover){background:transparent!important;box-shadow:none!important}
+html[data-ui-theme] body.desktop-shell .clarity-table tbody td{background:var(--task-card-surface)!important;padding-top:18px;padding-bottom:18px;border-top:1px solid var(--task-card-edge)!important;border-bottom:1px solid var(--task-card-edge)!important;transition:background .15s ease;vertical-align:middle}
+html[data-ui-theme] body.desktop-shell .clarity-table tbody td:first-child{border-radius:0 16px 16px 0;border-right:1px solid var(--task-card-edge)!important;padding-right:20px}
+html[data-ui-theme] body.desktop-shell .clarity-table tbody td:last-child{border-radius:16px 0 0 16px;border-left:1px solid var(--task-card-edge)!important}
+html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:hover td{background:var(--task-card-hover)!important}
+html[data-ui-theme] body.desktop-shell .clarity-table .task-title{font-weight:650;line-height:1.8}
+html[data-ui-theme] body.desktop-shell .clarity-table :is(.task-description-preview,.personal-task-description){margin-top:7px;font-size:11px!important;line-height:1.9}
+html[data-ui-theme] body.desktop-shell .clarity-table .owner{font-weight:550!important;font-size:12px!important}
+html[data-ui-theme] body.desktop-shell .clarity-table .team-names-under-owner{margin-top:5px;font-size:10px!important;line-height:1.8}
+html[data-ui-theme] body.desktop-shell :is(.personal-task-row,.personal-task-row:nth-child(odd)){margin:9px 0;background:var(--task-card-surface)!important;border:1px solid var(--task-card-edge)!important;border-radius:16px;box-shadow:none;padding-top:18px;padding-bottom:18px}
+html[data-ui-theme] body.desktop-shell .personal-task-row:hover{background:var(--task-card-hover)!important}
+@media(max-width:760px){html[data-ui-theme] body.desktop-shell .clarity-table table{margin-top:0}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr{margin-bottom:10px;padding:16px!important;border:1px solid var(--task-card-edge)!important;border-radius:16px;background:var(--task-card-surface)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:hover{background:var(--task-card-hover)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody td{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:hover td{background:transparent!important}}
+
+@media(max-width:760px){html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:nth-child(n){background:var(--task-card-surface)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody :is(td,td:first-child,td:last-child){padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}}
