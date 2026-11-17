@@ -33,7 +33,7 @@
       return;
     }
     saving = true;
-    document.querySelectorAll('.board-drag-handle').forEach(button => button.disabled = true);
+    document.querySelectorAll('.board-move-source').forEach(button => button.disabled = true);
     try { await action(task, kind); }
     finally { saving = false; enhance(); }
   }
@@ -43,30 +43,24 @@
       if (!id) return;
       const task = tasks.find(item => item.id === id);
       const possible = ['open', 'review', 'done'].filter(state => transition(task, state));
-      let handle = card.querySelector('.board-drag-handle');
-      if (!possible.length) { handle?.remove(); return; }
-      if (handle) { handle.disabled = saving || busy; return; }
-      handle = document.createElement('button');
-      handle.type = 'button'; handle.className = 'board-drag-handle'; handle.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg>';
-      handle.draggable = false; handle.dataset.boardTask = id;
-      handle.setAttribute('aria-label', 'جابه‌جایی کار بین ستون‌ها');
-      handle.title = 'بکشید و در ستون مقصد رها کنید؛ با کلیک، مقصد را انتخاب کنید.';
-      handle.disabled = saving || busy;
-      handle.addEventListener('click', event => {
-        event.stopPropagation();
-        if (Date.now() < suppressClickUntil) return;
-        card.querySelector('.board-move-options')?.remove();
-        const choices = document.createElement('div'); choices.className = 'board-move-options';
-        possible.forEach(destination => {
-          const button = document.createElement('button'); button.type = 'button'; button.textContent = 'انتقال به ' + labels[destination];
-          button.onclick = () => { choices.remove(); move(id, destination); };
-          choices.append(button);
-        });
-        const cancel = document.createElement('button'); cancel.type = 'button'; cancel.textContent = 'انصراف'; cancel.onclick = () => choices.remove(); choices.append(cancel);
-        card.append(choices); choices.querySelector('button')?.focus();
+      card.querySelectorAll('.board-drag-handle,.board-move-source').forEach(node => node.remove());
+      if (!possible.length) { delete card.dataset.boardTask; return; }
+      card.dataset.boardTask = id;
+      const added = new Set();
+      possible.forEach(destination => {
+        const kind = transition(task, destination);
+        if (added.has(kind)) return;
+        added.add(kind);
+        if (kind === 'approve' && card.querySelector('.approve-inline')) return;
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'board-move-source task-overflow-source';
+        button.textContent = {submit:management() && own(task) && reviewer(task)?'اتمام کار':'ارسال برای تأیید',approve:'تأیید نهایی',reopen:'بازگشایی کار'}[kind];
+        button.disabled = saving || busy;
+        button.onclick = () => move(id, destination);
+        card.append(button);
       });
-      card.prepend(handle);
     });
+    window.SamandisCollectTaskActions?.();
   }
 
   let preview = null;
@@ -74,10 +68,10 @@
   document.addEventListener('pointerdown', event => {
     if (event.button !== 0 || saving || busy) return;
     const card = event.target.closest?.('.desk-board .desk-task-card');
-    const handle = card?.querySelector('.board-drag-handle');
+    const handle = card?.querySelector('.board-move-source');
     if (!handle || handle.disabled || event.target.closest('input,textarea,select,.task-overflow-button,.task-tick,.board-move-options,.row-upload')) return;
-    if (event.pointerType !== 'mouse' && !event.target.closest('.board-drag-handle')) return;
-    touch = {id:event.pointerId,task:handle.dataset.boardTask,handle,card,x:event.clientX,y:event.clientY,moved:false};
+    if (event.pointerType !== 'mouse') return;
+    touch = {id:event.pointerId,task:card.dataset.boardTask,handle,card,x:event.clientX,y:event.clientY,moved:false};
     event.target.setPointerCapture(event.pointerId);
   });
   document.addEventListener('pointermove', event => {
