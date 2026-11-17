@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const presets = [{id:1,label:'آقا بدون ریش'},{id:2,label:'آقا با ریش'},{id:4,label:'خانم بدون عینک'},{id:5,label:'خانم با عینک'}].map(p=>({...p,src:'avatars/avatar-'+p.id+'.svg?v=2'}));
+  const presets = [{id:1,label:'آقا بدون ریش'},{id:2,label:'آقا با ریش'},{id:4,label:'خانم بدون عینک'},{id:5,label:'خانم با عینک'}].map(p=>({...p,src:'avatars/avatar-'+p.id+'.svg?v=3'}));
   const pref = () => window.SamandisPreferences?.get('profile-avatar', null);
   const source = value => value?.kind === 'preset' ? presets.find(p => p.id === (value.id===3?1:value.id))?.src || '' : value?.kind === 'photo' && /^data:image\/jpeg;base64,/.test(value.src || '') ? value.src : '';
   let dialog, draft, busy = false;
