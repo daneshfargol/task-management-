@@ -113,3 +113,17 @@ html body.desktop-shell .desk-metric b{margin-top:4px;font-size:25px;line-height
 html body.desktop-shell .desk-metric .metric-mini{display:grid;position:static;grid-column:3;grid-row:1;justify-self:end;transform:none;margin:0}
 @media(max-width:1000px){html body.desktop-shell .desk-metric{grid-template-columns:32px minmax(0,1fr) 12px;padding:12px 14px;gap:8px}html body.desktop-shell .desk-metric>span:nth-child(2){font-size:11px}}
 @media(max-width:760px){html body.desktop-shell .desk-metric{grid-template-columns:24px minmax(0,1fr);padding:10px 9px;gap:6px;height:78px;min-height:78px}html body.desktop-shell .desk-metric .metric-symbol{display:grid;width:24px;height:24px;flex-basis:24px}html body.desktop-shell .desk-metric .metric-symbol svg{width:15px;height:15px}html body.desktop-shell .desk-metric .metric-mini{display:none}html body.desktop-shell .desk-metric>span:nth-child(2){font-size:10px}html body.desktop-shell .desk-metric b{font-size:22px}}
+
+/* A continuous list surface with quiet separators, instead of alternating bands. */
+html[data-ui-theme=light],html[data-ui-theme=glass]{--list-surface:#f8f9fc;--list-heading:#eef1f7;--list-divider:#dce3ee;--list-hover:#f0f3f9}
+html[data-ui-theme=glass]{--list-surface:#ffffff9c;--list-heading:#edf2f8bd;--list-divider:#ccd7e56b;--list-hover:#ffffffca}
+html[data-ui-theme=dark]{--list-surface:#19283d;--list-heading:#1d2d44;--list-divider:#34445a;--list-hover:#21334c}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table,.personal-task-list){background:var(--list-surface)!important;overflow:hidden;border-radius:20px!important}
+html[data-ui-theme] body.desktop-shell .clarity-table table{border-collapse:separate;border-spacing:0;width:100%;background:transparent}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr,.clarity-table tbody tr:nth-child(even),.personal-task-row,.personal-task-row:nth-child(odd)){background:transparent!important;box-shadow:inset 0 -1px var(--list-divider);transition:background-color .15s ease}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr:last-child,.personal-task-row:last-child){box-shadow:none}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr:hover,.personal-task-row:hover){background:var(--list-hover)!important}
+html[data-ui-theme] body.desktop-shell :is(.clarity-table thead th,.personal-list-labels){background:var(--list-heading)!important;color:var(--task-secondary)!important;font-size:11px;font-weight:500;padding-top:13px;padding-bottom:13px}
+html[data-ui-theme] body.desktop-shell .clarity-table td{padding-top:21px;padding-bottom:21px;background:transparent!important}
+html[data-ui-theme] body.desktop-shell .personal-task-row{padding-top:21px;padding-bottom:21px}
+@media(prefers-reduced-motion:reduce){html[data-ui-theme] body.desktop-shell :is(.clarity-table tbody tr,.personal-task-row){transition:none}}
