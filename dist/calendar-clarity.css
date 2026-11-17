@@ -17,3 +17,5 @@ html[data-ui-theme=dark] body.desktop-shell .plan-workspace .plan-event{backgrou
 html[data-ui-theme=dark] body.desktop-shell .plan-workspace .plan-event.done{background:#2d4d46;color:#c6eadc;border-color:#4e796c}
 html[data-ui-theme=dark] body.desktop-shell .plan-workspace .plan-event.delivery{background:#51452f;color:#efdbab;border-color:#88744b}
 html[data-ui-theme] body.desktop-shell .plan-workspace .plan-event button{color:inherit!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;line-height:1.9}
+
+html[data-ui-theme=dark]{--calendar-grid:#5a7190;--calendar-cell:#32445d;--calendar-head:#405776;--calendar-empty:#29394f;--calendar-today:#3b5a80}
