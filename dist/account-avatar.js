@@ -1,8 +1,8 @@
 (() => {
   'use strict';
-  const presets = Array.from({length: 5}, (_, i) => ({id: i + 1, src: 'avatars/avatar-' + (i + 1) + '.svg', label: i < 3 ? 'آواتار مرد ' + (i + 1) : 'آواتار زن ' + (i - 2)}));
+  const presets = [{id:1,label:'آقا بدون ریش'},{id:2,label:'آقا با ریش'},{id:4,label:'خانم بدون عینک'},{id:5,label:'خانم با عینک'}].map(p=>({...p,src:'avatars/avatar-'+p.id+'.svg?v=2'}));
   const pref = () => window.SamandisPreferences?.get('profile-avatar', null);
-  const source = value => value?.kind === 'preset' ? presets.find(p => p.id === value.id)?.src || '' : value?.kind === 'photo' && /^data:image\/jpeg;base64,/.test(value.src || '') ? value.src : '';
+  const source = value => value?.kind === 'preset' ? presets.find(p => p.id === (value.id===3?1:value.id))?.src || '' : value?.kind === 'photo' && /^data:image\/jpeg;base64,/.test(value.src || '') ? value.src : '';
   let dialog, draft, busy = false;
   function paint() {
     const avatar = document.querySelector('#deskIdentity .desk-user-avatar');
@@ -60,7 +60,7 @@
   function open() {
     if (typeof mine !== 'function' || !mine()) return;
     ensure(); if (dialog.open) return;
-    draft = pref(); dialog.querySelector('.avatar-status').textContent = ''; preview(); dialog.showModal();
+    draft = pref();if(draft?.kind==='preset'&&draft.id===3)draft={kind:'preset',id:1}; dialog.querySelector('.avatar-status').textContent = ''; preview(); dialog.showModal();
   }
   function mount() {
     paint();

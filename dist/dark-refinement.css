@@ -56,3 +56,29 @@ html[data-ui-theme=dark] body.desktop-shell .header-search-box:focus-within{outl
 html[data-ui-theme=dark] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}html[data-ui-theme] body.desktop-shell #accountMorePanel .appearance-choices button{border-radius:14px!important;padding:13px 8px;min-height:88px}
 
 html[data-ui-theme=dark] body.desktop-shell .desk-task-card .card-bottom{border-color:#3a4a62!important;color:#aebed4!important}html[data-ui-theme=dark] body.desktop-shell .desk-task-card :is(.card-bottom span,.card-bottom small,.card-top,.lane-empty){color:#aebed4!important}html[data-ui-theme=dark] body.desktop-shell .desk-task-card .avatar{background:#344359!important;color:#dae6f7!important}
+
+/* Preserve the blue, gold and lavender information hierarchy in dark mode. */
+html[data-ui-theme=dark]{--ui-bg:#141e2e;--ui-panel:#253249;--ui-side:#1a2638;--ui-soft:#2c3b53;--ui-line:#425471;--ui-text:#e5edf9;--ui-muted:#b0bfd5;--task-card-surface:#27364d;--task-card-hover:#30435e;--task-card-edge:#425673;--list-surface:#253249;--list-heading:#2b3c56;--list-divider:#405471}
+html[data-ui-theme=dark] body.desktop-shell{background:#141e2e!important}
+html[data-ui-theme=dark] body.desktop-shell main,html[data-ui-theme=dark] body.desktop-shell.shared-app main,html[data-ui-theme=dark] body.desktop-shell.task-drawer-open main{background:#1c293d!important;border-color:#3b4d68!important}
+html[data-ui-theme=dark] body.desktop-shell main>header{background:#1c293df5!important;border-color:#3b4d68!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=open]{background:#294a70!important;border:1px solid #4b7199!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=review]{background:#4b412c!important;border:1px solid #827049!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=done]{background:#433656!important;border:1px solid #75608e!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=open] :is(b,.metric-symbol){color:#c0defe!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=review] :is(b,.metric-symbol){color:#f3dc9e!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric[data-desk-phase=done] :is(b,.metric-symbol){color:#dfc8fa!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric :is(.metric-symbol,.metric-mini){background:#ffffff12!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill.clarity-open,.pill.open){background:#2c4d75!important;color:#c3e0ff!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill.clarity-review,.pill.review){background:#54452d!important;color:#f2d99c!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill.clarity-done,.pill.done){background:#344b44!important;color:#bde6d5!important}
+html[data-ui-theme=dark] body.desktop-shell :is([data-filter=review].active,[data-clarity-filter=review].active){background:#5b4a2c!important;color:#f2d99c!important}
+html[data-ui-theme=dark] body.desktop-shell :is([data-filter=done].active,[data-clarity-filter=done].active){background:#4c3c63!important;color:#e1c9ff!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-lane.open{background:#233c59!important}html[data-ui-theme=dark] body.desktop-shell .desk-lane.review{background:#3a342a!important}html[data-ui-theme=dark] body.desktop-shell .desk-lane.done{background:#352e45!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.all-calendar-launch,.notice-inbox-button){background:#2e4669!important;color:#d5e6ff!important;border-color:#52739e!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.push-enable-banner,.device-push-banner,.push-activation-banner){background:#2b3f59!important;color:#d5e6ff!important;border-color:#4a668b!important}
+html[data-ui-theme=dark] body.desktop-shell .people-kpis>div:nth-child(1){background:#294a70!important}html[data-ui-theme=dark] body.desktop-shell .people-kpis>div:nth-child(2){background:#4b412c!important}html[data-ui-theme=dark] body.desktop-shell .people-kpis>div:nth-child(3){background:#344b44!important}
+html[data-ui-theme] body.desktop-shell .avatar-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+html[data-ui-theme] body.desktop-shell .avatar-options button{border-radius:16px!important;padding:4px}
+
+html[data-ui-theme=dark] body.desktop-shell .pwa-push-prompt{background:#2b3f59!important;color:#d5e6ff!important;border-color:#4a668b!important;box-shadow:0 8px 30px #0003!important}
