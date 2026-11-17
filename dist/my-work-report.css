@@ -53,3 +53,38 @@
 @page{size:A4;margin:12mm}
 @media print{html,body{margin:0!important;padding:0!important}.own-report-paper{width:100%;max-width:none;min-height:0;margin:0;padding:0;border:0;border-radius:0;box-shadow:none}.brief-report-header,.brief-period,.brief-footer{break-inside:avoid}.brief-table thead{display:table-header-group}.brief-table tr{break-inside:avoid}.brief-table th,.brief-table td,.brief-period{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 @media screen and (max-width:700px){.own-report-toolbar{gap:10px;margin-bottom:20px}.desktop-shell .own-report-toolbar .range-controls{padding:16px;gap:12px}.own-report-actions{width:100%;padding:0;justify-content:flex-end}.own-report-paper{padding:24px 18px;min-height:0;border-radius:12px}.own-report-paper .brief-report-header{gap:20px;padding-bottom:18px!important}.brief-company img{width:40px;height:40px}.own-report-paper .brief-heading{gap:8px;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) minmax(0,1fr)}.own-report-paper .brief-heading h1{font-size:15px}.own-report-paper .brief-heading h2,.own-report-paper .brief-heading p{font-size:10px}.brief-period{padding:12px;gap:12px;margin:18px 0 22px}.brief-period b{font-size:10px}.own-report-paper .brief-table td,.own-report-paper .brief-table th{padding:12px 9px;font-size:10px}.brief-date b{font-size:10px}.brief-footer{font-size:7px;gap:10px}}
+
+/* A concise A4 work statement, with one date per day and titles only. */
+.own-report-paper{width:210mm;min-height:297mm;padding:10mm!important;border-radius:12px;background:#fff;color:#29374e;font-size:12px;box-shadow:0 8px 30px #20314a10}
+.own-report-paper .brief-report-header{display:grid!important;grid-template-columns:66px minmax(0,1fr);align-items:center;gap:20px!important;padding-bottom:20px!important;border-bottom:2px solid #27385a!important}
+.own-report-paper .brief-company{display:flex;flex-direction:column;align-items:center;gap:5px;align-self:center}
+.own-report-paper .brief-company img{width:58px;height:58px;object-fit:contain}
+.own-report-paper .brief-company span{font-size:8px;color:#6b7890;font-weight:400;white-space:nowrap}
+.own-report-paper .brief-heading{display:flex!important;flex-direction:column;align-items:flex-start;gap:4px!important}
+.own-report-paper .brief-heading p{font-size:10px!important;color:#79859a!important}
+.own-report-paper .brief-heading h1{font-size:23px!important;text-align:right!important;font-weight:700;color:#27385a!important;line-height:1.8}
+.own-report-paper .brief-heading h2{font-size:13px!important;color:#495c78!important;text-align:right!important;font-weight:400}
+.own-report-paper .brief-period{margin:16px 0 22px;padding:0;background:transparent;border-radius:0;justify-content:flex-start}
+.own-report-paper .brief-period>div{flex-direction:row;align-items:center;gap:10px}
+.own-report-paper .brief-period span{font-size:10px;color:#7b889d}.own-report-paper .brief-period b{font-size:11px;color:#495c78;font-weight:400}
+.own-report-paper .brief-table th{background:#edf1f7!important;color:#425571!important;padding:10px 14px;font-size:10px;border-bottom:1px solid #ccd6e6}
+.own-report-paper .brief-table td{padding:17px 14px!important;border-bottom:1px solid #e5eaf2!important;background:#fff!important;font-size:12px;vertical-align:top;line-height:1.9}
+.own-report-paper .brief-table .brief-date{background:#fff!important;border-left:1px solid #e5eaf2;color:#3a506f}
+.own-report-paper .brief-date b{font-size:11px;font-weight:700}.own-report-paper .brief-date small{margin-top:3px;font-size:10px;color:#8793a5}
+.own-report-paper .brief-table li{padding-right:13px;margin:0 0 7px;line-height:1.95;color:#35465e;font-size:12px}
+.own-report-paper .brief-table li:last-child{margin-bottom:0}.own-report-paper .brief-table li:before{width:4px;height:4px;top:10px;background:#b9a16d}
+.own-report-paper .brief-footer{justify-content:flex-end;margin-top:24px;padding-top:10px;font-size:8px;color:#94a0b1;border-top:1px solid #e5eaf2}
+@page{size:A4;margin:10mm}
+@media print{.own-report-paper{width:100%;min-height:0;padding:0!important;border-radius:0;box-shadow:none}.brief-table tr{break-inside:avoid}.brief-table thead{display:table-header-group}}
+/* Range controls share one center line; export actions sit between controls and paper. */
+html[data-ui-theme] body.desktop-shell .own-report-toolbar{display:flex;flex-direction:column;align-items:center;gap:10px;margin:14px auto 16px;width:100%}
+html[data-ui-theme] body.desktop-shell #ownReportRange{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;width:100%;max-width:1140px;gap:10px 16px;padding:10px 16px!important;min-height:58px;box-sizing:border-box;border-radius:18px!important}
+html[data-ui-theme] body.desktop-shell #ownReportRange>label{display:flex;flex-direction:row;align-items:center;gap:8px;margin:0!important;font-size:11px;white-space:nowrap;min-width:0;flex:1 1 235px}
+html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child{flex:0 1 175px}
+html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date{flex:1;flex-wrap:nowrap;gap:5px;min-width:0;width:auto;max-width:260px}
+html[data-ui-theme] body.desktop-shell #ownReportRange :is(input,select,button){height:34px;min-height:34px;font-size:11px;line-height:1.4;padding:5px 10px!important;box-sizing:border-box}
+html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date button{padding:5px 3px!important;font-size:10px}
+html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date input{min-width:80px;width:100px}
+html[data-ui-theme] body.desktop-shell .own-report-actions{flex:none;display:flex;justify-content:flex-end;align-items:center;gap:8px;width:min(210mm,100%);padding:0;margin:0}
+html[data-ui-theme] body.desktop-shell .own-report-actions button{height:34px;min-height:34px;padding:5px 14px;font-size:11px}
+@media(max-width:700px){.own-report-paper{padding:20px!important}.own-report-paper .brief-report-header{grid-template-columns:52px minmax(0,1fr);gap:14px!important}.own-report-paper .brief-heading h1{font-size:17px!important}.own-report-paper .brief-company img{width:48px;height:48px}.own-report-paper .brief-table td{padding:12px 9px!important}.own-report-paper .brief-table li{font-size:11px}html[data-ui-theme] body.desktop-shell #ownReportRange>label{flex-basis:100%;justify-content:space-between}html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child{flex:1 1 100%}}
