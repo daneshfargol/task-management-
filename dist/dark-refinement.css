@@ -100,3 +100,5 @@ html[data-ui-theme=dark] body.desktop-shell .report-kpi:nth-child(1){background:
 html[data-ui-theme=dark] body.desktop-shell .report-kpi :is(b,strong){color:#ecf2fc!important}
 
 html[data-ui-theme=dark] body.desktop-shell .formula{background:#23334a!important;color:#adbed6!important;border-color:#425977!important}
+
+html[data-ui-theme=dark] body.desktop-shell #desktopSidebar [data-desk-count]{border-radius:999px!important;min-width:24px;height:24px;min-height:24px}

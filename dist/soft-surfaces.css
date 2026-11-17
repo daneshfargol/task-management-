@@ -149,3 +149,7 @@ html[data-ui-theme] body.desktop-shell .personal-task-row:hover{background:var(-
 @media(max-width:760px){html[data-ui-theme] body.desktop-shell .clarity-table table{margin-top:0}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr{margin-bottom:10px;padding:16px!important;border:1px solid var(--task-card-edge)!important;border-radius:16px;background:var(--task-card-surface)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:hover{background:var(--task-card-hover)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody td{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:hover td{background:transparent!important}}
 
 @media(max-width:760px){html[data-ui-theme] body.desktop-shell .clarity-table tbody tr:nth-child(n){background:var(--task-card-surface)!important}html[data-ui-theme] body.desktop-shell .clarity-table tbody :is(td,td:first-child,td:last-child){padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}}
+
+/* Compact circular counters in the sidebar, consistent across both themes. */
+html[data-ui-theme] body.desktop-shell #desktopSidebar [data-desk-count]{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;min-height:24px;padding:0 5px;box-sizing:border-box;border-radius:999px!important;line-height:1}
+html[data-ui-theme] body.desktop-shell #desktopSidebar [data-desk-count]:empty{display:none!important}
