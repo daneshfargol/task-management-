@@ -128,6 +128,7 @@
   q('#appBack')?.addEventListener('click',e=>{if(navigation||returning){e.preventDefault();e.stopImmediatePropagation();if(navigation)returnToCalendar();}},true);
   function draw(focus){
     if(!dialog.open||!allowed||session?.user?.id!==user)return;
+    const agendaExpanded=dialog.querySelector('.uc-agenda')?.open||false;
     const scroll=dialog.querySelector('.uc-content')?.scrollTop||0,agendaScroll=dialog.querySelector('.uc-agenda')?.scrollTop||0;
     dialog.classList.toggle('uc-fullscreen',fullscreen);
     const [first,next]=bounds(),all=model.filter(events,filter,includeDone),dated=all.filter(e=>e.due),undated=all.filter(e=>!e.due),days=model.days(first,next);
@@ -138,7 +139,7 @@
       if(!day)return '<div class="uc-day uc-blank" aria-hidden="true"></div>';
       const list=byDay.get(day)||[],dayProjects=[...new Set(list.map(e=>e.projectKey))];
       return '<button type="button" class="uc-day '+(day===today()?'today ':'')+(day===selected?'selected':'')+'" data-uc-day="'+day+'" aria-pressed="'+(day===selected)+'" aria-label="'+esc(label(day))+'؛ '+fa(list.length)+' کار"><span class="uc-day-top"><b>'+fa(Number(SamandisDates.display(day).split('/')[2]))+'</b>'+(list.length?'<small>'+fa(list.length)+'</small>':'')+'</span><span class="uc-mini-events">'+list.slice(0,2).map(e=>'<span data-uc-task="'+esc(e.id)+'" class="uc-mini-event '+(e.done?'is-done':'')+'" style="'+colorStyle(e.projectKey)+'" title="'+esc(e.projectName+' — '+e.title)+'">'+esc(e.projectName+' — '+e.title)+'</span>').join('')+(list.length>2?'<span class="uc-more">'+fa(list.length-2)+' مورد دیگر</span>':'')+'</span><span class="uc-day-dots" aria-hidden="true">'+dayProjects.map(key=>'<i style="'+colorStyle(key)+'"></i>').join('')+'</span></button>';
-    }).join('')+'</div></section>'+(agenda.length?'<section class="uc-agenda" aria-live="polite"><h3>'+label(selected)+'</h3><p>'+fa(agenda.length)+' کار و موعد</p>'+agenda.map(taskHTML).join('')+'</section>':'')+'</div>'+(undated.length?'<details class="uc-undated"><summary>'+fa(undated.length)+' کار بدون مهلت</summary>'+undated.map(taskHTML).join('')+'</details>':'')+'</div>';
+    }).join('')+'</div></section>'+(agenda.length?'<details class="uc-agenda" '+(agendaExpanded?'open':'')+'><summary><span>کارهای روز انتخاب‌شده<small>'+label(selected)+'</small></span><span class="uc-agenda-count">'+fa(agenda.length)+' کار <span class="uc-agenda-chevron" aria-hidden="true">⌄</span></span></summary><div class="uc-agenda-items">'+agenda.map(taskHTML).join('')+'</div></details>':'')+'</div>'+(undated.length?'<details class="uc-undated"><summary>'+fa(undated.length)+' کار بدون مهلت</summary>'+undated.map(taskHTML).join('')+'</details>':'')+'</div>';
     dialog.querySelector('#ucIncludeDone').onchange=e=>{includeDone=e.target.checked;draw('#ucIncludeDone');};
     dialog.querySelector('.uc-content').scrollTop=scroll;const agendaNode=dialog.querySelector('.uc-agenda');if(agendaNode)agendaNode.scrollTop=agendaScroll;
     if(focus)dialog.querySelector(focus)?.focus({preventScroll:true});
@@ -159,6 +160,7 @@
   launch.onclick=async()=>{
     launch.disabled=true;try{
       if(!await permission(true)){message('این تقویم برای حساب فعلی در دسترس نیست.');return;}
+      const agenda=dialog.querySelector('.uc-agenda');if(agenda)agenda.open=false;
       lockScroll();if(!dialog.open)dialog.showModal();draw();if(Date.now()-loadedAt>20000)await load();
     }finally{launch.disabled=false;}
   };
