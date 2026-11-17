@@ -1,0 +1,4 @@
+/* Full original mark and wordmark, without a tile, crop, or theme-colored backing. */
+html[data-ui-theme] body.desktop-shell .desk-brand img{display:block;width:60px;height:60px;flex:0 0 60px;object-fit:contain;object-position:center;clip-path:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;mix-blend-mode:normal!important;filter:url(#samandisLogoTransparent)!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-brand img{filter:url(#samandisLogoTransparent) brightness(1.7) saturate(.8)!important}
+@media(max-width:760px){html[data-ui-theme] body.desktop-shell .desk-brand img{width:52px;height:52px;flex-basis:52px}}
