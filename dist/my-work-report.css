@@ -78,13 +78,15 @@
 @media print{.own-report-paper{width:100%;min-height:0;padding:0!important;border-radius:0;box-shadow:none}.brief-table tr{break-inside:avoid}.brief-table thead{display:table-header-group}}
 /* Range controls share one center line; export actions sit between controls and paper. */
 html[data-ui-theme] body.desktop-shell .own-report-toolbar{display:flex;flex-direction:column;align-items:center;gap:10px;margin:14px auto 16px;width:100%}
-html[data-ui-theme] body.desktop-shell #ownReportRange{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;width:100%;max-width:1140px;gap:10px 16px;padding:10px 16px!important;min-height:58px;box-sizing:border-box;border-radius:18px!important}
-html[data-ui-theme] body.desktop-shell #ownReportRange>label{display:flex;flex-direction:row;align-items:center;gap:8px;margin:0!important;font-size:11px;white-space:nowrap;min-width:0;flex:1 1 235px}
-html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child{flex:0 1 175px}
-html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date{flex:1;flex-wrap:nowrap;gap:5px;min-width:0;width:auto;max-width:260px}
+html[data-ui-theme] body.desktop-shell #ownReportRange{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;width:100%;max-width:210mm;gap:8px 10px;padding:10px 12px!important;min-height:56px;box-sizing:border-box;border-radius:18px!important}
+html[data-ui-theme] body.desktop-shell #ownReportRange>label{display:flex;flex-direction:row;align-items:center;gap:8px;margin:0!important;font-size:11px;white-space:nowrap;min-width:0;flex:1 1 190px}
+html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child{flex:0 1 138px}
+html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date{flex:1;flex-wrap:nowrap;gap:5px;min-width:0;width:auto;max-width:220px}
 html[data-ui-theme] body.desktop-shell #ownReportRange :is(input,select,button){height:34px;min-height:34px;font-size:11px;line-height:1.4;padding:5px 10px!important;box-sizing:border-box}
 html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date button{padding:5px 3px!important;font-size:10px}
 html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date input{min-width:80px;width:100px}
 html[data-ui-theme] body.desktop-shell .own-report-actions{flex:none;display:flex;justify-content:flex-end;align-items:center;gap:8px;width:min(210mm,100%);padding:0;margin:0}
 html[data-ui-theme] body.desktop-shell .own-report-actions button{height:34px;min-height:34px;padding:5px 14px;font-size:11px}
 @media(max-width:700px){.own-report-paper{padding:20px!important}.own-report-paper .brief-report-header{grid-template-columns:52px minmax(0,1fr);gap:14px!important}.own-report-paper .brief-heading h1{font-size:17px!important}.own-report-paper .brief-company img{width:48px;height:48px}.own-report-paper .brief-table td{padding:12px 9px!important}.own-report-paper .brief-table li{font-size:11px}html[data-ui-theme] body.desktop-shell #ownReportRange>label{flex-basis:100%;justify-content:space-between}html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child{flex:1 1 100%}}
+
+html[data-ui-theme] body.desktop-shell #ownReportRange>label:first-child select{width:88px;min-width:0}html[data-ui-theme] body.desktop-shell #ownReportRange .shamsi-date input{min-width:70px;width:80px}html[data-ui-theme] body.desktop-shell .own-report-toolbar{margin-inline:auto;gap:12px}html[data-ui-theme] body.desktop-shell .own-report-actions{align-self:center;justify-content:flex-end!important;padding:0 2px!important;margin:0!important}
