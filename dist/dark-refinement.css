@@ -1,0 +1,58 @@
+/* Dark workspace palette: distinct canvas, surfaces and controls, without bright islands. */
+html[data-ui-theme=dark]{--ui-bg:#111722;--ui-panel:#1c2533;--ui-side:#151d29;--ui-soft:#253143;--ui-line:#354257;--ui-text:#e1e7f0;--ui-muted:#a2b0c4;--ui-accent:#b7cdf3;--ui-button:#304666;--task-ink:#e1e7f0;--task-secondary:#b0bed0;--task-card-surface:#202b3b;--task-card-hover:#263448;--task-card-edge:#344359;--list-surface:#1c2533;--list-heading:#253143;--list-divider:#354257;--list-hover:#29374a;color-scheme:dark}
+html[data-ui-theme=dark] body.desktop-shell{background:#111722!important;color:#e1e7f0!important}
+html[data-ui-theme=dark] body.desktop-shell :not(.own-report-paper):not(.own-report-paper *){scrollbar-color:#4d5b70 #1c2533}
+html[data-ui-theme=dark] body.desktop-shell main,html[data-ui-theme=dark] body.desktop-shell.shared-app main,html[data-ui-theme=dark] body.desktop-shell.task-drawer-open main{background:#171f2c!important;border-color:#2d394b!important;box-shadow:0 16px 48px #0003!important}
+html[data-ui-theme=dark] body.desktop-shell main>header{background:#171f2cf5!important;border-bottom:1px solid #2a3648!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell .desktop-sidebar{background:transparent!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-brand,.desk-brand small,.desk-project b,.shared-user,.shared-user small,.desk-bottom b,.account-demo-name){color:#e1e7f0!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-project,.desk-project-pop,.account-more-panel,.task-overflow-menu,dialog,.login-card,.header-search-results,.header-search-suggestions,.shared-message,.panel,.shared-member,.desk-task-card){background:#1c2533!important;border:1px solid #344257!important;color:#e1e7f0!important;box-shadow:0 12px 36px #0002!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-metrics,.desk-board,.task-view-tools,.clarity-tools,.shared-subtools,.people-report,.own-report){background:transparent!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-metric,.desk-lane,.people-kpis>div,.shared-facts,.detail-meta,.shared-report,.person-chart,.people-comparison,.person-report-tasks,.plan-undated){background:#202b3b!important;border-color:#344257!important;color:#c4d0e0!important}
+html[data-ui-theme=dark] body.desktop-shell .desk-metric.open{background:#23334a!important}html[data-ui-theme=dark] body.desktop-shell .desk-metric.review{background:#343125!important}html[data-ui-theme=dark] body.desktop-shell .desk-metric.done{background:#2d293e!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-metric b,.desk-metric strong,.desk-metric>span,.people-kpis strong,.people-kpis b){color:#e1e7f0!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-metric .metric-symbol,.desk-metric .metric-mini,.desk-lane h3 b,.list-total,.clarity-table .avatar,.desk-user-avatar){background:#344359!important;color:#d0dff4!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-nav-label,.desk-page-eyebrow,.shared-meta,.hint,.status-note,.task-description-preview,.team-names-under-owner,.task-collaborator-names,.desk-task-card>p,.desk-top-date,.desk-top-project,.account-role-info,.push-status){color:#aab9ce!important}
+html[data-ui-theme=dark] body.desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea,.secondary,.header-search-box,.task-sort-refine,.task-sort-control select,.range-controls,.unified-team,.team-selected,.shared-upload,.task-upload-panel,.push-preferences){background:#222e40!important;border:1px solid #3a4a62!important;color:#dbe5f3!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(input,textarea)::placeholder{color:#94a5bd!important;opacity:1}
+html[data-ui-theme=dark] body.desktop-shell .header-search-box input{border:0!important;background:transparent!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.primary,.desk-add){background:#b9ccef!important;border:1px solid #b9ccef!important;color:#17243a!important;font-weight:600}
+html[data-ui-theme=dark] body.desktop-shell .desk-add{background:#d4c08a!important;border-color:#d4c08a!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.task-overflow-button,.desk-icon-button,.account-more,.account-notifications,.signout,.dialog-close,.dialog-outside-close,.close-button,.uc-close,.uc-maximize,.desk-layout button,.layout-switch button){background:#263448!important;color:#c5d5ec!important;border-color:#40516b!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desktop-sidebar nav button,.desktop-sidebar #deskManage button,.account-settings-link,.task-overflow-menu button,.text-btn){color:#b7c5d9!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.desktop-sidebar nav button.active,.desktop-sidebar #deskManage button.active,.desk-layout button.active,.layout-switch button.active,.team-choice.chosen,.task-overflow-menu button:hover,.account-settings-link:hover){background:#304666!important;color:#e1ebfa!important}
+html[data-ui-theme=dark] body.desktop-shell .task-overflow-menu button.danger{color:#f0a6a7!important}html[data-ui-theme=dark] body.desktop-shell .task-overflow-menu button.danger:hover{background:#4a2d37!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.clarity-filters,.shared-filter,.plan-tabs){background:#222e40!important;border-color:#344257!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.clarity-filters button,.shared-filter button,.plan-tabs button){background:transparent!important;color:#aebdd1!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.clarity-filters button.active,.shared-filter button.active,.plan-tabs button.active){background:#3b5277!important;color:#f0f5ff!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.clarity-filters button span,.clarity-filters button b,.shared-filter button span){background:#344359!important;color:#d5e3f7!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill,.clarity-state .pill){background:#2b405d!important;color:#c4dafc!important;border:0}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill.review,.clarity-state .pill.review){background:#453d2c!important;color:#e7d29e!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.pill.done,.clarity-state .pill.done){background:#28443d!important;color:#b5dfce!important}
+html[data-ui-theme=dark] body.desktop-shell .task-tick{background:transparent!important;border-color:#7c90ad!important;color:#d5e4fa!important}
+html[data-ui-theme=dark] body.desktop-shell .task-tick.done{background:#45675b!important;border-color:#789e8d!important;color:#e3f4ed!important}
+html[data-ui-theme=dark] body.desktop-shell :is(dialog .unified-savebar,.people-comparison-head,.person-volume-track,.shared-attachment,.team-choice,.recipient-choice){background:#222e40!important;border-color:#3a4a62!important;color:#cbd9ed!important}
+html[data-ui-theme=dark] body.desktop-shell :not(.own-report-paper *):is(button,input,select,textarea,summary,a):focus-visible{outline:2px solid #b8cef4!important;outline-offset:3px}
+html[data-ui-theme=dark] body.desktop-shell dialog::backdrop{background:#050a14b8;backdrop-filter:blur(5px)}
+html[data-ui-theme=dark] body.desktop-shell #unifiedCalendarDialog{background:#171f2c!important}
+html[data-ui-theme=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-toolbar button,.uc-legend button,.uc-task,.uc-agenda,.uc-calendar,.uc-undated){background:#202b3b!important;color:#d0dff3!important;border-color:#35465f!important}
+html[data-ui-theme=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-mini-event,.uc-legend button.selected){background:#30425e!important;color:#d2e1f8!important}
+html[data-ui-theme=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-project-name,.uc-task-name,.uc-summary,.uc-options label){color:#bbcce4!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.calendar-cell,.plan-day,.g2-label,.g2-header,.g2-date,.g2-corner){background:#202b3b!important;color:#c8d8ef!important;border-color:#34445d!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.g2-track,.uc-day.uc-blank){background-color:#192333!important;border-color:#34445d!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.calendar-cell.today,.plan-day.today,.g2-date.current){background:#304767!important}
+html[data-ui-theme=dark] body.desktop-shell #startupLoading{background:#111722!important;color:#dbe6f6!important}
+html[data-ui-theme=dark] body.desktop-shell .own-report-paper{background:#fff!important;color:#344b67!important}
+.appearance-choices{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(prefers-reduced-motion:reduce){html[data-ui-theme=dark] body.desktop-shell *{transition:none!important}}
+
+html[data-ui-theme=dark] body.desktop-shell :is(.desk-layout,.layout-switch,.header-search-popover,.search-suggestions,.notice-inbox-row,.notice-inbox-button,.shamsi-calendar){background:#222e40!important;color:#cbdaf0!important;border-color:#3a4a62!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.search-suggestion,.search-suggestion small,.search-more-hint,.search-result-status,.notice-open,.notice-open small,.shamsi-calendar-head,.shamsi-calendar-grid button){color:#b9cbe5!important;background:transparent!important}
+html[data-ui-theme=dark] body.desktop-shell :is(.search-suggestion:hover,.shamsi-calendar-grid button.selected,.shamsi-calendar-grid button:hover){background:#3b5277!important;color:#edf4ff!important}
+html[data-ui-theme=dark] body.desktop-shell :is(#appBack,.header-tools>a,.header-search-box button){background:#263448!important;color:#c6d7ef!important;border-color:#40516b!important}
+html[data-ui-theme=dark] body.desktop-shell .header-search-box input{border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;border-radius:0!important}
+html[data-ui-theme=dark] body.desktop-shell .header-search-box:focus-within{outline:2px solid #94b3e5!important;outline-offset:2px}
+
+html[data-ui-theme=dark] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}html[data-ui-theme] body.desktop-shell #accountMorePanel .appearance-choices button{border-radius:14px!important;padding:13px 8px;min-height:88px}
+
+html[data-ui-theme=dark] body.desktop-shell .desk-task-card .card-bottom{border-color:#3a4a62!important;color:#aebed4!important}html[data-ui-theme=dark] body.desktop-shell .desk-task-card :is(.card-bottom span,.card-bottom small,.card-top,.lane-empty){color:#aebed4!important}html[data-ui-theme=dark] body.desktop-shell .desk-task-card .avatar{background:#344359!important;color:#dae6f7!important}
