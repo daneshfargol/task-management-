@@ -24,3 +24,6 @@ html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list button:h
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan{background:#dae3f00a;border-color:#c4d2e424}
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan>summary{color:#e4ebf5}
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#dae3f012}
+
+html body.desktop-shell #todayPlan{border-color:#b5a5dc!important}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan{border-color:#9786bd!important}
