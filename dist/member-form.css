@@ -1,0 +1,6 @@
+/* Member fields stay on separate lines within the dialog. */
+html body.desktop-shell :is(#memberEdit,#memberForm,#externalForm){display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;min-width:0;box-sizing:border-box}
+html body.desktop-shell :is(#memberEdit,#memberForm,#externalForm)>label:not(.checkbox-choice):not(.checkbox-label){display:flex!important;flex-direction:column;align-items:stretch;gap:8px;margin:0!important;min-width:0;width:100%;font-size:13px;line-height:1.8;text-align:right}
+html body.desktop-shell :is(#memberEdit,#memberForm,#externalForm)>label :is(input:not([type=checkbox]),select){display:block!important;position:static!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;height:44px;margin:0!important;padding:9px 14px!important;box-sizing:border-box!important;font-size:13px;line-height:1.6}
+html body.desktop-shell :is(#memberEdit,#memberForm,#externalForm)>:is(.checkbox-choice,.checkbox-label){display:flex;align-items:center;gap:8px;margin:0}
+html body.desktop-shell :is(#memberEdit,#memberForm,#externalForm)>button.primary{width:100%;min-height:42px;margin:4px 0 0}
