@@ -29,3 +29,18 @@ html body.desktop-shell #sharedDialog.task-structured .task-dialog-body{flex:1 1
 html body.desktop-shell .task-structured #trashThisTask{display:block!important;margin:26px 0 6px auto!important;padding:8px 16px!important;min-height:36px;color:#a33e42!important;border:1px solid #d8a9ad!important;background:transparent!important;clear:both}
 html body.desktop-shell .task-structured #trashThisTask:hover{background:#a33e4210!important}
 html[data-ui-theme=dark] body.desktop-shell .task-structured #trashThisTask{color:#efafb7!important;border-color:#95636e!important}
+
+/* Compact default panel: no duplicate upload/action rows or explanatory filler. */
+html body.desktop-shell .task-structured .task-dialog-top{padding:16px 22px 0}
+html body.desktop-shell .task-structured .task-dialog-top .shared-task-head{margin-bottom:12px!important}
+html body.desktop-shell .task-structured .task-dialog-body{padding:14px 22px 18px}
+html body.desktop-shell .task-structured .shared-facts{padding:8px 12px!important;margin-bottom:14px!important;line-height:1.7}
+html body.desktop-shell .task-structured #taskEditForm{gap:12px 16px}
+html body.desktop-shell .task-structured #taskEditForm>label{gap:6px!important;font-size:12px;line-height:1.7!important}
+html body.desktop-shell .task-structured #taskEditForm textarea{height:72px!important;min-height:72px!important;padding:9px 12px!important}
+html body.desktop-shell .task-structured #taskEditForm>p.shared-meta{display:none!important}
+html body.desktop-shell .task-structured .unified-savebar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;margin-top:4px!important;padding-top:12px!important}
+html body.desktop-shell .task-structured .unified-savebar #trashThisTask{margin:0!important;min-height:34px!important;padding:6px 14px!important;clear:none}
+.task-structured .task-collaboration-request{margin-top:16px!important;padding-top:12px;border-top:1px solid var(--ui-line,#d2dcea)}
+.task-structured .task-collaboration-request>summary{font-size:12px;font-weight:550;padding:5px 0;cursor:pointer}
+.task-structured .task-collaboration-request form{padding-top:12px}
