@@ -1,1 +1,4 @@
 (()=>{'use strict';const header=document.querySelector('main>header');if(!header)return;const update=()=>document.documentElement.style.setProperty('--status-header-height',Math.ceil(header.getBoundingClientRect().height)+'px');update();if(typeof ResizeObserver==='function')new ResizeObserver(update).observe(header);else window.addEventListener('resize',update)})();
+
+/* A filter/search refresh must retain the workspace heading and frozen status summary. */
+(()=>{'use strict';if(!document.body.classList.contains('shared-app'))return;let rendering=false;const previousRender=render,previousTasks=renderTasks;render=function(...args){const prior=rendering;rendering=true;try{return previousRender(...args)}finally{rendering=prior}};renderTasks=function(...args){if(!rendering&&typeof mine==='function'&&mine()&&['mine','all'].includes(scope)&&!window.SAMANDIS_PERSONAL_MODE)return render();return previousTasks(...args)}})();

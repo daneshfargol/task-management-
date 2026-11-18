@@ -11,3 +11,7 @@
  html[data-ui-theme=glass] body.desktop-shell{background:radial-gradient(ellipse at 95% 5%,#c7d8ed,transparent 45%),radial-gradient(ellipse at 5% 95%,#e9ddb2,transparent 50%),#edf2f8!important;background-attachment:fixed!important}
  html[data-ui-theme=glass] body.desktop-shell main{background:#ffffffb8!important;border-color:#ffffffcf;box-shadow:0 8px 32px #27476612,inset 0 1px #fff;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 }
+
+/* Pin the application toolbar to its own scroll surface in every workspace view. */
+html body.desktop-shell main>header,html body.desktop-shell.task-drawer-open main>header{position:sticky!important;top:0!important;inset-block-start:0!important;z-index:30;flex-shrink:0;isolation:isolate}
+@media(min-width:761px){html body.desktop-shell .desk-metrics{position:sticky!important;top:var(--status-header-height,68px)!important;z-index:20;isolation:isolate;background:var(--ui-panel,#fff)!important}html body.desktop-shell .content{overflow:visible}}
