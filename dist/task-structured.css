@@ -57,3 +57,11 @@ html body.desktop-shell .task-structured #taskEditForm textarea[name=description
 
 html body.desktop-shell dialog .unified-savebar,html body.desktop-shell dialog .task-dialog-footer{box-shadow:none!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 html body.desktop-shell .task-structured .unified-savebar{background:transparent!important}
+
+/* Stable three-row dialog: header, scrolling content, bottom actions. */
+html body.desktop-shell #sharedDialog.task-structured #sharedDetail{display:grid!important;grid-template-rows:auto minmax(0,1fr) auto!important;height:100%!important;overflow:hidden!important}
+html body.desktop-shell .task-structured .task-dialog-top{grid-row:1}
+html body.desktop-shell .task-structured .task-dialog-body{grid-row:2;overflow-y:auto!important;min-height:0!important}
+html body.desktop-shell .task-structured .task-dialog-footer{grid-row:3;align-self:end!important;margin:0!important;width:100%;box-sizing:border-box}
+html body.desktop-shell .task-structured .task-dialog-footer .unified-savebar{flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;width:100%;gap:18px!important}
+html body.desktop-shell .task-structured .task-dialog-footer .unified-savebar>button{margin:0!important;flex:0 0 auto}
