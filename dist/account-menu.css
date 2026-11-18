@@ -40,3 +40,8 @@
 .desktop-shell .desk-bottom .account-notifications svg{width:22px;height:22px}
 
 .desktop-shell .desk-bottom :is(.account-more,.account-notifications)>svg{display:block;place-self:center;flex:none;margin:0;vertical-align:middle;transform:none}
+
+.profile-bio-form{margin:20px 0;padding:18px 0;border-top:1px solid var(--ui-line,#d4deeb);border-bottom:1px solid var(--ui-line,#d4deeb)}
+.profile-bio-form label{font-weight:550;font-size:13px}.profile-bio-form label small{font-weight:400;color:var(--ui-muted,#687e99)}
+html body.desktop-shell .profile-bio-form textarea{width:100%;box-sizing:border-box;min-height:120px;max-height:240px;line-height:1.9;padding:12px 14px;resize:vertical}
+.profile-bio-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.profile-bio-actions button{min-height:38px}.profile-bio-actions [role=status]{font-size:11px;color:var(--ui-muted,#687e99)}
