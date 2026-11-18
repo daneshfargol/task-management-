@@ -46,3 +46,11 @@ html body.desktop-shell .task-structured .unified-savebar #trashThisTask{margin:
 .task-structured .task-collaboration-request form{padding-top:12px}
 
 html body.shared-app #sharedDialog #desktopUploadShortcut,html body.shared-app #sharedDialog .status-note{display:none!important}
+
+/* Form actions stay at the bottom while the description has more writing space. */
+html body.desktop-shell .task-structured .task-dialog-footer{flex:0 0 auto;padding:12px 22px 16px;border-top:1px solid var(--ui-line,#cbd5e4);background:var(--ui-panel,#f5f7fb)}
+html body.desktop-shell .task-structured .task-dialog-footer[hidden]{display:none!important}
+html body.desktop-shell .task-structured .task-dialog-footer .unified-savebar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;border:0!important;margin:0!important;padding:0!important;position:static!important;background:transparent!important}
+html body.desktop-shell .task-structured .task-dialog-footer #trashThisTask{margin:0!important}
+html body.desktop-shell .task-structured #taskEditForm textarea[name=description]{height:126px!important;min-height:126px!important;resize:vertical}
+@media(max-width:600px){html body.desktop-shell .task-structured .task-dialog-footer{padding:10px 14px 14px}}
