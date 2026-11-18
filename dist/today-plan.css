@@ -15,12 +15,12 @@ html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list{scrollbar
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#a2b2c9}
 
 /* Distinguish the daily list from the sidebar without a heavy panel. */
-html body.desktop-shell #todayPlan{background:#f4f6fc;border:1px solid #bdc9df;box-shadow:0 3px 12px #263d6a09}
-html body.desktop-shell #todayPlan>summary{color:#303b79}
-html body.desktop-shell #todayPlan .today-plan-list button:hover{background:#e5eaf6}
-html[data-ui-theme=dark] body.desktop-shell #todayPlan{background:#384e6b;border-color:#657e9f;box-shadow:0 3px 12px #0c152c16}
-html[data-ui-theme=dark] body.desktop-shell #todayPlan>summary{color:#edf2ff}
-html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#465e7e}
-html[data-ui-tone=dusk] body.desktop-shell #todayPlan{background:#63768f;border-color:#96a8c1}
-html[data-ui-tone=dusk] body.desktop-shell #todayPlan>summary{color:#fff}
-html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#71859e}
+html body.desktop-shell #todayPlan{background:#ffffff24;border:1px solid #8195b62b;box-shadow:none}
+html body.desktop-shell #todayPlan>summary{color:#46577e}
+html body.desktop-shell #todayPlan .today-plan-list button:hover{background:#ffffff30}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan{background:#b6c8e009;border-color:#a2b7d126;box-shadow:none}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan>summary{color:#d2dced}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#b6c8e012}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan{background:#dae3f00a;border-color:#c4d2e424}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan>summary{color:#e4ebf5}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#dae3f012}
