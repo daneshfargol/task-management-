@@ -1,3 +1,15 @@
 #todayPlan{margin:12px 4px;padding:10px 8px;border:1px solid var(--ui-line,#cdd6e5);border-radius:16px;color:var(--ui-text,#344b6a)}#todayPlan summary{cursor:pointer;font-size:12px;font-weight:600;padding:3px 2px}#todayPlan summary small{font-size:10px;font-weight:400;margin-right:8px}#todayPlan .today-plan-list{display:grid;gap:4px;max-height:190px;overflow:auto;margin-top:9px}#todayPlan .today-plan-list button{display:flex;gap:8px;align-items:flex-start;text-align:right;background:transparent;border:0;color:inherit;padding:7px 2px;font:inherit;font-size:11px;line-height:1.8;cursor:pointer;border-radius:8px}#todayPlan .today-plan-list button:hover{background:var(--ui-soft,#e5eaf3)}.today-plan-dot{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border:1px solid var(--ui-muted,#7c8eaa);border-radius:50%;flex:0 0 14px;margin-top:3px;font-size:10px}.today-plan-dot.done{background:#4f8879;color:white;border-color:#4f8879}#todayPlan .today-plan-add{font:inherit;font-size:10px;color:inherit;background:transparent;border:0;padding:9px 2px 0;cursor:pointer}.today-plan-options{display:grid;gap:8px;max-height:45dvh;overflow:auto;margin-bottom:16px}.today-plan-options .checkbox-choice{display:flex!important;align-items:flex-start!important;gap:10px!important;margin:0!important;padding:8px!important;line-height:1.8;font-size:13px}.today-plan-options input{flex:0 0 16px;width:16px!important;margin-top:4px!important}
 
 #todayPlan .today-plan-note{font-size:9px;line-height:1.8;color:var(--ui-muted,#627795);margin:8px 0 0}
+/* A quiet, theme-aware scrollbar for the daily shortlist. */
+html body.desktop-shell #todayPlan .today-plan-list{scrollbar-width:thin;scrollbar-color:#96a6bf transparent;scrollbar-gutter:stable;padding-inline-end:4px;overscroll-behavior:contain}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar{width:5px;height:5px}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-track{background:transparent;border:0;margin:5px 0}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#96a6bf;border-radius:999px;border:0}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb:hover{background:#748aa9}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-button{display:none;width:0;height:0}
+html body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-corner{background:transparent}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list{scrollbar-color:#7188a8 transparent}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#7188a8}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list{scrollbar-color:#a2b2c9 transparent}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#a2b2c9}
