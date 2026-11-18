@@ -2,12 +2,14 @@
   'use strict';
   const presets = [{id:1,label:'آقا بدون ریش'},{id:2,label:'آقا با ریش'},{id:4,label:'خانم بدون عینک'},{id:5,label:'خانم با عینک'}].map(p=>({...p,src:'avatars/avatar-'+p.id+'.svg?v=3'}));
   const pref = () => window.SamandisPreferences?.get('profile-avatar', null);
-  const source = value => value?.kind === 'preset' ? presets.find(p => p.id === (value.id===3?1:value.id))?.src || '' : value?.kind === 'photo' && /^data:image\/jpeg;base64,/.test(value.src || '') ? value.src : '';
+  const photoCache=new Map(),pendingPhotos=new Set();
+  async function hydrate(value){if(value?.kind!=='photo'||!value.path||pendingPhotos.has(value.path))return;const cached=photoCache.get(value.path);if(cached&&cached.expires>Date.now())return;pendingPhotos.add(value.path);try{const result=await db.storage.from('samandis-avatars').createSignedUrl(value.path,3600);if(result.error)throw result.error;photoCache.set(value.path,{src:result.data.signedUrl,expires:Date.now()+3300000});paint();if(dialog?.open&&draft?.path===value.path)preview()}catch{}finally{pendingPhotos.delete(value.path)}}
+  const source = value => value?.kind === 'preset' ? presets.find(p => p.id === (value.id===3?1:value.id))?.src || '' : value?.kind==='photo'&&value.path ? photoCache.get(value.path)?.src||'' : value?.kind === 'photo' && /^data:image\/jpeg;base64,/.test(value.src || '') ? value.src : '';
   let dialog, draft, busy = false;
   function paint() {
     const avatar = document.querySelector('#deskIdentity .desk-user-avatar');
     if (!avatar) return;
-    const src = source(pref());
+    hydrate(pref());const src = source(pref());
     if (avatar.dataset.avatarSource !== src) {
       avatar.dataset.avatarSource = src;
       if (src) { const img = document.createElement('img'); img.src = src; img.alt = ''; avatar.replaceChildren(img); }
@@ -18,7 +20,7 @@
     avatar.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
   }
   function preview() {
-    const src = source(draft), target = dialog.querySelector('.avatar-preview');
+    hydrate(draft);const src = source(draft), target = dialog.querySelector('.avatar-preview');
     target.replaceChildren();
     if (src) { const img = document.createElement('img'); img.src = src; img.alt = 'پیش‌نمایش تصویر حساب'; target.append(img); }
     else target.textContent = typeof mine === 'function' ? mine()?.name?.[0] || '' : '';
@@ -51,8 +53,8 @@
     dialog.querySelector('[data-avatar-save]').onclick = async () => {
       if (busy) return; busy = true; const b = dialog.querySelector('[data-avatar-save]'); b.disabled = true;
       const status = dialog.querySelector('.avatar-status'); status.textContent = 'در حال ذخیره…';
-      try { await SamandisPreferences.set('profile-avatar', draft); paint(); dialog.close(); }
-      catch { status.textContent = 'تصویر ذخیره نشد؛ دوباره تلاش کنید.'; }
+      try { let value=draft;if(draft?.kind==='photo'&&draft.src){const blob=await(await fetch(draft.src)).blob();const path=session.user.id+'/'+crypto.randomUUID()+'.jpg';const upload=await db.storage.from('samandis-avatars').upload(path,blob,{contentType:'image/jpeg',upsert:false});if(upload.error)throw upload.error;value={kind:'photo',path};photoCache.set(path,{src:draft.src,expires:Date.now()+3300000});}await SamandisPreferences.set('profile-avatar', value);draft=value;paint();dialog.close(); }
+      catch(e) { status.textContent = /Failed to fetch|NetworkError/i.test(e?.message||'')?'ارتباط برقرار نشد؛ اینترنت را بررسی کنید و دوباره ذخیره کنید.':'تصویر ذخیره نشد؛ دوباره تلاش کنید.'; }
       finally { busy = false; b.disabled = false; }
     };
     document.body.append(dialog);
@@ -70,7 +72,7 @@
     const link = panel?.querySelector('.avatar-menu-link'); if (link) link.hidden = typeof mine !== 'function' || !mine();
     if (panel && !panel.querySelector('.avatar-menu-link')) { const b = document.createElement('button'); b.type = 'button'; b.className = 'account-settings-link avatar-menu-link'; b.textContent = 'عکس و آواتار من'; b.onclick = () => { document.querySelector('.account-more[aria-expanded=true]')?.click(); open(); }; panel.append(b); }
   }
-  document.addEventListener('samandis-preferences-loaded', mount);
+  document.addEventListener('samandis-preferences-loaded',()=>{photoCache.clear();mount()});setInterval(()=>hydrate(pref()),300000);
   const observer = new MutationObserver(mount); observer.observe(document.body, {childList: true, subtree: true});
   window.addEventListener('pagehide', () => observer.disconnect(), {once: true}); mount();
 })();
