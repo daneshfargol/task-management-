@@ -1,0 +1,19 @@
+/* A fixed header and a separate scrolling content area make the task sections unmistakable. */
+html body.desktop-shell #sharedDialog.task-structured{padding:0!important;width:min(820px,calc(100vw - 32px))!important;max-height:min(86dvh,860px)!important;margin:auto!important;overflow:hidden!important;border-radius:22px!important}
+#sharedDialog.task-structured #sharedDetail{display:flex;flex-direction:column;max-height:min(86dvh,860px);min-height:400px}
+.task-structured .task-dialog-top{flex:none;padding:22px 24px 0;background:var(--ui-panel,#f7f9fc);border-bottom:1px solid var(--ui-line,#d3ddeb)}
+.task-structured .task-dialog-top .shared-task-head{align-items:center!important;margin:0 0 18px!important;gap:16px}
+.task-structured .task-dialog-top h2{font-size:19px!important;line-height:1.8!important}
+html body.desktop-shell .task-structured .task-focus-nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));position:static!important;gap:8px!important;background:transparent!important;margin:0!important;padding:0 0 14px!important;border:0!important;border-radius:0!important}
+html body.desktop-shell .task-structured .task-focus-nav button{display:flex;gap:8px;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--ui-line,#d5deeb)!important;border-radius:12px!important;background:transparent!important;color:var(--ui-muted,#5b6f8b)!important;box-shadow:none!important;font-size:12px!important;padding:9px!important;line-height:1.6}
+html body.desktop-shell .task-structured .task-focus-nav button[aria-selected=true]{background:#30367d!important;border-color:#30367d!important;color:#fff!important;box-shadow:0 4px 10px #252b6c18!important}
+.task-tab-number{font-size:10px;opacity:.6;letter-spacing:.04em}
+.task-structured .task-dialog-body{overflow:auto;overscroll-behavior:contain;padding:18px 24px 24px;min-height:0;flex:1}
+.task-structured .shared-facts{background:var(--ui-soft,#ecf0f6);border-radius:12px;padding:10px 14px!important;margin:0 0 20px!important;font-size:10px!important;gap:5px 14px!important}
+.task-structured .task-inline-editor{padding:0!important;margin:0!important;border:0!important}
+.task-structured #taskEditForm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.task-structured #taskEditForm>label:nth-child(-n+2),.task-structured #taskEditForm>:is(section,p,.unified-savebar){grid-column:1/-1}
+html body.desktop-shell .task-structured #taskEditForm>label{margin:0!important}
+.task-structured #taskEditForm textarea{min-height:90px!important}
+.task-structured .unified-savebar{background:transparent!important;padding:14px 0 0!important;border-top:1px solid var(--ui-line,#d3ddeb)}
+@media(max-width:600px){.task-structured .task-dialog-top{padding:16px 14px 0}.task-structured .task-dialog-body{padding:16px 14px}.task-structured #taskEditForm{grid-template-columns:1fr}.task-structured #taskEditForm>*{grid-column:1/-1}.task-tab-number{display:none}html body.desktop-shell .task-structured .task-focus-nav{gap:5px!important}html body.desktop-shell .task-structured .task-focus-nav button{font-size:10px!important;padding:8px 3px!important}}
