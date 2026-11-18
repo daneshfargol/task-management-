@@ -2,3 +2,31 @@ html body.desktop-shell .desk-bottom #ideaButton{display:grid;place-items:center
 html body.desktop-shell .desk-bottom #ideaButton[hidden]{display:none!important}#ideaButton svg{display:block;width:21px;height:21px}#ideaButton:hover{color:#a18235!important;background:#cfb96a15!important}#ideaButton.has-ideas::after{content:'';position:absolute;top:2px;right:2px;width:6px;height:6px;background:#d4b45d;border-radius:50%}
 html body.desktop-shell .desk-bottom{gap:6px}html body.desktop-shell .desk-bottom #deskIdentity{min-width:0;flex:1}
 .idea-dialog{max-width:520px!important}.idea-intro{font-size:13px;line-height:2;color:var(--ui-muted,#5a708e);margin:12px 0 22px}.idea-tabs{display:flex;gap:8px;margin-top:14px}.idea-tabs:empty{display:none}.idea-tabs button{font:inherit;padding:7px 12px;font-size:12px;border:1px solid var(--ui-line,#d1dbea);border-radius:12px;color:var(--ui-text,#354e72);background:transparent;cursor:pointer}.idea-tabs button[aria-pressed=true]{background:var(--ui-button,#e8edf7)}#ideaForm textarea{width:100%;box-sizing:border-box;min-height:135px;line-height:1.9}.idea-attachment small{font-size:10px;color:var(--ui-muted,#647a98)}#ideaForm .idea-attachment input{font-size:11px}.idea-preview,.idea-inbox-image{display:block;max-width:100%;max-height:250px;object-fit:contain;border-radius:12px;margin:12px 0}.idea-preview[hidden]{display:none}.idea-error{font-size:12px;color:#bb6572;line-height:1.8}.idea-success{text-align:center;padding:30px 10px}.idea-success>span{font-size:34px}.idea-success h3{font-size:18px}.idea-success p{font-size:13px;color:var(--ui-muted,#647a98)}.idea-inbox{display:grid;gap:14px;margin-top:18px}.idea-message{border:1px solid var(--ui-line,#d4ddeb);padding:14px;border-radius:14px}.idea-message.unread{border-right:3px solid #c4ac62}.idea-message header{display:flex!important;justify-content:space-between;gap:10px;padding:0!important;background:transparent!important}.idea-message header b{font-size:12px}.idea-message header small{font-size:10px;color:var(--ui-muted,#647a98)}.idea-message p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:2}.idea-message button{font-size:11px}
+
+/* Spacious inbox frame, compact message cards and clear read/unread folders. */
+html body.desktop-shell.shared-app #sharedDialog.idea-dialog{width:min(760px,calc(100vw - 32px))!important;max-width:min(760px,calc(100vw - 32px))!important;height:min(80dvh,760px)!important;max-height:calc(100dvh - 32px)!important;padding:0!important;margin:auto!important;overflow:hidden!important;border-radius:22px!important}
+#sharedDialog.idea-dialog #sharedDetail{display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden}
+.idea-dialog #sharedDetail>.shared-task-head{padding:20px 24px 8px;margin:0;align-items:center;flex:none}
+.idea-dialog #sharedDetail>.shared-task-head h2{font-size:20px!important}
+.idea-dialog .idea-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0;padding:10px 24px 16px;border-bottom:1px solid var(--ui-line,#d3ddeb);flex:none}
+.idea-dialog .idea-tabs:empty{display:none}
+.idea-dialog .idea-tabs button{min-height:42px;border-radius:12px!important;font-size:13px;font-weight:550}
+.idea-dialog .idea-tabs button[aria-pressed=true]{background:var(--ui-button,#e2e8f5)!important;border-color:#8d9fc1}
+.idea-dialog #ideaBody{padding:18px 24px 24px;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#91a1b9 transparent}
+.idea-inbox-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.idea-inbox-filters{display:flex;gap:5px;padding:4px;border:1px solid var(--ui-line,#d3ddeb);border-radius:12px}
+.idea-inbox-filters button{font:inherit;font-size:12px;border:0;border-radius:9px!important;padding:7px 14px;background:transparent;color:var(--ui-muted,#647a98);cursor:pointer}
+.idea-inbox-filters button[aria-pressed=true]{background:var(--ui-button,#e2e8f5);color:var(--ui-text,#314776);font-weight:600}
+.idea-inbox-count{font-size:10px;color:var(--ui-muted,#647a98)}
+.idea-dialog .idea-inbox{margin:0;gap:12px}
+.idea-dialog .idea-message{padding:14px 16px;border-radius:14px!important;background:var(--ui-soft,#f2f5fa);min-height:0;box-shadow:none}
+html body.desktop-shell .idea-dialog .idea-message header{position:static!important;min-height:0!important;height:auto!important;padding:0!important;margin:0!important;box-shadow:none!important;border:0!important;align-items:center!important;background:transparent!important}
+.idea-sender{display:flex;align-items:center;gap:8px}.idea-sender-avatar{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--ui-button,#e1e7f2);font-size:11px;color:var(--ui-text,#314776)}
+.idea-dialog .idea-message p{font-size:12px;line-height:1.95;margin:10px 0 12px!important;padding:0!important}
+.idea-message-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.idea-read-check{font:inherit;font-size:11px;border:1px solid var(--ui-line,#c9d5e7);padding:6px 10px;border-radius:9px!important;background:transparent;color:var(--ui-text,#405a7d);cursor:pointer}
+.idea-read-check span{margin-left:5px}.idea-read-label{font-size:10px;color:var(--ui-muted,#647a98)}
+.idea-empty{padding:48px 12px;text-align:center;font-size:13px;color:var(--ui-muted,#647a98)}
+.idea-pagination{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:18px;font-size:11px}
+.idea-remove-image[hidden]{display:none!important}
+@media(max-width:600px){.idea-dialog #sharedDetail>.shared-task-head{padding:16px 16px 6px}.idea-dialog .idea-tabs{padding:10px 16px 14px}.idea-dialog #ideaBody{padding:14px 16px 18px}.idea-inbox-filters button{padding:7px 9px;font-size:11px}}
