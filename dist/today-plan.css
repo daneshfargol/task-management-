@@ -13,3 +13,14 @@ html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list{scrollba
 html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#7188a8}
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list{scrollbar-color:#a2b2c9 transparent}
 html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list::-webkit-scrollbar-thumb{background:#a2b2c9}
+
+/* Distinguish the daily list from the sidebar without a heavy panel. */
+html body.desktop-shell #todayPlan{background:#f4f6fc;border:1px solid #bdc9df;box-shadow:0 3px 12px #263d6a09}
+html body.desktop-shell #todayPlan>summary{color:#303b79}
+html body.desktop-shell #todayPlan .today-plan-list button:hover{background:#e5eaf6}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan{background:#384e6b;border-color:#657e9f;box-shadow:0 3px 12px #0c152c16}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan>summary{color:#edf2ff}
+html[data-ui-theme=dark] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#465e7e}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan{background:#63768f;border-color:#96a8c1}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan>summary{color:#fff}
+html[data-ui-tone=dusk] body.desktop-shell #todayPlan .today-plan-list button:hover{background:#71859e}
