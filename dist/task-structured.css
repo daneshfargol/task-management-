@@ -44,3 +44,5 @@ html body.desktop-shell .task-structured .unified-savebar #trashThisTask{margin:
 .task-structured .task-collaboration-request{margin-top:16px!important;padding-top:12px;border-top:1px solid var(--ui-line,#d2dcea)}
 .task-structured .task-collaboration-request>summary{font-size:12px;font-weight:550;padding:5px 0;cursor:pointer}
 .task-structured .task-collaboration-request form{padding-top:12px}
+
+html body.shared-app #sharedDialog #desktopUploadShortcut,html body.shared-app #sharedDialog .status-note{display:none!important}
