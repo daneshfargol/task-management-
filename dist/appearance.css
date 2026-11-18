@@ -15,3 +15,17 @@ html[data-ui-theme=dark] .desktop-shell :not(.own-report-paper *):is(label,legen
 .appearance-choices small{display:none}
 .appearance-choices .theme-choice-check{position:absolute;top:3px;left:5px;font-size:10px;margin:0}
 .appearance-choices button.selected{background:var(--ui-button,#eef3fa)}
+
+/* Project picker must keep readable foreground colors in every appearance mode. */
+.desktop-shell #deskProjectPop{background:var(--ui-panel,#fff)!important;color:var(--ui-text,#304a6c)!important;border:1px solid var(--ui-line,#d8e2ef)!important;border-radius:12px;padding:10px;box-sizing:border-box}
+.desktop-shell #deskProjectPop .personal-project-choice{color:var(--ui-text,#304a6c)!important;background:transparent!important;font-size:13px;font-weight:500;line-height:1.8;padding:10px 12px;min-height:42px;margin:2px 0;border-radius:8px}
+.desktop-shell #deskProjectPop>small{display:block;color:var(--ui-muted,#61758e)!important;font-size:11px;line-height:1.8;padding:5px 12px}
+.desktop-shell #deskProjectPop hr{border:0;border-top:1px solid var(--ui-line,#dce5ef);margin:8px 4px}
+.desktop-shell #deskProjectPop .personal-project-choice:hover,.desktop-shell #deskProjectPop .personal-project-choice:focus-visible,.desktop-shell #deskProjectPop .personal-project-choice.selected{background:var(--ui-button,#eaf0fa)!important;color:var(--ui-accent,#254c7b)!important;outline:0}
+.desktop-shell #deskProjectPop .personal-project-choice:focus-visible{box-shadow:inset 0 0 0 2px var(--ui-accent,#547aa9)}
+.desktop-shell #deskProjectPop #newPersonalProject{color:var(--ui-accent,#315b8a)!important;font-size:12px;padding:10px 12px;min-height:42px;line-height:1.8;text-align:right}
+html[data-ui-theme=dark] .desktop-shell #deskProjectPop{background:#19283d!important;color:#e5edf8!important;border-color:#4b607b!important}
+html[data-ui-theme=dark] .desktop-shell #deskProjectPop .personal-project-choice{color:#e5edf8!important}
+html[data-ui-theme=dark] .desktop-shell #deskProjectPop>small{color:#b4c5db!important}
+html[data-ui-theme=dark] .desktop-shell #deskProjectPop .personal-project-choice:hover,html[data-ui-theme=dark] .desktop-shell #deskProjectPop .personal-project-choice:focus-visible,html[data-ui-theme=dark] .desktop-shell #deskProjectPop .personal-project-choice.selected{background:#304d70!important;color:#fff!important}
+@media(max-width:760px){.desktop-shell #deskProjectPop .personal-project-choice{min-height:46px;font-size:14px}}
