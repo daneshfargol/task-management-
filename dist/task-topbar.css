@@ -1,6 +1,0 @@
-/* Top bar remains above the contents and is consistent across both task windows. */
-html body.desktop-shell dialog.task-focus-layout .task-focus-nav{position:sticky!important;top:-24px!important;z-index:8;display:flex!important;flex-wrap:nowrap!important;gap:4px!important;margin:8px 0 18px!important;padding:5px!important;background:var(--ui-soft,#e7ecf4)!important;border-radius:14px!important;border:1px solid var(--ui-line,#ced8e7)!important;box-sizing:border-box}
-html body.desktop-shell dialog.task-focus-layout .task-focus-nav button{flex:1;min-width:0;font-size:12px!important;line-height:1.7;min-height:40px;padding:8px!important;background:transparent!important;color:var(--ui-muted,#516783)!important;border-radius:10px!important;white-space:normal}
-html body.desktop-shell dialog.task-focus-layout .task-focus-nav button[aria-selected=true]{background:var(--ui-panel,#fff)!important;color:var(--ui-text,#273c65)!important;box-shadow:0 2px 7px #172b4812!important}
-html body.desktop-shell dialog .task-focus-panel[hidden]{display:none!important}
-@media(max-width:760px){html body.desktop-shell dialog.task-focus-layout .task-focus-nav{top:-18px!important}html body.desktop-shell dialog.task-focus-layout .task-focus-nav button{font-size:11px!important}}
