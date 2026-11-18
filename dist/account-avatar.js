@@ -53,7 +53,7 @@
     dialog.querySelector('[data-avatar-save]').onclick = async () => {
       if (busy) return; busy = true; const b = dialog.querySelector('[data-avatar-save]'); b.disabled = true;
       const status = dialog.querySelector('.avatar-status'); status.textContent = 'در حال ذخیره…';
-      try { let value=draft;if(draft?.kind==='photo'&&draft.src){const blob=await(await fetch(draft.src)).blob();const path=session.user.id+'/'+crypto.randomUUID()+'.jpg';const upload=await db.storage.from('samandis-avatars').upload(path,blob,{contentType:'image/jpeg',upsert:false});if(upload.error)throw upload.error;value={kind:'photo',path};photoCache.set(path,{src:draft.src,expires:Date.now()+3300000});}await SamandisPreferences.set('profile-avatar', value);draft=value;paint();dialog.close(); }
+      try { let value=draft;if(draft?.kind==='photo'&&draft.src){const encoded=draft.src.split(',')[1];const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));const blob=new Blob([bytes],{type:'image/jpeg'});const path=session.user.id+'/'+crypto.randomUUID()+'.jpg';const upload=await db.storage.from('samandis-avatars').upload(path,blob,{contentType:'image/jpeg',upsert:false});if(upload.error)throw upload.error;value={kind:'photo',path};photoCache.set(path,{src:draft.src,expires:Date.now()+3300000});}await SamandisPreferences.set('profile-avatar', value);draft=value;paint();dialog.close(); }
       catch(e) { status.textContent = /Failed to fetch|NetworkError/i.test(e?.message||'')?'ارتباط برقرار نشد؛ اینترنت را بررسی کنید و دوباره ذخیره کنید.':'تصویر ذخیره نشد؛ دوباره تلاش کنید.'; }
       finally { busy = false; b.disabled = false; }
     };
