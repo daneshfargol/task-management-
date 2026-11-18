@@ -231,3 +231,13 @@ html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #startupLoading{b
 html[data-ui-theme=dark][data-ui-tone=dusk]{--calendar-grid:#7286a1;--calendar-cell:#57677e;--calendar-head:#60748f;--calendar-empty:#516074;--calendar-today:#5d7696}
 
 .theme-swatch.dusk{background:#56677e;border-color:#8999ae}.theme-swatch.dusk i{background:#45576c}.theme-swatch.dusk b{background:#c0d4ed}.theme-swatch.dusk em{background:#e4cd93}
+
+/* Personal task metadata and assignee controls must not inherit light-theme ink/surfaces. */
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-task-row{background:var(--ui-panel,#2d3949)!important;color:#edf3fc!important;border-color:var(--ui-line,#50627b)!important}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-task-row .personal-responsible-cell .personal-responsible-btn{background:var(--ui-soft,#34465e)!important;color:#f1f5fc!important;border:1px solid var(--ui-line,#596e89)!important;border-radius:7px!important;min-height:34px;padding:5px 9px!important;font-size:12px;line-height:1.8;opacity:1!important;box-shadow:none!important}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-responsible-cell .personal-responsible-btn:hover{background:var(--ui-button,#405a7b)!important;color:#fff!important;border-color:#9bb4d6!important}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-responsible-btn:focus-visible{outline:2px solid #b7cdf3;outline-offset:2px}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-date-summary,html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-date-summary :is(span,b,small){color:#e0e8f5!important;opacity:1!important;font-size:12px;line-height:1.9}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-date-summary small{font-size:11px!important}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-task-description{color:#dce6f5!important;opacity:1!important}
+html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-list-labels,html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-list-labels span{color:#edf3fc!important;background:var(--ui-soft,#34465e)!important}
