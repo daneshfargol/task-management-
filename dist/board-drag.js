@@ -6,10 +6,10 @@
   const laneState = lane => ['open', 'review', 'done'].find(state => lane?.classList.contains(state));
   function transition(task, destination) {
     if (!task || task.status === destination) return null;
-    if (task.status === 'open' && destination === 'review' && (own(task) || canManage(task))) return 'submit';
-    if (task.status === 'open' && destination === 'done' && management() && own(task) && reviewer(task)) return 'submit';
+    if (task.status === 'open' && task.reviewer_id && destination === 'review' && (own(task) || canManage(task))) return 'submit';
+    if (task.status === 'open' && destination === 'done' && ((!task.reviewer_id && own(task)) || (management() && own(task) && reviewer(task)))) return 'submit';
     if (task.status === 'review' && destination === 'done' && reviewer(task)) return 'approve';
-    if (destination === 'open' && (task.status === 'review' ? own(task) || canManage(task) : task.status === 'done' && reviewer(task))) return 'reopen';
+    if (destination === 'open' && (task.status === 'review' ? own(task) || canManage(task) : task.status === 'done' && (reviewer(task) || (!task.reviewer_id && own(task) && task.creator_id===mine()?.id)))) return 'reopen';
     return null;
   }
   function clear() {
@@ -54,7 +54,7 @@
         if (kind === 'approve' && card.querySelector('.approve-inline')) return;
         const button = document.createElement('button');
         button.type = 'button'; button.className = 'board-move-source task-overflow-source';
-        button.textContent = {submit:management() && own(task) && reviewer(task)?'اتمام کار':'ارسال برای تأیید',approve:'تأیید نهایی',reopen:'بازگشایی کار'}[kind];
+        button.textContent = {submit:!task.reviewer_id || (management() && own(task) && reviewer(task))?'اتمام کار':'ارسال برای تأیید',approve:'تأیید نهایی',reopen:'بازگشایی کار'}[kind];
         button.disabled = saving || busy;
         button.onclick = () => move(id, destination);
         card.append(button);
