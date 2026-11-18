@@ -1,0 +1,233 @@
+/* Softer dark and dusk palettes, derived consistently from dark-refinement.css. */
+html[data-ui-theme=dark][data-ui-tone=dark]{--ui-bg:#202732;--ui-panel:#2a3342;--ui-side:#232c39;--ui-soft:#323e50;--ui-line:#404d62;--ui-text:#e1e7f0;--ui-muted:#a2b0c4;--ui-accent:#b7cdf3;--ui-button:#3c516f;--task-ink:#e1e7f0;--task-secondary:#b0bed0;--task-card-surface:#2d3949;--task-card-hover:#334154;--task-card-edge:#3f4e64;--list-surface:#2a3342;--list-heading:#323e50;--list-divider:#404d62;--list-hover:#354356;color-scheme:dark}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell{background:#202732!important;color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :not(.own-report-paper):not(.own-report-paper *){scrollbar-color:#566478 #2a3342}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.task-drawer-open main{background:#252e3b!important;border-color:#394557!important;box-shadow:0 16px 48px #11121433!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main>header{background:#252e3bf5!important;border-bottom:1px solid #364254!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desktop-sidebar{background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-brand,.desk-brand small,.desk-project b,.shared-user,.shared-user small,.desk-bottom b,.account-demo-name){color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-project,.desk-project-pop,.account-more-panel,.task-overflow-menu,dialog,.login-card,.header-search-results,.header-search-suggestions,.shared-message,.panel,.shared-member,.desk-task-card){background:#2a3342!important;border:1px solid #3f4d62!important;color:#e1e7f0!important;box-shadow:0 12px 36px #11121422!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-metrics,.desk-board,.task-view-tools,.clarity-tools,.shared-subtools,.people-report,.own-report){background:transparent!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-metric,.desk-lane,.people-kpis>div,.shared-facts,.detail-meta,.shared-report,.person-chart,.people-comparison,.person-report-tasks,.plan-undated){background:#2d3949!important;border-color:#3f4d62!important;color:#c4d0e0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric.open{background:#304056!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric.review{background:#3f3e35!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric.done{background:#39374b!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-metric b,.desk-metric strong,.desk-metric>span,.people-kpis strong,.people-kpis b){color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-metric .metric-symbol,.desk-metric .metric-mini,.desk-lane h3 b,.list-total,.clarity-table .avatar,.desk-user-avatar){background:#3f4e64!important;color:#d0dff4!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-nav-label,.desk-page-eyebrow,.shared-meta,.hint,.status-note,.task-description-preview,.team-names-under-owner,.task-collaborator-names,.desk-task-card>p,.desk-top-date,.desk-top-project,.account-role-info,.push-status){color:#aab9ce!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea,.secondary,.header-search-box,.task-sort-refine,.task-sort-control select,.range-controls,.unified-team,.team-selected,.shared-upload,.task-upload-panel,.push-preferences){background:#2f3b4d!important;border:1px solid #45546c!important;color:#dbe5f3!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(input,textarea)::placeholder{color:#94a5bd!important;opacity:1}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .header-search-box input{border:0!important;background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.primary,.desk-add){background:#b9ccef!important;border:1px solid #b9ccef!important;color:#253248!important;font-weight:600}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-add{background:#d4c08a!important;border-color:#d4c08a!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.task-overflow-button,.desk-icon-button,.account-more,.account-notifications,.signout,.dialog-close,.dialog-outside-close,.close-button,.uc-close,.uc-maximize,.desk-layout button,.layout-switch button){background:#334154!important;color:#c5d5ec!important;border-color:#4a5b74!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desktop-sidebar nav button,.desktop-sidebar #deskManage button,.account-settings-link,.task-overflow-menu button,.text-btn){color:#b7c5d9!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desktop-sidebar nav button.active,.desktop-sidebar #deskManage button.active,.desk-layout button.active,.layout-switch button.active,.team-choice.chosen,.task-overflow-menu button:hover,.account-settings-link:hover){background:#3c516f!important;color:#e1ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .task-overflow-menu button.danger{color:#f0a6a7!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .task-overflow-menu button.danger:hover{background:#533a45!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.clarity-filters,.shared-filter,.plan-tabs){background:#2f3b4d!important;border-color:#3f4d62!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.clarity-filters button,.shared-filter button,.plan-tabs button){background:transparent!important;color:#aebdd1!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.clarity-filters button.active,.shared-filter button.active,.plan-tabs button.active){background:#465c7f!important;color:#f0f5ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.clarity-filters button span,.clarity-filters button b,.shared-filter button span){background:#3f4e64!important;color:#d5e3f7!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill,.clarity-state .pill){background:#374b67!important;color:#c4dafc!important;border:0}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill.review,.clarity-state .pill.review){background:#4f493b!important;color:#e7d29e!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill.done,.clarity-state .pill.done){background:#354f4b!important;color:#b5dfce!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .task-tick{background:transparent!important;border-color:#7c90ad!important;color:#d5e4fa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .task-tick.done{background:#4f6f66!important;border-color:#7da093!important;color:#e3f4ed!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(dialog .unified-savebar,.people-comparison-head,.person-volume-track,.shared-attachment,.team-choice,.recipient-choice){background:#2f3b4d!important;border-color:#45546c!important;color:#cbd9ed!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :not(.own-report-paper *):is(button,input,select,textarea,summary,a):focus-visible{outline:2px solid #b8cef4!important;outline-offset:3px}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell dialog::backdrop{background:#151b26b8;backdrop-filter:blur(5px)}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog{background:#252e3b!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-toolbar button,.uc-legend button,.uc-task,.uc-agenda,.uc-calendar,.uc-undated){background:#2d3949!important;color:#d0dff3!important;border-color:#405169!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-mini-event,.uc-legend button.selected){background:#3c4d68!important;color:#d2e1f8!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-project-name,.uc-task-name,.uc-summary,.uc-options label){color:#bbcce4!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.calendar-cell,.plan-day,.g2-label,.g2-header,.g2-date,.g2-corner){background:#2d3949!important;color:#c8d8ef!important;border-color:#3f4f67!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.g2-track,.uc-day.uc-blank){background-color:#273142!important;border-color:#3f4f67!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.calendar-cell.today,.plan-day.today,.g2-date.current){background:#3c5270!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #startupLoading{background:#202732!important;color:#dbe6f6!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .own-report-paper{background:#fff!important;color:#3f5570!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell *{transition:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-layout,.layout-switch,.header-search-popover,.search-suggestions,.notice-inbox-row,.notice-inbox-button,.shamsi-calendar){background:#2f3b4d!important;color:#cbdaf0!important;border-color:#45546c!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.search-suggestion,.search-suggestion small,.search-more-hint,.search-result-status,.notice-open,.notice-open small,.shamsi-calendar-head,.shamsi-calendar-grid button){color:#b9cbe5!important;background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.search-suggestion:hover,.shamsi-calendar-grid button.selected,.shamsi-calendar-grid button:hover){background:#465c7f!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(#appBack,.header-tools>a,.header-search-box button){background:#334154!important;color:#c6d7ef!important;border-color:#4a5b74!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .header-search-box input{border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;border-radius:0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .header-search-box:focus-within{outline:2px solid #94b3e5!important;outline-offset:2px}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-task-card .card-bottom{border-color:#45546c!important;color:#aebed4!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-task-card :is(.card-bottom span,.card-bottom small,.card-top,.lane-empty){color:#aebed4!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-task-card .avatar{background:#3f4e64!important;color:#dae6f7!important}
+html[data-ui-theme=dark][data-ui-tone=dark]{--ui-bg:#232d3d;--ui-panel:#323f55;--ui-side:#283446;--ui-soft:#38475e;--ui-line:#4c5d79;--ui-text:#e5edf9;--ui-muted:#b0bfd5;--task-card-surface:#344259;--task-card-hover:#3c4e68;--task-card-edge:#4c5f7b;--list-surface:#323f55;--list-heading:#374861;--list-divider:#4a5d79}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell{background:#232d3d!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.task-drawer-open main{background:#2a374b!important;border-color:#465771!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main>header{background:#2a374bf5!important;border-color:#465771!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=open]{background:#355478!important;border:1px solid #54789d!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=review]{background:#544c3b!important;border:1px solid #867755!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=done]{background:#4d4261!important;border:1px solid #7a6893!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=open] :is(b,.metric-symbol){color:#c0defe!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=review] :is(b,.metric-symbol){color:#f3dc9e!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric[data-desk-phase=done] :is(b,.metric-symbol){color:#dfc8fa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-metric :is(.metric-symbol,.metric-mini){background:#ffffff12!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill.clarity-open,.pill.open){background:#38577d!important;color:#c3e0ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill.clarity-review,.pill.review){background:#5c503c!important;color:#f2d99c!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.pill.clarity-done,.pill.done){background:#3f5551!important;color:#bde6d5!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is([data-filter=review].active,[data-clarity-filter=review].active){background:#62543b!important;color:#f2d99c!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is([data-filter=done].active,[data-clarity-filter=done].active){background:#55486d!important;color:#e1c9ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-lane.open{background:#304864!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-lane.review{background:#454139!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .desk-lane.done{background:#403b52!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.all-calendar-launch,.notice-inbox-button){background:#3a5172!important;color:#d5e6ff!important;border-color:#5a79a2!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.push-enable-banner,.device-push-banner,.push-activation-banner){background:#374b64!important;color:#d5e6ff!important;border-color:#536e91!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .people-kpis>div:nth-child(1){background:#355478!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .people-kpis>div:nth-child(2){background:#544c3b!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .people-kpis>div:nth-child(3){background:#3f5551!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .pwa-push-prompt{background:#374b64!important;color:#d5e6ff!important;border-color:#536e91!important;box-shadow:0 8px 30px #11121433!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar [data-desk-count]{display:inline-flex;align-items:center;justify-content:center;min-width:23px;min-height:22px;padding:0 5px;box-sizing:border-box;border:1px solid #516682!important;border-radius:7px!important;background:#384961!important;color:#c9d9ee!important;font-size:11px;line-height:1;font-weight:500}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar button.active [data-desk-count]{background:#506a90!important;border-color:#607fa7!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button):hover{background:#36475f!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button).active:hover{background:#465c7d!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .team-subnav button{background:transparent!important;color:#b4c6e0!important;border-color:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .team-subnav button:hover{background:#36475f!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .team-subnav button.selected{background:#465c7d!important;color:#edf4ff!important;border-color:#5a759a!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.shared-member:hover,.person-row-button:hover){background:#374962!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar [data-desk-count]:empty{display:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi,.report-legend,.report-item){background:#32425a!important;color:#b9cce5!important;border-color:#4c627f!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi) :is(label,p,small,span,h3,h4){color:#b9cce5!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .report-kpi:nth-child(1){background:#355478!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .report-kpi:nth-child(2){background:#4d4261!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .report-kpi:nth-child(3){background:#544c3b!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .report-kpi :is(b,strong){color:#ecf2fc!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell .formula{background:#304056!important;color:#adbed6!important;border-color:#4c627f!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #desktopSidebar [data-desk-count]{border-radius:999px!important;min-width:24px;height:24px;min-height:24px}
+html[data-ui-theme=dark][data-ui-tone=dark]{--ui-bg:#2b374a;--ui-panel:#3c4a5f;--ui-side:#334257;--ui-soft:#415269;--ui-line:#5a6f88;--ui-text:#edf2fa;--ui-muted:#bdcbe0;--task-card-surface:#3e4f67;--task-card-hover:#465a75;--task-card-edge:#59708d;--list-surface:#3c4a5f;--list-heading:#455771;--list-divider:#59708d}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell{background:#2b374a!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell.task-drawer-open main{background:#35455b!important;border-color:#536883!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell main>header{background:#35455bf5!important;border-color:#536883!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.desk-project,.desk-project-pop,.account-more-panel,.task-overflow-menu,dialog,.login-card,.header-search-popover,.shared-message,.panel,.shared-member,.desk-task-card){background:#3c4a5f!important;border-color:#546985!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.secondary,.header-search-box,.task-sort-refine,.range-controls,.unified-team,.team-selected,.shared-upload,.task-upload-panel,.push-preferences,.search-suggestions,.shamsi-calendar){background:#3f5169!important;border-color:#5b7495!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea){background:#3f5169!important;border-color:#5b7495!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.task-overflow-button,.desk-icon-button,.account-more,.account-notifications,.signout,.dialog-close,.dialog-outside-close,.close-button,.uc-close,.uc-maximize,.desk-layout,.desk-layout button,.layout-switch,.layout-switch button,#appBack){background:#455872!important;border-color:#627999!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.shared-facts,.detail-meta,.shared-report,.person-chart,.people-comparison,.person-report-tasks,.plan-undated,.formula){background:#3c4e66!important;border-color:#546d8c!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog{background:#35455b!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #unifiedCalendarDialog :is(.uc-toolbar button,.uc-legend button,.uc-task,.uc-agenda,.uc-calendar,.uc-undated){background:#3e4f67!important;border-color:#59708d!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell :is(.calendar-cell,.plan-day,.g2-label,.g2-header,.g2-date,.g2-corner){background:#3e4f67!important;border-color:#59708d!important}
+html[data-ui-theme=dark][data-ui-tone=dark] body.desktop-shell #startupLoading{background:#2b374a!important}
+html[data-ui-theme=dark][data-ui-tone=dark]{--calendar-grid:#627895;--calendar-cell:#3e4f67;--calendar-head:#4a607e;--calendar-empty:#35455b;--calendar-today:#466387}
+html[data-ui-theme=dark][data-ui-tone=dusk]{--ui-bg:#404956;--ui-panel:#485261;--ui-side:#434d5b;--ui-soft:#4e5a6c;--ui-line:#59667a;--ui-text:#e1e7f0;--ui-muted:#a2b0c4;--ui-accent:#b7cdf3;--ui-button:#556984;--task-ink:#e1e7f0;--task-secondary:#b0bed0;--task-card-surface:#4b5667;--task-card-hover:#4f5c70;--task-card-edge:#58677b;--list-surface:#485261;--list-heading:#4e5a6c;--list-divider:#59667a;--list-hover:#515e71;color-scheme:dark}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell{background:#404956!important;color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :not(.own-report-paper):not(.own-report-paper *){scrollbar-color:#69778b #485261}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.task-drawer-open main{background:#444e5d!important;border-color:#536072!important;box-shadow:0 16px 48px #35393f33!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main>header{background:#444e5df5!important;border-bottom:1px solid #515e70!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desktop-sidebar{background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-brand,.desk-brand small,.desk-project b,.shared-user,.shared-user small,.desk-bottom b,.account-demo-name){color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-project,.desk-project-pop,.account-more-panel,.task-overflow-menu,dialog,.login-card,.header-search-results,.header-search-suggestions,.shared-message,.panel,.shared-member,.desk-task-card){background:#485261!important;border:1px solid #58667a!important;color:#e1e7f0!important;box-shadow:0 12px 36px #35393f22!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-metrics,.desk-board,.task-view-tools,.clarity-tools,.shared-subtools,.people-report,.own-report){background:transparent!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-metric,.desk-lane,.people-kpis>div,.shared-facts,.detail-meta,.shared-report,.person-chart,.people-comparison,.person-report-tasks,.plan-undated){background:#4b5667!important;border-color:#58667a!important;color:#c4d0e0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric.open{background:#4d5c71!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric.review{background:#585a58!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric.done{background:#535569!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-metric b,.desk-metric strong,.desk-metric>span,.people-kpis strong,.people-kpis b){color:#e1e7f0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-metric .metric-symbol,.desk-metric .metric-mini,.desk-lane h3 b,.list-total,.clarity-table .avatar,.desk-user-avatar){background:#58677b!important;color:#d0dff4!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-nav-label,.desk-page-eyebrow,.shared-meta,.hint,.status-note,.task-description-preview,.team-names-under-owner,.task-collaborator-names,.desk-task-card>p,.desk-top-date,.desk-top-project,.account-role-info,.push-status){color:#aab9ce!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea,.secondary,.header-search-box,.task-sort-refine,.task-sort-control select,.range-controls,.unified-team,.team-selected,.shared-upload,.task-upload-panel,.push-preferences){background:#4c586a!important;border:1px solid #5c6b81!important;color:#dbe5f3!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(input,textarea)::placeholder{color:#94a5bd!important;opacity:1}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .header-search-box input{border:0!important;background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.primary,.desk-add){background:#b9ccef!important;border:1px solid #b9ccef!important;color:#445166!important;font-weight:600}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-add{background:#d4c08a!important;border-color:#d4c08a!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.task-overflow-button,.desk-icon-button,.account-more,.account-notifications,.signout,.dialog-close,.dialog-outside-close,.close-button,.uc-close,.uc-maximize,.desk-layout button,.layout-switch button){background:#4f5c70!important;color:#c5d5ec!important;border-color:#607087!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desktop-sidebar nav button,.desktop-sidebar #deskManage button,.account-settings-link,.task-overflow-menu button,.text-btn){color:#b7c5d9!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desktop-sidebar nav button.active,.desktop-sidebar #deskManage button.active,.desk-layout button.active,.layout-switch button.active,.team-choice.chosen,.task-overflow-menu button:hover,.account-settings-link:hover){background:#556984!important;color:#e1ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .task-overflow-menu button.danger{color:#f0a6a7!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .task-overflow-menu button.danger:hover{background:#675864!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.clarity-filters,.shared-filter,.plan-tabs){background:#4c586a!important;border-color:#58667a!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.clarity-filters button,.shared-filter button,.plan-tabs button){background:transparent!important;color:#aebdd1!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.clarity-filters button.active,.shared-filter button.active,.plan-tabs button.active){background:#5d7190!important;color:#f0f5ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.clarity-filters button span,.clarity-filters button b,.shared-filter button span){background:#58677b!important;color:#d5e3f7!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill,.clarity-state .pill){background:#52647e!important;color:#c4dafc!important;border:0}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill.review,.clarity-state .pill.review){background:#64625d!important;color:#e7d29e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill.done,.clarity-state .pill.done){background:#506768!important;color:#b5dfce!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .task-tick{background:transparent!important;border-color:#7c90ad!important;color:#d5e4fa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .task-tick.done{background:#647f7d!important;border-color:#86a49f!important;color:#e3f4ed!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(dialog .unified-savebar,.people-comparison-head,.person-volume-track,.shared-attachment,.team-choice,.recipient-choice){background:#4c586a!important;border-color:#5c6b81!important;color:#cbd9ed!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :not(.own-report-paper *):is(button,input,select,textarea,summary,a):focus-visible{outline:2px solid #b8cef4!important;outline-offset:3px}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell dialog::backdrop{background:#38404cb8;backdrop-filter:blur(5px)}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog{background:#444e5d!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog :is(.uc-toolbar button,.uc-legend button,.uc-task,.uc-agenda,.uc-calendar,.uc-undated){background:#4b5667!important;color:#d0dff3!important;border-color:#59697f!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog :is(.uc-mini-event,.uc-legend button.selected){background:#55667f!important;color:#d2e1f8!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog :is(.uc-project-name,.uc-task-name,.uc-summary,.uc-options label){color:#bbcce4!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.calendar-cell,.plan-day,.g2-label,.g2-header,.g2-date,.g2-corner){background:#4b5667!important;color:#c8d8ef!important;border-color:#58677e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.g2-track,.uc-day.uc-blank){background-color:#465161!important;border-color:#58677e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.calendar-cell.today,.plan-day.today,.g2-date.current){background:#556985!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #startupLoading{background:#404956!important;color:#dbe6f6!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .own-report-paper{background:#fff!important;color:#586c85!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell *{transition:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-layout,.layout-switch,.header-search-popover,.search-suggestions,.notice-inbox-row,.notice-inbox-button,.shamsi-calendar){background:#4c586a!important;color:#cbdaf0!important;border-color:#5c6b81!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.search-suggestion,.search-suggestion small,.search-more-hint,.search-result-status,.notice-open,.notice-open small,.shamsi-calendar-head,.shamsi-calendar-grid button){color:#b9cbe5!important;background:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.search-suggestion:hover,.shamsi-calendar-grid button.selected,.shamsi-calendar-grid button:hover){background:#5d7190!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(#appBack,.header-tools>a,.header-search-box button){background:#4f5c70!important;color:#c6d7ef!important;border-color:#607087!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .header-search-box input{border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;border-radius:0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .header-search-box:focus-within{outline:2px solid #94b3e5!important;outline-offset:2px}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-task-card .card-bottom{border-color:#5c6b81!important;color:#aebed4!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-task-card :is(.card-bottom span,.card-bottom small,.card-top,.lane-empty){color:#aebed4!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-task-card .avatar{background:#58677b!important;color:#dae6f7!important}
+html[data-ui-theme=dark][data-ui-tone=dusk]{--ui-bg:#424d5e;--ui-panel:#4e5b70;--ui-side:#465365;--ui-soft:#536177;--ui-line:#62728c;--ui-text:#e5edf9;--ui-muted:#b0bfd5;--task-card-surface:#4f5e73;--task-card-hover:#55677f;--task-card-edge:#62738d;--list-surface:#4e5b70;--list-heading:#526279;--list-divider:#60728c}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell{background:#424d5e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.task-drawer-open main{background:#485568!important;border-color:#5d6d85!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main>header{background:#485568f5!important;border-color:#5d6d85!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=open]{background:#516b8b!important;border:1px solid #6886a7!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=review]{background:#68655d!important;border:1px solid #8d8570!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=done]{background:#625e79!important;border:1px solid #847a9f!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=open] :is(b,.metric-symbol){color:#c0defe!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=review] :is(b,.metric-symbol){color:#f3dc9e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric[data-desk-phase=done] :is(b,.metric-symbol){color:#dfc8fa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-metric :is(.metric-symbol,.metric-mini){background:#ffffff12!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill.clarity-open,.pill.open){background:#536d8e!important;color:#c3e0ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill.clarity-review,.pill.review){background:#6e685d!important;color:#f2d99c!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.pill.clarity-done,.pill.done){background:#586c6d!important;color:#bde6d5!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is([data-filter=review].active,[data-clarity-filter=review].active){background:#736b5d!important;color:#f2d99c!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is([data-filter=done].active,[data-clarity-filter=done].active){background:#686282!important;color:#e1c9ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-lane.open{background:#4d627b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-lane.review{background:#5c5c5b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .desk-lane.done{background:#59586e!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.all-calendar-launch,.notice-inbox-button){background:#546986!important;color:#d5e6ff!important;border-color:#6d87aa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.push-enable-banner,.device-push-banner,.push-activation-banner){background:#52647b!important;color:#d5e6ff!important;border-color:#677e9d!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .people-kpis>div:nth-child(1){background:#516b8b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .people-kpis>div:nth-child(2){background:#68655d!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .people-kpis>div:nth-child(3){background:#586c6d!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .pwa-push-prompt{background:#52647b!important;color:#d5e6ff!important;border-color:#677e9d!important;box-shadow:0 8px 30px #35393f33!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar [data-desk-count]{display:inline-flex;align-items:center;justify-content:center;min-width:23px;min-height:22px;padding:0 5px;box-sizing:border-box;border:1px solid #667892!important;border-radius:7px!important;background:#536279!important;color:#c9d9ee!important;font-size:11px;line-height:1;font-weight:500}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar button.active [data-desk-count]{background:#647c9d!important;border-color:#607fa7!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button):hover{background:#516178!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar :is(nav button,#deskManage>button).active:hover{background:#5d718e!important;color:#edf4ff!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .team-subnav button{background:transparent!important;color:#b4c6e0!important;border-color:transparent!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .team-subnav button:hover{background:#516178!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .team-subnav button.selected{background:#5d718e!important;color:#edf4ff!important;border-color:#6d84a4!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.shared-member:hover,.person-row-button:hover){background:#52627a!important;color:#e0ebfa!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar [data-desk-count]:empty{display:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi,.report-legend,.report-item){background:#4e5e74!important;color:#b9cce5!important;border-color:#627590!important;box-shadow:none!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.report-filter,.report-summary,.report-kpi) :is(label,p,small,span,h3,h4){color:#b9cce5!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .report-kpi:nth-child(1){background:#516b8b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .report-kpi:nth-child(2){background:#625e79!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .report-kpi:nth-child(3){background:#68655d!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .report-kpi :is(b,strong){color:#ecf2fc!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell .formula{background:#4d5c71!important;color:#adbed6!important;border-color:#627590!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #desktopSidebar [data-desk-count]{border-radius:999px!important;min-width:24px;height:24px;min-height:24px}
+html[data-ui-theme=dark][data-ui-tone=dusk]{--ui-bg:#495568;--ui-panel:#556378;--ui-side:#4f5d72;--ui-soft:#5a697f;--ui-line:#6d7f96;--ui-text:#edf2fa;--ui-muted:#bdcbe0;--task-card-surface:#57677e;--task-card-hover:#5d6f88;--task-card-edge:#6b809b;--list-surface:#556378;--list-heading:#5c6d85;--list-divider:#6b809b}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell{background:#495568!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.shared-app main,html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell.task-drawer-open main{background:#516074!important;border-color:#677a93!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell main>header{background:#516074f5!important;border-color:#677a93!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.desk-project,.desk-project-pop,.account-more-panel,.task-overflow-menu,dialog,.login-card,.header-search-popover,.shared-message,.panel,.shared-member,.desk-task-card){background:#556378!important;border-color:#687b94!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.secondary,.header-search-box,.task-sort-refine,.range-controls,.unified-team,.team-selected,.shared-upload,.task-upload-panel,.push-preferences,.search-suggestions,.shamsi-calendar){background:#58697f!important;border-color:#6d83a1!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :not(.own-report-paper *):is(input:not([type=checkbox]):not([type=radio]),select,textarea){background:#58697f!important;border-color:#6d83a1!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #headerTaskSearch{background:transparent!important;border:0!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.task-overflow-button,.desk-icon-button,.account-more,.account-notifications,.signout,.dialog-close,.dialog-outside-close,.close-button,.uc-close,.uc-maximize,.desk-layout,.desk-layout button,.layout-switch,.layout-switch button,#appBack){background:#5c6e86!important;border-color:#7387a3!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.shared-facts,.detail-meta,.shared-report,.person-chart,.people-comparison,.person-report-tasks,.plan-undated,.formula){background:#55677d!important;border-color:#687e9a!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog{background:#516074!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #unifiedCalendarDialog :is(.uc-toolbar button,.uc-legend button,.uc-task,.uc-agenda,.uc-calendar,.uc-undated){background:#57677e!important;border-color:#6b809b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell :is(.calendar-cell,.plan-day,.g2-label,.g2-header,.g2-date,.g2-corner){background:#57677e!important;border-color:#6b809b!important}
+html[data-ui-theme=dark][data-ui-tone=dusk] body.desktop-shell #startupLoading{background:#495568!important}
+html[data-ui-theme=dark][data-ui-tone=dusk]{--calendar-grid:#7286a1;--calendar-cell:#57677e;--calendar-head:#60748f;--calendar-empty:#516074;--calendar-today:#5d7696}
+
+.theme-swatch.dusk{background:#56677e;border-color:#8999ae}.theme-swatch.dusk i{background:#45576c}.theme-swatch.dusk b{background:#c0d4ed}.theme-swatch.dusk em{background:#e4cd93}
