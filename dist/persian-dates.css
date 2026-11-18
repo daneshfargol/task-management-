@@ -13,3 +13,6 @@ html body.desktop-shell .shamsi-calendar[hidden]{display:none!important}
 html body.desktop-shell .shamsi-calendar button{background:var(--ui-soft,#e2e7f0);color:var(--ui-text,#242b78);min-height:34px;padding:5px;line-height:1.4;font-size:12px}
 html body.desktop-shell .shamsi-calendar button:is(:hover,.selected){background:var(--ui-accent,#242b78);color:var(--ui-panel,#edf0f5)}
 html body.desktop-shell .shamsi-calendar small{color:var(--ui-muted,#66728d)}
+
+html body.desktop-shell input[type="date"][data-shamsi][hidden]{display:none!important}
+.shamsi-date .shamsi-clear{font-size:11px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
