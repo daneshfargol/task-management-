@@ -126,3 +126,8 @@ html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-date-s
 html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-task-description{color:#dce6f5!important;opacity:1!important}
 html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-list-labels,html[data-ui-theme=dark] body.desktop-shell .personal-task-list .personal-list-labels span{color:#edf3fc!important;background:var(--ui-soft,#34465e)!important}
 
+
+/* Readable member job titles, account state and email on dark cards. */
+html[data-ui-theme=dark] body.desktop-shell .shared-members .shared-member small,html[data-ui-theme=dark] body.desktop-shell .shared-members .shared-member small[dir=ltr]{color:#d4dfef!important;opacity:1!important;font-size:12px!important;line-height:1.9!important}
+html[data-ui-theme=dark] body.desktop-shell .shared-members .shared-member b{color:#f0f4fb!important}
+html[data-ui-theme=dark] body.desktop-shell .shared-members .shared-member .text-btn{color:#c6dcff!important;opacity:1!important}
