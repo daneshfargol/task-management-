@@ -1,0 +1,604 @@
+/* Routine Alarms and Timers - Phone-like Alarms & Daily Routines */
+:root {
+  --routine-navy: #142d4d;
+  --routine-blue: #2c496d;
+  --routine-light: #f4f7fc;
+  --routine-border: #e3ebf6;
+  --routine-green: #257953;
+  --routine-amber: #b0811e;
+}
+
+/* Sidebar navigation count */
+[data-desk-count="routines"] {
+  background: #e9f0fc;
+  color: #355887;
+}
+
+/* Header Quick Alarm Button */
+#deskAlarmsTopBtn {
+  position: relative;
+}
+#deskAlarmsTopBtn .alarm-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #257953;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* Routines View Container */
+.routines-view {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 8px 0 40px;
+  font-family: var(--app-font), sans-serif;
+}
+
+.routines-header {
+  margin-bottom: 22px;
+}
+.routines-header small {
+  display: block;
+  font-size: 11px;
+  color: #5a7291;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.routines-header h1 {
+  font-size: 23px;
+  font-weight: 650;
+  color: #142d4d;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.routines-header p {
+  font-size: 12px;
+  color: #4b627e;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Top Stats & Actions Bar */
+.routines-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: #f7f9fd;
+  border: 1px solid var(--routine-border);
+  border-radius: 10px;
+  padding: 13px 18px;
+  margin-bottom: 22px;
+}
+.routines-stats {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.routines-stat-item {
+  font-size: 11.5px;
+  color: #395272;
+}
+.routines-stat-item b {
+  color: #142d4d;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.routines-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.routines-actions .primary {
+  font-size: 12px;
+  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.routines-actions .secondary {
+  font-size: 11.5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Notification Permission Prompt Banner */
+.routine-perm-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff8e8;
+  border: 1px solid #fae6b8;
+  border-radius: 9px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+  font-size: 11.5px;
+  color: #7a5a17;
+}
+.routine-perm-banner button {
+  background: #c8962c;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Routine Cards Grid */
+.routines-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 760px) {
+  .routines-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.routine-card {
+  background: #fff;
+  border: 1px solid var(--routine-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px #142d5006;
+  transition: border-color .15s, box-shadow .15s, opacity .15s;
+  position: relative;
+}
+.routine-card:hover {
+  border-color: #cbdbee;
+  box-shadow: 0 5px 18px #142d5010;
+}
+.routine-card.disabled {
+  opacity: 0.65;
+  background: #fafbfd;
+}
+
+.routine-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.routine-time-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.routine-time {
+  font-size: 26px;
+  font-weight: 750;
+  color: #142d4d;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.routine-period {
+  font-size: 11px;
+  color: #4f6888;
+  font-weight: 500;
+}
+.routine-card-info h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #173254;
+  margin: 6px 0 3px;
+  line-height: 1.6;
+}
+.routine-card-info p {
+  font-size: 11.5px;
+  color: #556c89;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Days of week chips */
+.routine-days-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.routine-day-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 10.5px;
+  font-weight: 550;
+  background: #f1f4f9;
+  color: #8395ac;
+  user-select: none;
+}
+.routine-day-badge.active {
+  background: #1e3b62;
+  color: #fff;
+}
+.routine-days-text {
+  font-size: 11px;
+  color: #4b627e;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+/* Routine Next & Status Footer */
+.routine-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid #edf2f9;
+  padding-top: 11px;
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+.routine-next-text {
+  font-size: 11px;
+  color: #385172;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.routine-completed-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 550;
+  color: #1f6b49;
+  background: #eaf6ef;
+  border: 1px solid #c8e8d6;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.routine-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+}
+.routine-btn-mini {
+  background: transparent;
+  border: 1px solid #dce4ee;
+  border-radius: 5px;
+  color: #486180;
+  font: inherit;
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.routine-btn-mini:hover {
+  background: #f0f4fa;
+  color: #183354;
+  border-color: #cbd9eb;
+}
+.routine-btn-mini.danger:hover {
+  background: #fdf2f2;
+  color: #a82e38;
+  border-color: #f2c1c5;
+}
+
+/* iOS / Android style Switch */
+.routine-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.routine-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.routine-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #cbd6e4;
+  transition: .22s;
+  border-radius: 24px;
+}
+.routine-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .22s;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #0002;
+}
+.routine-switch input:checked + .routine-slider {
+  background-color: #278358;
+}
+.routine-switch input:checked + .routine-slider:before {
+  transform: translateX(20px);
+}
+.routine-switch:focus-visible .routine-slider {
+  outline: 2px solid #278358;
+  outline-offset: 2px;
+}
+
+/* Empty State & Suggestions */
+.routines-empty {
+  text-align: center;
+  padding: 36px 20px;
+  background: #fff;
+  border: 1px solid var(--routine-border);
+  border-radius: 12px;
+  color: #455d7b;
+}
+.routines-empty p {
+  font-size: 13px;
+  margin: 10px 0 20px;
+}
+.routines-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-width: 480px;
+  margin: 18px auto 0;
+  text-align: right;
+}
+.routines-suggestion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #f7f9fd;
+  border: 1px solid #e1e9f4;
+  border-radius: 8px;
+}
+.routines-suggestion-item span {
+  font-size: 12px;
+  color: #243c5b;
+}
+.routines-suggestion-item small {
+  display: block;
+  font-size: 10.5px;
+  color: #6c809a;
+}
+
+/* Form Dialog Styles */
+#routineFormModal {
+  max-width: 520px;
+  width: calc(100vw - 32px);
+  padding: 24px;
+  border-radius: 12px;
+}
+.routine-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+.routine-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 550;
+  color: #2c4769;
+}
+.routine-form-grid input[type="text"],
+.routine-form-grid input[type="time"],
+.routine-form-grid textarea {
+  font: inherit;
+  font-size: 12.5px;
+  padding: 8px 11px;
+  border: 1px solid #d4dfec;
+  border-radius: 7px;
+  background: #fcfdff;
+  color: #173254;
+}
+.routine-days-picker {
+  border: 1px solid #dce5f1;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fafbfd;
+}
+.routine-days-picker legend {
+  font-size: 11.5px;
+  font-weight: 550;
+  color: #2c4769;
+  padding: 0 6px;
+}
+.routine-presets-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.routine-preset-btn {
+  background: #eef3f9;
+  border: 1px solid #d6e1ee;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 10.5px;
+  padding: 4px 8px;
+  color: #3b5372;
+  cursor: pointer;
+}
+.routine-preset-btn:hover {
+  background: #e2ecf7;
+  color: #1a3556;
+}
+.routine-checkbox-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.routine-day-check-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  color: #3b5372;
+  cursor: pointer;
+}
+.routine-day-check-label input {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+.routine-checkbox-options {
+  display: flex;
+  gap: 16px;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+.routine-checkbox-options label {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+.routine-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+  border-top: 1px solid #edf1f7;
+  padding-top: 14px;
+}
+
+/* Ringing Alarm Popup (Modal / Banner) */
+.routine-alarm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #142d5066;
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: routineFadeIn .2s ease-out;
+}
+.routine-alarm-modal {
+  background: #fff;
+  border: 1px solid #dce4ef;
+  border-radius: 16px;
+  padding: 26px 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 65px #142d5035;
+  text-align: center;
+  direction: rtl;
+  font-family: var(--app-font), sans-serif;
+  animation: routinePopUp .25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.routine-alarm-icon {
+  font-size: 42px;
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 12px;
+  animation: routineBellRing 1.2s infinite ease-in-out;
+}
+.routine-alarm-time {
+  font-size: 28px;
+  font-weight: 750;
+  color: #142d4d;
+  margin-bottom: 6px;
+}
+.routine-alarm-title {
+  font-size: 17px;
+  font-weight: 650;
+  color: #1a3558;
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+.routine-alarm-note {
+  font-size: 12.5px;
+  color: #556c88;
+  line-height: 1.8;
+  margin: 0 0 20px;
+  background: #f7f9fd;
+  border: 1px solid #e7edf6;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.routine-alarm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.routine-alarm-actions button {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  cursor: pointer;
+  transition: all .15s;
+}
+.routine-alarm-btn-done {
+  background: #257953;
+  color: #fff;
+  border: 1px solid #1f6947;
+}
+.routine-alarm-btn-done:hover {
+  background: #1e6644;
+}
+.routine-alarm-btn-snooze {
+  background: #fdfaf0;
+  color: #926f1c;
+  border: 1px solid #fae8be;
+}
+.routine-alarm-btn-snooze:hover {
+  background: #fbf3df;
+}
+.routine-alarm-btn-dismiss {
+  background: transparent;
+  color: #637790;
+  border: 1px solid #e1e7f0;
+}
+.routine-alarm-btn-dismiss:hover {
+  background: #f2f5fa;
+  color: #2d4564;
+}
+
+@keyframes routineBellRing {
+  0% { transform: rotate(0); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-14deg); }
+  30% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  50% { transform: rotate(4deg); }
+  60% { transform: rotate(-4deg); }
+  70% { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes routineFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes routinePopUp {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
