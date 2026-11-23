@@ -2,6 +2,9 @@
   'use strict';
   if ('serviceWorker' in navigator && window.isSecureContext) {
     navigator.serviceWorker.register('/sw.js').catch(error => console.warn('Service worker registration:', error));
+    const dailyUpdate = document.createElement('script');
+    dailyUpdate.src = '/daily-app-update.js?v=1';
+    document.head.append(dailyUpdate);
   }
   const source = document.querySelector('#deskNav');
   if (!source) return;
