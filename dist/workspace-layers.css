@@ -1,3 +1,3 @@
-/* Only the main header is fixed; status cards scroll naturally with the task board. */
-html[data-ui-theme][data-ui-tone] body.desktop-shell .desk-metrics,html body.desktop-shell .desk-metrics{position:relative!important;top:auto!important;inset-block-start:auto!important;z-index:auto!important;isolation:auto!important;background:transparent!important}
+/* Keep the compact status summary available while the task list scrolls. */
+@media(min-width:761px){html[data-ui-theme][data-ui-tone] body.desktop-shell .desk-metrics,html body.desktop-shell .desk-metrics{position:sticky!important;top:76px!important;inset-block-start:76px!important;z-index:12!important;isolation:isolate!important;background:var(--ui-bg,#fff)!important;margin-bottom:18px;padding:9px 0 12px}}
 html[data-ui-theme][data-ui-tone] body.desktop-shell main>header{background:var(--ui-panel,#edf0f5)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;isolation:isolate}
