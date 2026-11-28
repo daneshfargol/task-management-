@@ -24,7 +24,7 @@
   const oldTasks=renderTasks;
   renderTasks=function(...args){const result=oldTasks(...args);decorate();return result};
   decorate();
-  for(const [href,src] of [['task-unread-markers.css?v=2',null],[null,'task-unread-markers.js?v=2'],['routine-reminders.css?v=2',null],[null,'routine-reminders.js?v=2']]){
+  for(const [href,src] of [['task-unread-markers.css?v=2',null],[null,'task-unread-markers.js?v=2'],['routine-reminders.css?v=2',null],[null,'routine-reminders.js?v=3']]){
     const node=document.createElement(src?'script':'link');
     if(src){node.async=false;node.src=src;document.body.append(node)}else{node.rel='stylesheet';node.href=href;document.head.append(node)}
   }
