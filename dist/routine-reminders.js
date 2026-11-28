@@ -1,5 +1,5 @@
 (()=>{'use strict';
- const style=document.createElement('link');style.rel='stylesheet';style.href='routine-sidebar.css?v=2';document.head.append(style);
+ const style=document.createElement('link');style.rel='stylesheet';style.href='routine-sidebar.css?v=3';document.head.append(style);
  const days=[['ش',6,'شنبه'],['ی',0,'یکشنبه'],['د',1,'دوشنبه'],['س',2,'سه‌شنبه'],['چ',3,'چهارشنبه'],['پ',4,'پنجشنبه'],['ج',5,'جمعه']];
  const months=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
  const $=s=>document.querySelector(s),clean=v=>String(v||'').trim(),clock=v=>String(v||'').slice(0,5);
