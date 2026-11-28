@@ -5,5 +5,6 @@
 .notice-inbox-row{display:flex;align-items:start;gap:12px;padding:15px 0;border-bottom:1px solid #e4eaf3}
 .notice-inbox-row>div{flex:1;min-width:0}.notice-inbox-row small{display:block;font-size:11px;color:#6b7e96;margin-top:7px}
 .desktop-shell .notice-read-check{flex-shrink:0;min-width:40px;min-height:40px;border:1px solid #bfcfe3;border-radius:10px;background:#fff;color:#46688c;font-size:20px;cursor:pointer}.notice-read-check:hover{background:#eaf4ee;color:#327247}.notice-read-check:disabled{opacity:.5}
+.notice-inbox-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:4px}.notice-inbox-tools .shared-meta{margin:0}.notice-inbox-tools .secondary{flex:0 0 auto;white-space:nowrap;padding:7px 11px;font-size:11px}
 .desktop-shell .notice-open{border:0;background:none;text-align:right;color:#344e73;font:inherit;font-size:14px;line-height:1.9;padding:3px 0;cursor:pointer;overflow-wrap:anywhere}
 @media(max-width:760px){.desktop-shell #sharedBell.notice-inbox-button{min-height:44px;font-size:11px;padding:7px 9px}.desktop-shell .notice-read-check{min-width:44px;min-height:44px}}
